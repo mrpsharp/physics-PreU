@@ -1,2 +1,2 @@
 # physics-PreU
-A revision guide for physics Pre-U
+A revision guide for Physics Pre-U.
