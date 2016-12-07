@@ -1,0 +1,44 @@
+\documentclass[a4paper,12pt]{memoir}
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{wrapfig}
+\usepackage{lipsum}
+
+% Section title formatting
+\titleformat{\chapter}[hang]{\normalfont\Huge\bfseries}{\thechapter\ }{1ex}{}
+
+% Title page formatting
+\pretitle{\begin{center}\Huge\bfseries}
+\title{Pre-U Physics Revision Guide}
+\posttitle{\vfill\end{center}}
+\author{Westminster School}
+\predate{\vfill\begin{center}\large}
+
+% Specification command
+\newcommand{\spec}[1]{\textit{#1}\par}
+
+% Paragraph formatting
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+
+\begin{document}
+
+
+\frontmatter
+\begin{titlingpage}
+	\maketitle
+\end{titlingpage}
+
+\tableofcontents
+\input{introduction}
+
+\mainmatter
+\input{1-mechanics}
+
+\backmatter
+% bibliography, glossary and index would go here.
+
+\end{document}
