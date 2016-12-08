@@ -4,7 +4,7 @@
 \usepackage{tikz}
 \usepackage{amsmath}
 \usepackage{wrapfig}
-\usepackage{lipsum}
+\usepackage{subfiles}
 
 % Section title formatting
 \titleformat{\chapter}[hang]{\normalfont\Huge\bfseries}{\thechapter\ }{1ex}{}
@@ -33,10 +33,10 @@
 \end{titlingpage}
 
 \tableofcontents
-\input{introduction}
+\subfile{introduction}
 
 \mainmatter
-\input{1-mechanics}
+\subfile{1-mechanics}
 
 \backmatter
 % bibliography, glossary and index would go here.
