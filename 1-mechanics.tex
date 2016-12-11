@@ -116,6 +116,41 @@ The conditions for equilibrium are:
 
 \spec{(e) construct displacement-time and velocity-time graphs for uniformly accelerated motion}
 
+For uniform acceleration, a graph of velocity against time will be linear, with the formula $ v=u+at$, and a graph of displacement against time will be parabolic, with the formula $s=ut+\frac{1}{2}at^2$.
+
+\begin{center}
+	\begin{tikzpicture}[domain=0:3]
+		\draw[thick,->] (0,0) -- (3,0) node[below]{$t$};
+		\draw[thick,->] (0,0) -- (0,3) node[left]{$s$};
+		\draw[thick,->] (4,0) -- (7,0) node[below]{$t$};
+		\draw[thick,->] (4,0) -- (4,3) node[left]{$v$};
+		\draw[color=purple] plot (\x+4,{.2+0.4*\x});
+		\draw[color=purple] plot (\x,{.2*\x+0.2*\x^2});
+	\end{tikzpicture}
+\end{center}
+
+\spec{(f) identify and use the physical quantities derived from the gradients of displacement-time and areas and
+gradients of velocity-time graphs, including cases of non-uniform acceleration}
+
+The quantities are given in the table below:
+
+\begin{tabular}{r|ll}
+	& gradient & area  \\ \hline
+	displacement-time & velocity & -- \\
+	velocity-time & acceleration & displacement \\
+\end{tabular}
+
+If the graph is non-linear then the gradient of a tangent must be taken. Note that areas below the axis in a velocity-time graph represent \emph{negative} displacement.
+
+\spec{(g) recall and use: }
+\begin{flalign*}
+	v &= \frac{\Delta x}{\Delta t}\\
+	a &= \frac{\Delta v}{\Delta t}
+\end{flalign*}
+
+\spec{(h) recognise and use the kinematic equations for motion in one dimension with constant acceleration:}
+
+
 
 
 \end{document}
