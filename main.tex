@@ -1,10 +1,16 @@
-\documentclass[a4paper,10pt]{memoir}
+\documentclass[a4paper,11pt]{memoir}
 \usepackage{graphicx}
 \usepackage{titlesec}
 \usepackage{tikz}
 \usepackage{amsmath}
 \usepackage{wrapfig}
 \usepackage{subfiles}
+\usepackage{needspace}
+\usepackage{xcolor}
+\usepackage{siunitx}
+
+% Should be final package loaded
+% \usepackage{hyperref}
 
 % Section title formatting
 \titleformat{\chapter}[hang]{\normalfont\Huge\bfseries}{\thechapter\ }{1ex}{}
@@ -17,7 +23,7 @@
 \predate{\vfill\begin{center}\large}
 
 % Specification command
-\newcommand{\spec}[1]{\textit{#1}\par}
+\newcommand{\spec}[1]{\Needspace{3\baselineskip}\textcolor{purple}{\textit{#1}}\par}
 
 % Paragraph formatting
 \setlength{\parindent}{0em}
