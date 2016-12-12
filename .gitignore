@@ -1,6 +1,6 @@
 ## All pdfs except main
-*.pdf
-!mail.pdf
+##*.pdf
+##!mail.pdf
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
