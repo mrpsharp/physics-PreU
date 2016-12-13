@@ -1,6 +1,7 @@
 \documentclass[main.tex]{subfiles}
 % Numbering
 \setsecnumdepth{part}
+
 \begin{document}
 \chapter{Mechanics}
 \section{Scalars and Vectors}
@@ -69,7 +70,6 @@ The conditions for equilibrium are:
 	\item The sum of all the forces acting on the object must be zero.
 	\item The sum of all the moments on an object must be zero.
 \end{enumerate}
-
 \fbox{\begin{minipage}[t]{\textwidth}
 	\textbf{Example Question}
 
@@ -111,9 +111,6 @@ The conditions for equilibrium are:
 		The sum of the downward forces must equal the reaction force of the tower so:
 
 		$$ R = \SI{4.0e5}{N} $$
-
-
-
 \end{minipage}}
 
 \spec{(e) construct displacement-time and velocity-time graphs for uniformly accelerated motion}
@@ -154,8 +151,41 @@ If the graph is non-linear then the gradient of a tangent must be taken. Note th
 \begin{align*}
 	s &= ut + \frac{1}{2}at^2 \\
 	v^2 &= u^2 + 2as \\ s &= \left( \frac{u+v}{2} \right) t
-\end{align*}}
+\end{align*}
 
-\spec{}
+\spec{(i) recognise and make use of the independence of vertical and horizontal motion of a projectile moving freely under gravity}
+
+When an object moves in a uniform gravitational field it motion can be modelled by considering the horitzontal and vertical components of motion separately. The horizontal component has a constant velocity and the vertical has a constant acceleration.
+
+\fbox{\begin{minipage}[t]{\textwidth}
+	\textbf{Example Question}
+
+	A ball is thrown with a velocity of \SI{5}{m.s^-1} from a height of \SI{1.2}{m}. If its initial angle to the horizonal is \SI{50}{degrees} calclate the distance it travels before it hits the ground.
+
+	\textbf{Answer}
+
+	The first step is to split the velocity into horizontal and vertical components:
+	\begin{align*}
+		v_x = 5\cos{50}\\
+		v_y = 5\sin{50}
+	\end{align*}
+
+	The time for the ball to reach the ground can now be calculated using the vertical motion and the equation $s=ut+\frac{1}{2}at^2$, setting $s = \SI{-1.2}{m}$. This gives $t=$.
+
+	Finally, the horizontal distance is calculated using the simple constant velocity formula to give $x=$.
+\end{minipage}}
+
+\spec{(j) recognise that internal forces on a collection of objects sum to zero vectorially}
+
+This is as a result of Newton's Third Law.
+
+\spec{(k) recall and interpret statements of Newton’s laws of motion}
+\begin{enumerate}
+	\item An object will remain at rest, or continue at a constant velocity, unless a resultant force acts upon it.
+	\item $F=ma$, where $F$ is the vector sum of the forces acting on the body.
+	\item For every force of object A acting on object B there exists a force of the same type, of equal magnitude and opposite direction of object B acting on object A.
+
+	\emph{It is important to be able to distinguish the `equal and opposite´ forces which may act on a single object in equillibrium from a Newton's Third Law pair of forces..}
+\end{enumerate}
 
 \end{document}
