@@ -1,4 +1,6 @@
 \documentclass[main.tex]{subfiles}
+\setsecnumdepth{part}
+
 \begin{document}
 \chapter{Mechanics}
 \section{Scalars and Vectors}
@@ -67,9 +69,7 @@ The conditions for equilibrium are:
 	\item The sum of all the forces acting on the object must be zero.
 	\item The sum of all the moments on an object must be zero.
 \end{enumerate}
-\fbox{\begin{minipage}[t]{\textwidth}
-	\textbf{Example Question}
-
+\begin{example}
 	A Tower Crane lifts a load into position. The load has a weight of \SI{4.0e4}{N} and the arm of the crane has a weight of \SI{1.2e5}{N}.
 
 	Calculate the required weight of the counterweight and the force the tower must support. Assume the centre of mass of the arm is at its centre.
@@ -108,7 +108,7 @@ The conditions for equilibrium are:
 		The sum of the downward forces must equal the reaction force of the tower so:
 
 		$$ R = \SI{4.0e5}{N} $$
-\end{minipage}}
+\end{example}
 
 \spec{(e) construct displacement-time and velocity-time graphs for uniformly accelerated motion}
 
@@ -125,8 +125,7 @@ For uniform acceleration, a graph of velocity against time will be linear, with 
 	\end{tikzpicture}
 \end{center}
 
-\spec{(f) identify and use the physical quantities derived from the gradients of displacement-time and areas and
-gradients of velocity-time graphs, including cases of non-uniform acceleration}
+\spec{(f) identify and use the physical quantities derived from the gradients of displacement--time and areas and gradients of velocity--time graphs, including cases of non-uniform acceleration}
 
 The quantities are given in the table below:
 
@@ -152,16 +151,13 @@ If the graph is non-linear then the gradient of a tangent must be taken. Note th
 
 \spec{(i) recognise and make use of the independence of vertical and horizontal motion of a projectile moving freely under gravity}
 
-When an object moves in a uniform gravitational field it motion can be modelled by considering the horitzontal and vertical components of motion separately. The horizontal component has a constant velocity and the vertical has a constant acceleration.
+When an object moves in a uniform gravitational field it motion can be modeled by considering the horizontal and vertical components of motion separately. The horizontal component has a constant velocity and the vertical has a constant acceleration.
 
-\fbox{\begin{minipage}[t]{\textwidth}
-	\textbf{Example Question}
+\begin{example}
+A ball is thrown with a velocity of \SI{5}{m.s^{-1}} from a height of \SI{1.2}{m}. If its initial angle to the horizontal is \ang{50} calculate the distance it travels before it hits the ground.
+\answer
 
-	A ball is thrown with a velocity of \SI{5}{m.s^{-1}} from a height of \SI{1.2}{m}. If its initial angle to the horizonal is \ang{50} calclate the distance it travels before it hits the ground.
-
-	\textbf{Answer}
-
-	The first step is to split the velocity into horizontal and vertical components:
+The first step is to split the velocity into horizontal and vertical components:
 	\begin{align*}
 		v_x = 5\cos{50}\\
 		v_y = 5\sin{50}
@@ -170,7 +166,7 @@ When an object moves in a uniform gravitational field it motion can be modelled 
 	The time for the ball to reach the ground can now be calculated using the vertical motion and the equation $s=ut+\frac{1}{2}at^2$, setting $s = \SI{-1.2}{m}$. This gives $t=\SI{1.02}{s}$.
 
 	Finally, the horizontal distance is calculated using the simple constant velocity formula to give $x=\SI{3.28}{m}$.
-\end{minipage}}
+\end{example}
 
 \spec{(j) recognise that internal forces on a collection of objects sum to zero vectorially}
 
@@ -182,7 +178,7 @@ This is as a result of Newton's Third Law.
 	\item $F=ma$, where $F$ is the vector sum of the forces acting on the body.
 	\item For every force of object A acting on object B there exists a force of the same type, of equal magnitude and opposite direction of object B acting on object A.
 
-	\emph{It is important to be able to distinguish the `equal and opposite´ forces which may act on a single object in equillibrium from a Newton's Third Law pair of forces.}
+	\emph{It is important to be able to distinguish the `equal and opposite´ forces which may act on a single object in equilibrium from a Newton's Third Law pair of forces.}
 \end{enumerate}
 
 \end{document}

@@ -25,6 +25,14 @@
 % Specification command
 \newcommand{\spec}[1]{\Needspace{3\baselineskip}\textcolor{purple}{\textit{#1}}\par}
 
+% Example Question
+\newcommand{\answer}{\par \textbf{Answer} \par}
+\newsavebox{\examplebox}
+\newenvironment{example}
+{\begin{lrbox}{\examplebox}\begin{minipage}{0.9\textwidth}\textbf{Example Question}\par}
+{\end{minipage}\end{lrbox}\fbox{\usebox{\examplebox}}}
+
+
 % Paragraph formatting
 \setlength{\parindent}{0em}
 \setlength{\parskip}{1em}
@@ -54,3 +62,5 @@
 % bibliography, glossary and index would go here.
 
 \end{document}
+
+%sagemathcloud={"latex_command":"pdflatex -synctex=1 -interact=nonstopmode 'main.tex'"}

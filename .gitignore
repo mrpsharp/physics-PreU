@@ -1,6 +1,9 @@
 ## All pdfs except main
-##*.pdf
+*.pdf
 ##!mail.pdf
+
+## Sagecloud terminal files
+*.term
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
