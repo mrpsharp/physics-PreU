@@ -185,4 +185,47 @@ This is as a result of Newton's Third Law.
 	\emph{It is important to be able to distinguish the `equal and opposite´ forces which may act on a single object in equilibrium from a Newton's Third Law pair of forces.}
 \end{enumerate}
 
+\spec{(l) recall and use $F = ma$ in situations where mass is constant}
+
+Remember that $F$ is the \emph{resultant} force acting on the body.
+
+\spec{(m) understand the effect of kinetic friction and static friction}
+
+\spec{(n) use $F_k = \mu_k N$ and $F_s = \mu_s N$, where $N$ is the normal contact force and $\mu_k$ and $\mu_s$ are the coefficients of kinetic friction and static friction, respectively}
+
+Friction occurs between two objects when they are pushed together by a normal force. A useful model is that the maximum size of the frictional force is proportional to the normal force. There is usually a difference between the constant of proportionality when the two surfaces are stationary compared to each other (static friction) compared to when they are sliding past each other (kinetic friction). It is usually the case that $\mu_k \< \mu_s$.
+
+An interesting result is that blocks of different masses should take the same distance to slide to a halt:
+
+\[ s = \frac{\frac{1}{2}mv^2}{F} = \frac{\frac{1}{2}mv^2}{\mu_k N} = \frac{\frac{1}{2}mv^2}{\mu_k mg} = \frac{v^2}{2\mu_k g} \]
+
+\spec{(o) recall and use the independent effects of perpendicular components of a force}
+
+As with velocities, forces can be split into two perpendicular components and their effects considered independently.
+
+\begin{example}
+A block of mass \SI{4}{kg} is on a frictionless slope of \ang{30}. Calculate the rate at which it accelerates down the slope.
+
+\begin{tikzpicture}
+	\draw[thick] (0,0) -- (10,0);
+	\draw[thick] (0,0) -- (10,5.77);
+	% TODO
+\end{tikzpicture}
+
+\answer
+
+The weight should be split into components along the slope and perpendicular to the slope (shown in green). Only the component along the slope contributes to the acceleration.
+
+\[ a = \frac{F}{m} = \frac{mg\cos{30}}{m} = \SI{8.5}{ms^{-2}} \]
+
+This question could be extended to include friction by calculating the normal force, the frictional force and hence a new acceleration. If $\mu_k = 0.4$ then the answers are \SI{19.62}{N}, \SI{7.85}{N} and \SI{6.5}{ms^{-2} respectively (Try it!)
+
+\end{example}
+
+\spec{(p) recall and use p = mv and apply the principle of conservation of linear momentum to problems in one dimension}
+
+Momentum is a conserved quantity (along with energy and charge). It can be calculated using the formula $p=mv$ where $p$ is the momentum. In any closed system the total momentum of the particules must remain constant. This can be used to predict the outcomes of collisions in certain cases.
+
+
+
 \end{document}
