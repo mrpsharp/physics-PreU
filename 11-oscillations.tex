@@ -1,7 +1,189 @@
 \documentclass[main.tex]{subfiles}
-%% Current Author:
+\usetikzlibrary{decorations.pathmorphing,patterns}
+%% Current Author: SEQ
 \setcounter{chapter}{10}
 \begin{document}
-\chapter{}
+\chapter{Oscillations}
+\section{Simple Harmonic Motion}
+\spec{Recall the condition for simple harmonic motion and hence identify situations in which simple harmonic motion will occur}
+
+
+Any oscillation where the acceleration is proportional to the displacement from an equilibrium position and in the opposite direction to the displacement is described as Simple Harmonic Motion (SHM).
+
+These two conditions can be expressed in equation form as:
+\[ a \propto -x \]
+Notice the minus sign to signify that the acceleration is in the opposite direction to the displacement.
+
+We will mainly be looking at idealised springs and pendulums to understand the maths behind it but the real reason for studying SHM is that it is an excellent approximation for many of the oscillations that we come across in the natural world.
+
+So while the topic is introduced with some rather prosaic examples this provides the building blocks to understanding earthquakes or how atoms vibrate in lattices as well as any musical instrument you can think of.
+
+\pagebreak
+
+So without further ado let's look at our first and perhaps simplest example.
+
+A mass on a spring on a smooth horizontal surface.
+\vspace{0.2in}
+
+
+\begin{tikzpicture}
+\node[rectangle,scale = 1.8, fill=blue,inner sep=2.5mm, text = white] (a) at (3.75,3) {$m$};
+
+
+\draw[decoration={aspect=0.3, segment length=2mm, amplitude=3mm,coil},decorate] (0,3) -- (a); 
+
+\fill [pattern = north east lines] (0,2) rectangle (6,2.4);
+\fill [pattern = north east lines] (-.5,2) rectangle (0,4);
+\draw[thick] (0,2.4) -- (6,2.4);
+\draw[thick] (0,2.4) -- (0,4);
+
+\end{tikzpicture}
+
+What happens if we move the mass by a distance x and then let it go?
+
+\begin{tikzpicture}
+\node[rectangle,scale = 1.8, fill=blue,inner sep=2.5mm, text = white] (a) at (5,3) {$m$};
+
+
+
+
+\draw[decoration={aspect=0.3, segment length=3mm, amplitude=3mm,coil},decorate] (0,3) -- (a); 
+
+\fill [pattern = north east lines] (0,2) rectangle (6,2.4);
+\fill [pattern = north east lines] (-.5,2) rectangle (0,4);
+\draw[thick] (0,2.4) -- (6,2.4);
+\draw[thick] (0,2.4) -- (0,4);
+\draw[thick, |-latex] (3,3.5) -- (4.25,3.5);
+\node at (3.5,3.7) {$x$};
+\end{tikzpicture}
+
+
+Before going into any mathematical detail we can think about what will happen to the mass.
+\begin{itemize}
+\item We know that there is now a force from the stretched string which is pulling the mass back to its original position. 
+\item This will cause the mass to accelerate to the left. 
+\item Once the mass reaches its starting point it will overshoot and start compressing the spring.
+\item This creates a resultant force which will again restore the mass to its original position.
+\item This will cause the mass to accelerate to the right.
+\item The mass will overshoot again and the cycle will continue.
+\end{itemize}
+Note that the direction of the acceleration is always opposite to the displacement.
+
+The mathematical treatment for this starts very simply with a basic knowledge of Hooke's law.
+
+The force on a stretched or compressed spring is given by 
+\[
+F=-kx
+\]
+where k is the spring constant.
+
+Newton's second law tells us that 
+\[
+F=ma
+\]
+
+Putting these together we get
+\[
+a = \dfrac{F}{m}=-\dfrac{k}{m}x
+\]
+Because k and m are constant this satisfies the condition for SHM,
+\[
+a \propto -x
+\]
+
+\begin{example}
+A  2kg mass attached to a horizontal spring of spring constant 0.3Nm$^{-1}$ is stretched by 10cm and then released.
+
+Find the maximum acceleration of the mass
+
+
+	\vspace{1cm}
+
+		
+
+		\textbf{Answer}
+
+Using the formula $a = -\dfrac{k}{m}x$
+The maximum acceleration will occur when x is a maximum so 
+\[
+acceleration_{max} = - \dfrac{0.3}{2} \times 0.1
+\]
+\[
+acceleration_{max} = -0.015 ms^{-2}
+\]
+
+\end{example}
+
+
+
+
+
+
+\spec{* show that the condition for simple harmonic motion leads to a differential equation of the form
+\[ 
+\dfrac{d^2x}{dt^2} = - \omega^2 x
+\]
+and that 
+\[ 
+x = A cos \omega t 
+\] 
+is a solution to this equation}
+
+\spec{* use differential calculus to derive the expressions
+\[
+v=-Asin \omega t 
+\] and 
+\[a = -A\omega^2 cos \omega t 
+\] 
+for simple harmonic motion.}
+
+
+\begin{tikzpicture}
+	%curve
+		\draw (0.5,1) cos (1.5,0) sin (2.5,-1) cos (3.5,0) sin (4.5,1) cos
+			(5.5,0) sin (6.5,-1) cos (7.5,0) sin (8.5,1) cos (9.5,0)
+			sin (10.5,-1) cos (11.5,0);
+	% zero crossing
+		\draw[dotted] (0.5,0) -- (11.5,0);
+	%axis + labels
+		\draw [<->] (0.5,1) -- (0.5,-1);
+		\draw [->] (0.5,0) -- (11.5,0);
+		\node at (11.7,0) {$t$};
+		\node at (0.5,1.2) {$+x$};
+		\node at (0.5,-1.2) {$-x$};
+		\node at (0.3,0) {$0$};
+	%Time period description
+		\draw [<->] (4.5,1.2) -- (8.5,1.2);
+		\node at (6.5,1.5) {Time period, $T$};
+	%Amplitude description
+		\draw [<->] (6.5,0) -- (6.5,-1);
+		%to stop line overlap
+		\draw [fill=white,ultra thick,white] (7,-0.3) rectangle (9,-0.7); 
+		\node at (8, -0.5) {Amplitude, $A$};
+\end{tikzpicture}
+
+
+\begin{tikzpicture}
+	%curve 1
+		\draw[dashed] (0.5,0) sin (1.5,1) cos (2.5,0) sin (3.5,-1) cos (4.5,0) 
+			sin (5.5,1) cos (6.5,0) sin (7.5,-1) cos (8.5,0) sin (9.5,1) 
+			cos (10.5,0) sin (11.5,-1);
+	%curve 2
+		\draw (0.5,0) sin (1.5,-1) cos (2.5,0) sin (3.5,1) cos (4.5,0) 
+		sin (5.5,-1) cos (6.5,0) sin (7.5,1) cos (8.5,0) sin (9.5,-1) 
+		cos (10.5,0) sin (11.5,1);
+	% zero crossing
+		\draw[dotted] (0.5,0) -- (11.5,0);
+	%axis + labels
+		\draw [<->] (0.5,1) -- (0.5,-1);
+		\draw [->] (0.5,0) -- (11.5,0);
+		\node at (11.7,0) {$t$};
+		\node[rotate=90] at (0.2,0) {displacement};
+	%Phase difference description
+		\draw [<->] (1.5,1.2) -- (3.5,1.2);
+		\node at (2.5,1.5) {$180^\circ$};
+\end{tikzpicture}
 
 \end{document}
+
+%sagemathcloud={"latex_command":"latexmk -pdf -f -g -bibtex -synctex=1 -interaction=nonstopmode '11-oscillations.tex'"}
