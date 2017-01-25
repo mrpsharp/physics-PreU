@@ -18,7 +18,7 @@ We will mainly be looking at idealised springs and pendulums to understand the m
 
 So while the topic is introduced with some rather prosaic examples this provides the building blocks to understanding earthquakes or how atoms vibrate in lattices as well as any musical instrument you can think of.
 
-\pagebreak
+%\pagebreak
 
 So without further ado let's look at our first and perhaps simplest example.
 
@@ -129,14 +129,46 @@ x = A cos \omega t
 \] 
 is a solution to this equation}
 
-\spec{* use differential calculus to derive the expressions
-\[
-v=-Asin \omega t 
-\] and 
-\[a = -A\omega^2 cos \omega t 
-\] 
-for simple harmonic motion.}
 
+Acceleration is the rate of change of velocity 
+
+\[
+a = \dfrac{dv}{dt} 
+\]
+
+and velocity is the rate of change of displacement
+
+\[
+v = \dfrac{dx}{dt} 
+\]
+
+Putting these two together gives the condition for simple harmonic motion as.
+
+\[
+\dfrac{d^2x}{dt^2}=-\omega ^2 x
+\]
+
+where $\omega ^2$ is a (strange choice) of constant.
+
+This is a second order differential equation and to solve it we need to find a function which when differentiated twice gives us the negative of the original function.
+
+By inspection we can see that functions with $\sin \omega t$ and $\cos \omega t$ are both possible solutions.
+
+e.g.
+
+\begin{align*} 
+x &= A cos \omega t \\
+\dfrac{dx}{dt} &= - A\omega sin \omega t \\
+\dfrac{d^2x}{dt^2} &= -A\omega^2 cos \omega t = -\omega ^2 x \\
+\end{align*}
+
+So $x= Acos \omega t$ is a solution (using sin is equivalent but with a phase offset.)
+
+Looking at this function we can see that it will give us a cosine wave with an Amplitude of A and a time period of $ \dfrac{2 \pi}{\omega}$.
+
+This gives us a frequency on $\dfrac{1}{T} = \dfrac{\omega}{2 \pi}$
+
+So $\omega$ is the angular frequency (which explains our strange choice of constant).
 
 \begin{tikzpicture}
 	%curve
@@ -149,18 +181,43 @@ for simple harmonic motion.}
 		\draw [<->] (0.5,1) -- (0.5,-1);
 		\draw [->] (0.5,0) -- (11.5,0);
 		\node at (11.7,0) {$t$};
-		\node at (0.5,1.2) {$+x$};
-		\node at (0.5,-1.2) {$-x$};
+		\node at (0.5,1.2) {$+A$};
+		\node at (0.5,-1.2) {$-A$};
 		\node at (0.3,0) {$0$};
 	%Time period description
-		\draw [<->] (4.5,1.2) -- (8.5,1.2);
-		\node at (6.5,1.5) {Time period, $T$};
+		\draw [<->] (4.5,1.15) -- (8.5,1.15);
+		\node at (6.5,1.6) {Time period, $\dfrac{2 \pi}{\omega}$};
 	%Amplitude description
 		\draw [<->] (6.5,0) -- (6.5,-1);
 		%to stop line overlap
 		\draw [fill=white,ultra thick,white] (7,-0.3) rectangle (9,-0.7); 
 		\node at (8, -0.5) {Amplitude, $A$};
 \end{tikzpicture}
+
+We now have a general expression for the displacement x of the object after a time t.
+
+The value of $\omega$ will be given by the physical properties of the system.
+
+e.g.
+For the mass on a spring we looked at earlier
+
+\begin{align*} 
+F &= -kx && \text {Force on mass by Hooke's Law}\\
+a &= -\dfrac{k}{m} x  && \text{gives acceleration}\\
+\dfrac{d^2x}{dt^2} &= -\omega ^2 x && \text{comparing with condition for SHM} \\
+\omega ^2 &= \dfrac{k}{m} && \text{gives value for constant } \omega \\
+\omega &= \sqrt{\dfrac{k}{m}} \\
+\end{align*}
+
+\spec{* use differential calculus to derive the expressions
+\[
+v=-Asin \omega t 
+\] and 
+\[a = -A\omega^2 cos \omega t 
+\] 
+for simple harmonic motion.}
+
+
 
 
 \begin{tikzpicture}
