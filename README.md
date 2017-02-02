@@ -7,7 +7,7 @@ If you have found an error please open an issue and if you would like to contrib
 
 | Chapter                        | Assigned | Complete |
 |:-------------------------------|:---------|:--------:|
-| 1 Mechanics                    | PS       |          |
+| 1 Mechanics                    | PS       |    ✔     |
 | 2 Gravitational Fields         | LT       |    ✔     |
 | 3 Deformation Of Solids        |          |          |
 | 4 Energy Concepts              |          |          |

@@ -179,7 +179,7 @@ This is as a result of Newton's Third Law.
 \spec{recall and interpret statements of Newton’s laws of motion}
 \begin{enumerate}
 	\item An object will remain at rest, or continue at a constant velocity, unless a resultant force acts upon it.
-	\item $F=ma$, where $F$ is the vector sum of the forces acting on the body.
+	\item $F=ma$, where $F$ is the vector sum of the forces acting on the body. Or, alternatively $F=\frac{dp}{dt}$ (see below).
 	\item For every force of object A acting on object B there exists a force of the same type, of equal magnitude and opposite direction of object B acting on object A.
 
 	\emph{It is important to be able to distinguish the `equal and opposite´ forces which may act on a single object in equilibrium from a Newton's Third Law pair of forces.}
@@ -227,13 +227,65 @@ This question could be extended to include friction by calculating the normal fo
 Momentum is a conserved quantity (along with energy and charge). It can be calculated using the formula $p=mv$ where $p$ is the momentum. In any closed system the total momentum of the particules must remain constant. This can be used to predict the outcomes of collisions in certain cases.
 
 \spec{distinguish between elastic and inelastic collisions}
-\spec{relate resultant force to rate of change of momentum in situations where mass is constant and recall
- and use $F = \frac{\Delta P}{\Delta t}$}
+
+An elastic collision is one in which \emph{kinetic energy} is conserved. An inelastic collision is one in which it is not. In general, a collision in which two objects adhere will not conserve kinetic energy as the final velocity will be given by:
+$$ v = \frac{m_1u_1+m_2u_2}{m_1+m_2} $$
+and therefore the final kinetic energy will be given by:
+\[ \text{KE} = \frac{1}{2}(m_1+m_2)v^2 = \frac{1}{2}\frac{\left( m_1u_1+m_2u_2\right)^2}{m_1+m_2}\]
+which cannot be equal to the original kinetic energy.
+
+\spec{relate resultant force to rate of change of momentum in situations where mass is constant and recall and use $F = \frac{\Delta P}{\Delta t}$}
+
+Newton's second law is more properly given by:
+
+\[ F = \frac{dp}{dt} \]
+
+This simplifies to the GCSE formulation for constant mass:
+
+\[ F = \frac{dp}{dt} = m\frac{dv}{dt} = ma \]
+
+A simplified version is:
+$$F = \frac{\Delta P}{\Delta t}$$
+
+This will give the correct result for a constant force or otherwise give the average force.
+
 \spec{recall and use the relationship impulse = change in momentum}
+
+Multiplying both sides of the equation above by time gives:
+$$ F \Delta t = \Delta P $$
+
+The quantity on the left hand side is the impulse.
+
 \spec{recall and use the fact that the area under a force-time graph is equal to the impulse}
+
+Using calculus to solve differential version of Newton's Second Law above gives:
+$$ \Delta P = \int_{t_0}^{t_1} F dt $$
+The right-hand side of this equation represents the area under a force-time graph.
+
 \spec{apply the principle of conservation of linear momentum to problems in two dimensions}
+
+When objects are free to move in two dimensions then momentum must be conserved along two axis.
+
+\begin{example}
+	Two objects are able to slide frictionlessly over a horizontal surface. The first object, $m_1=\SI{3}{\kg}$ is propelled with an initial speed $u_1=\SI{5}{\m\per\s}$ towards a second mass, $m_2=\SI{1.5}{\kg}$, which is initially at rest. After the collision both objects move at \SI{30}{\degree} on either side of the line of the original motion. What are the final speeds of the two objects? Is the collision elastic?
+	\answer
+	Conservation of momentum along the x-axis gives
+	$$ m_1u_1 = m_1v_1\cos{\theta} + m_2v_2\cos{\theta}$$
+	Conservation of momentum along the y-axis gives
+	$$ m_1v_1\sin{\theta} = m_2v_2\sin{\theta} $$
+	These equations can be combined to give
+	$$ v_1 = \frac{u_1}{2\cos{\theta}} = \SI{2.887}{\m\per\s}$$
+	and
+	$$ v_2 = \frac{m_1}{m_2}v_1= \SI{5.773}{\m\per\s}$$
+	The initial KE of the system is
+	$$ K_i = \frac{1}{2}m_1u_1^2 = \SI{37.5}{\joule} $$
+	and the final KE of the system is
+	$$ K_f = \frac{1}{2}m_1v_1^2 + \frac{1}{2}m_2u_2^2 = \SI{37.5}{\joule}$$
+	since $K_i = K_f$, the collision is elastic
+\end{example}
+
 \spec{recall and use density = mass / volume}
 \spec{recall and use pressure = normal force / area}
-\spec{recall and use p = ρgh for pressure due to a liquid.}
-
+\spec{recall and use $ p = \rho gh $ for pressure due to a liquid.}
+These are GCSE equations and should present no problems.
 \end{document}
