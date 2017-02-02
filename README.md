@@ -19,7 +19,7 @@ If you have found an error please open an issue and if you would like to contrib
 | 10 Rotational Mechanics        | CJRU     |    ✔     |
 | 11 Oscillations                | SEQ      |          |
 | 12 Electric Fields             |          |          |
-| 13 Gravitation                 | LT       |          |
+| 13 Gravitation                 | LT       |    ✔     |
 | 14 Electromagnetism            |          |          |
 | 15 Special Relativity          | CJRU     |          |
 | 16 Molecular Kinetic Theory    |          |          |
