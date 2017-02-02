@@ -1,4 +1,4 @@
-\documentclass[a4paper,11pt,fleqn,twoside]{memoir}
+\documentclass[a4paper,11pt,twoside]{memoir}
 \usepackage{subfiles}
 \usepackage{graphicx}
 \usepackage{titlesec}
@@ -10,7 +10,7 @@
 \usepackage{siunitx}
 
 % Should be final package loaded
-% \usepackage{hyperref}
+\usepackage{hyperref}
 
 % Section title formatting
 \titleformat{\chapter}[hang]{\normalfont\Huge\bfseries}{\thechapter\ }{1ex}{}
@@ -37,7 +37,7 @@
 % Paragraph formatting
 \setlength{\parindent}{0em}
 \setlength{\parskip}{1em}
-\setlength{\mathindent}{\parindent}
+% \setlength{\mathindent}{\parindent}
 
 % Numbering
 \setsecnumdepth{chapter}
