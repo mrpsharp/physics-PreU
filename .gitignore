@@ -1,6 +1,6 @@
 ## All pdfs except main
 *.pdf
-!main.pdf
+#!main.pdf
 
 ## Sagecloud terminal files
 *.term
