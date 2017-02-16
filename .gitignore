@@ -1,9 +1,12 @@
 ## All pdfs except main
 *.pdf
 #!main.pdf
+!figs/*/*.pdf
 
 ## Sagecloud terminal files
 *.term
+
+.DS_Etore
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
