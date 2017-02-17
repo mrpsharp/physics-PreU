@@ -6,8 +6,6 @@
 ## Sagecloud terminal files
 *.term
 
-.DS_Etore
-
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
