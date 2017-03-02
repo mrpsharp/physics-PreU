@@ -211,7 +211,7 @@ a &= -\dfrac{k}{m} x  && \text{gives acceleration}\\
 
 \spec{* use differential calculus to derive the expressions
 \[
-v=-Asin \omega t 
+v=-A \omega sin \omega t 
 \] and 
 \[a = -A\omega^2 cos \omega t 
 \] 
@@ -219,16 +219,43 @@ for simple harmonic motion.}
 
 
 
+This is very simply achieved by differentiating our expression for displacement with respect to time as velocity =$\dfrac{dx}{dt}$ and acceleration = $\dfrac{dv}{dt}$
+
+Remember that the differential of cos is -sin.
+
+so 
+\[
+x = A cos \omega t
+\]
+\[
+v = \dfrac{dx}{dt}= -A \omega sin \omega t
+\]
+\[
+a = \dfrac{dv}{dt}= -A \omega^2 cos \omega t
+\]
+
+\spec{ understand the phase differences between displacement, velocity and acceleration in simple harmonic
+motion}
+
+Plotting these equations onto a graph gives the following.
+
+
+
 
 \begin{tikzpicture}
 	%curve 1
-		\draw[dashed] (0.5,0) sin (1.5,1) cos (2.5,0) sin (3.5,-1) cos (4.5,0) 
-			sin (5.5,1) cos (6.5,0) sin (7.5,-1) cos (8.5,0) sin (9.5,1) 
-			cos (10.5,0) sin (11.5,-1);
+		\draw[blue] (0.5,0) sin (1.5,-1) cos (2.5,0) sin (3.5,1) cos (4.5,0) 
+			sin (5.5,-1) cos (6.5,0) sin (7.5,1) cos (8.5,0) sin (9.5,-1) 
+			cos (10.5,0) sin (11.5,1);
 	%curve 2
-		\draw (0.5,0) sin (1.5,-1) cos (2.5,0) sin (3.5,1) cos (4.5,0) 
-		sin (5.5,-1) cos (6.5,0) sin (7.5,1) cos (8.5,0) sin (9.5,-1) 
+    \draw[red] (0.5,-1) cos (1.5,0) sin (2.5,1) cos (3.5,0) sin (4.5,-1) cos
+			(5.5,0) sin (6.5,1) cos (7.5,0) sin (8.5,-1) cos (9.5,0)
+			sin (10.5,1) cos (11.5,0);
 		cos (10.5,0) sin (11.5,1);
+    %curve 3
+        	\draw (0.5,1) cos (1.5,0) sin (2.5,-1) cos (3.5,0) sin (4.5,1) cos
+			(5.5,0) sin (6.5,-1) cos (7.5,0) sin (8.5,1) cos (9.5,0)
+			sin (10.5,-1) cos (11.5,0);
 	% zero crossing
 		\draw[dotted] (0.5,0) -- (11.5,0);
 	%axis + labels
@@ -236,10 +263,97 @@ for simple harmonic motion.}
 		\draw [->] (0.5,0) -- (11.5,0);
 		\node at (11.7,0) {$t$};
 		\node[rotate=90] at (0.2,0) {displacement};
+        \node[rotate=90, blue] at (-0.2,0) {acceleration};
+        \node[rotate=90, red] at (-0.5,0) {velocity};
 	%Phase difference description
 		\draw [<->] (1.5,1.2) -- (3.5,1.2);
 		\node at (2.5,1.5) {$180^\circ$};
 \end{tikzpicture}
+
+
+
+Note the phase shift between displacement, velocity and acceleration.
+
+Velocity is $\dfrac{\pi}{2}$ or $90^\circ$out of phase with displacement.
+
+Acceleration is $\pi$ or $180^\circ$ out of phase with displacement.
+
+So when acceleration or displacement has a maximum magnitude, the velocity is zero
+
+
+\spec{ *recognise and use the expressions $x = A cos\omega t, v = -A \omega sin \omega t, a = -A \omega^2 cos \omega t$ and $F = –m \omega^2x$ to solve problems}
+
+We can use these equations to solve problems by identifying the variables and substituting.
+
+The last equation is a combination of $a = -\omega^2 x$ and $F = ma$
+
+\begin{example}
+
+
+A mass attached to a spring is set into motion on a horizontal frictionless surface. The amplitude of oscillation is 15mm and it takes 5 seconds to perform 20 oscillations.
+
+Calculate the time period and frequency.
+
+Hence calculate the velocity and acceleration after 9.3 seconds.
+
+	\vspace{1cm}
+    
+\textbf{Answer}
+
+The first part doesn't require any knowledge of SHM. If there are 20 oscillations in 5 seconds this means $\dfrac{20}{5}$ oscillations in one second.
+
+So $f=4Hz$
+
+and $T = \dfrac{1}{f} = 0.25s$
+
+Now that we have the frequency we can calculate the angular frequency $\omega = 2 \pi f = 8 \pi$
+
+We are given the amplitude A as 15mm and the time is 9.3 seconds so we can now use our SHM formulae.
+
+So for the velocity
+
+\[
+v=-A \omega sin \omega t 
+\]
+
+\[
+v = -15 \times 8 \pi sin (8 \times \pi \times 9.3)
+\]
+\[
+v = -360 mms^{-1} = .36ms^{-1}
+\]
+
+and for acceleration
+
+\[
+a = \dfrac{dv}{dt}= -A \omega^2 cos \omega t
+\]
+
+\[
+a = 15 (8 \times \pi)^2 cos (8 \times \pi \times 9.3)
+\]
+
+\[
+a = 2900 mms^{-2} = 2.9ms^{-2}
+\]
+
+
+\end{example}
+
+
+
+\spec{ recall and use $T = \dfrac{2 \pi}{\omega}$
+as applied to a simple harmonic oscillator}
+
+
+
+\spec{ *show that the total energy of an undamped simple harmonic system is given by $E = \dfrac{1}{2}mA^2\omega^2$ and
+recognise that this is a constant}
+
+\spec{ recognise and use $E = \dfrac{1}{2}mA^2\omega^2$ to solve problems}
+\spec{ distinguish between free, damped and forced oscillations}
+\spec{ recall how the amplitude of a forced oscillation changes at and around the natural frequency of a system
+and describe, qualitatively, how damping affects resonance.}
 
 \end{document}
 
