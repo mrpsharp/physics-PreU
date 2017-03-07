@@ -3,6 +3,9 @@
 #!main.pdf
 !figs/*/*.pdf
 
+\\ Temp work folder
+temp/
+
 ## Sagecloud terminal files
 *.term
 
