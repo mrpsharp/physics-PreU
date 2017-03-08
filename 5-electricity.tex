@@ -1,7 +1,113 @@
 \documentclass[main.tex]{subfiles}
-%% Current Author: 
+%% Current Author:
+\usepackage[european,siunitx]{circuitikz}
+\usepackage{siunitx}
 \setcounter{chapter}{4}
 \begin{document}
 \chapter{Electricity}
+\spec{discuss electrical phenomena in terms of electric charge}
+\spec{describe electric current as the rate of flow of charge and recall and use I = ΔQ / Δt}
 
+Electric current is the flow of charge. The \emph{current} is defined as the rate of flow of charge. Conventional current flows from positive to negative. This current can consist of positive charges flowing from positive to negative or, more usually, negative charges flowing from negative to positive. The total current depends on the charge carrier density, the cross-sectional area, the charge on the carrier and the drift velocity of the carriers.
+
+\spec{understand potential difference in terms of energy transfer and recall and use VQ = W}
+
+When a charge moves through an electric field it gains of loses potential energy. The energy change per unit charge is defined as the potential difference.
+
+\spec{recall and use the fact that resistance is defined by R = V/I and use this to calculate resistance variation for a variety of voltage-current characteristics}
+
+As well as measuring resistance directly it can be found from a graph of V against I. \emph{Note: the resistance is defined as V/I at all points and is not equal to the gradient of a V/I graph except in the case that V is proportional to I}
+
+\spec{define and use the concepts of emf and internal resistance and distinguish between emf and terminal potential difference}
+\spec{derive, recall and use E = I(R + r ) and E = V + Ir}
+
+A real cell or battery can be represented by a cell circuit symbol in series with a resistor. This resistance represents the \emph{internal resistance} of the cell and the fixed, theoretical potential difference across the cell symbol is the emf of the cell (the electromotive force provided). When a voltmeter is connected across the cell the terminal potential difference is measured.
+
+\begin{figure}[h]
+\begin{center}
+\begin{circuitikz}
+  \draw (2,0) to[battery,l=$E$,o-] (4,0) to[R=$r$,-o] (6,0);
+\end{circuitikz}
+\end{center}
+\caption{Terminal potential difference}
+\end{figure}
+
+In order to relate the terminal potential difference to the internal characteristics of the cell we must subtract the potential difference across the internal resistance from the emf. In symbols this gives:
+
+$$ V = E - Ir $$
+
+which can be re-arranged to give the formula above.
+
+If our real cell is connected into a circuit with a load resistance $R$, the  circuit in figure \ref{loaded-cell} is produced.
+
+\begin{figure}[h]
+\begin{center}
+\begin{circuitikz}
+  \draw (1,0) to[short] (2,0) to[battery,l=$E$,o-] (4,0) to[R=$r$,-o] (6,0) to[short] (7,0) to[short] (7,-2) to[R=$R$] (1,-2) to[short] (1,0);
+\end{circuitikz}
+\end{center}
+\caption{A loaded real cell}
+\label{loaded-cell}
+\end{figure}
+
+Now, the terminal potential difference must be equal to the potential difference across the load resistor, $R$.
+
+$$ IR = E = Ir $$
+
+Which can be re-arranged to give the second equation in the specification.
+
+\spec{recall and use P = VI and W = VIt, and derive and use P = I$^2$R}
+
+Power is defined as the energy transferred per unit of time. In the case of electrical power this is the product of current (charge per unit time) and potential difference (energy per unit charge). Given a constant voltage and current, the energy transferred (work done) is given by $P = Wt = IVt$
+
+\spec{recall and use R = ρl/A}
+
+This formula allows the calculation of a regular sample of material. In this formula ρ is the resistivity, l is the length of the sample and A its cross-sectional area. Typical resistivities for conductors are of the order of
+\SI{e-8}{\ohm\metre} and above \SI{e9}{\ohm\metre} for insulators. Semi-conductors lie between these values.
+
+\spec{recall the formula for the combined resistance of two or more resistors in series and use it to solve problems $R_T = R_1 + R_2 + \ldots$}
+\spec{recall the formula for the combined resistance of two or more resistors in parallel and use it to solve problems $\frac{1}{R_T} = \frac{1}{R_1} + \frac{1}{R_2} + \ldots$}
+
+This are fairly simple to derive from Kirchoff's Laws (see below).
+
+\spec{recall Kirchhoff’s first and second laws and apply them to circuits containing no more than two supply components and no more than two linked loops}
+
+\begin{description}
+  \item[Kirchoff's First Law] The current that flows into any junction is equal to the current which flows out.
+  \item[Kirchoff's Second Law] The sum of the emfs around any closed loop of a circuit must equal the sum of the potential differences across any components. It is important to note that direction matters and if the loop crosses emfs in different directions they must be subtracted.
+\end{description}
+
+These two laws, and the definition of resistance, are the most useful tools in circuit analysis. The important skill is to work methodically through the circuit applying the laws, rather than attempting to solve the circuit all in one go.
+
+\begin{example}
+  Calculate the current through the \SI{3}{\volt} cell.
+  \begin{center}
+    \begin{circuitikz}
+        \draw (0,0) to[R=2.0<\ohm>] (0,2) to[battery, l=6.0<\volt>, i=$I_x$] (0,4) to (5,4)
+        (0,0) to (2.5,0) to[R=0.5<\ohm>] (2.5,2) to[battery, l=3.0<\volt>, i=$I_y$] (2.5,4)
+        (2.5,0) to (5,0) to[R=10.0<\ohm>] (5,4)
+
+    ;\end{circuitikz}
+  \end{center}
+
+  \answer
+
+  We can use Kirchoff's Second Law to derive two expressions linking $I_x$ and $I_y$. The first is formed by creating a loop consisting of the two branches containing cells.
+  $$ 6 - 3 = 2I_x - 0.5I_y $$
+  Note that I am using a clockwise loop so the signs of the two components in the `Y' branch have negative signs.
+
+  The second expression is now arrived at by using the outermost loop of the circuit (and using Kirchoff's First Law to get the current through the \SI{10}{\ohm} resistor):
+  $$ 6 = 10(I_x + I_y) + 2I_x$$
+  These two equations can now be used to solve for $I_y$, giving
+  $$ I_y = \SI{-0.923}{\ampere} $$
+
+\end{example}
+
+\spec{appreciate that Kirchhoff’s first and second laws are a consequence of the conservation of charge and energy, respectively}
+
+The charge flowing into or out of a junction in a given time, $t$, is given by $Q = It$. Given that a junction can neither store nor create charge, Kirchoff's First Law follows directly.
+
+
+
+\spec{use the idea of the potential divider to calculate potential differences and resistances}
 \end{document}
