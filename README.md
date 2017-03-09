@@ -11,7 +11,7 @@ If you have found an error please open an issue and if you would like to contrib
 | 2 Gravitational Fields         | LT       |    ✔     |
 | 3 Deformation Of Solids        |          |          |
 | 4 Energy Concepts              |          |          |
-| 5 Electricity                  | PS       |          |
+| 5 Electricity                  | PS       |    ✔      |
 | 6 Waves                        |          |          |
 | 7 Superposition                |          |          |
 | 8 Atomic And Nuclear Processes |          |          |

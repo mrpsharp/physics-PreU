@@ -74,7 +74,7 @@ This are fairly simple to derive from Kirchoff's Laws (see below).
 
 \begin{description}
   \item[Kirchoff's First Law] The current that flows into any junction is equal to the current which flows out.
-  \item[Kirchoff's Second Law] The sum of the emfs around any closed loop of a circuit must equal the sum of the potential differences across any components. It is important to note that direction matters and if the loop crosses emfs in different directions they must be subtracted.
+  \item[Kirchoff's Second Law] The sum of the emfs around any closed loop of a circuit must equal the sum of the potential differences across any components. It is important to note that direction matters and if the loop crosses emfs or components against the flow of current they must be subtracted.
 \end{description}
 
 These two laws, and the definition of resistance, are the most useful tools in circuit analysis. The important skill is to work methodically through the circuit applying the laws, rather than attempting to solve the circuit all in one go.
@@ -100,6 +100,8 @@ These two laws, and the definition of resistance, are the most useful tools in c
   $$ 6 = 10(I_x + I_y) + 2I_x$$
   These two equations can now be used to solve for $I_y$, giving
   $$ I_y = \SI{-0.923}{\ampere} $$
+  
+  Note the sign of $I_y$ is negative, this means that current is flowing in the opposite direction to the arrow shown. This means that the cell is charging.
 
 \end{example}
 
@@ -107,5 +109,47 @@ These two laws, and the definition of resistance, are the most useful tools in c
 
 The charge flowing into or out of a junction in a given time, $t$, is given by $Q = It$. Given that a junction can neither store nor create charge, Kirchoff's First Law follows directly.
 
+Each charge carrier can only take one loop around the circuit. Once it returns to its original position its energy must be equal to the amount it had when it left. The charge carrier gains energy passing through cells and loses it passing through components. Since the sum of these energies must be zero and $W=qV$, the sum of emfs must equal the sum of potential differences across components.
+
 \spec{use the idea of the potential divider to calculate potential differences and resistances}
+
+When two resistors are in series with a battery we say that the circuit is a \emph{potential divider.}
+
+\begin{figure}[h]
+    \begin{center}
+        \begin{circuitikz}
+        \draw (0,0) to[battery,l=$V$] (0,5) to (3,5) to[R=$R_1$] (3,2.5) to[R=$R_2$] (3,0) to (0,0);
+        \end{circuitikz}
+    \end{center}
+\caption{A potential divider}
+\end{figure}
+
+Since there are no junctions in the series circuit we can know that the current is the same in all parts of the circuit and that the total resistance is $R_1 + R_2$. The p.d. across resistor 1 is therefore given by:
+\[ V_1 = IR_1 = \frac{V}{R_1 + R_2} R_1 = \frac{R_1}{R_1 + R_2} V \]
+In other words, the ratio of p.d.s in the circuit is equal to the ratios of the resistances.
+
+This can also be extended to the ratios between the components as they share the same current.
+
+\[ I_1 = I_2 \implies \frac{V_1}{R_1} = \frac{V_2}{R_2} \implies \frac{R_1}{R_2} = \frac{V_1}{V_2} \]
+
+\begin{example}
+Calculate the resistance of the bulb in the circuit below.
+\tikzset{component/.style={draw,thick,circle,fill=white,minimum size =0.75    cm,inner sep=0pt}}
+\begin{center}
+    \begin{circuitikz}
+    \draw (0,0) to[battery,l=\SI{9}{\volt}] (0,5) to (3,5) to[lamp] (3,2.5) to[R,l=\SI{800}{\ohm}] (3,0) to (0,0);
+    \draw (3,2.5) to (5,2.5) to (5,1.25) node[component]{3V} to[short] (5,0) to (0,0);
+    \end{circuitikz}
+\end{center}
+
+\answer
+
+The potential difference across the bulb must be \SI{6}{\volt} by Kirchoff's Second Law. Therefore:
+
+\[ \frac{\SI{3}{\volt}}{\SI{9}{\volt}} = \frac{\SI{800}{\ohm}}{R} \]
+\[ \implies R = \SI{800}{\ohm}\times \frac{\SI{9}{\volt}}{\SI{3}{\volt}} = \SI{2400}{\ohm}\]
+
+\end{example}
 \end{document}
+
+%sagemathcloud={"latex_command":"latexmk -pdf -f -g -bibtex -synctex=1 -interaction=nonstopmode '5-electricity.tex'"}
