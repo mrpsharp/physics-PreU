@@ -11,7 +11,7 @@ If you have found an error please open an issue and if you would like to contrib
 | 2 Gravitational Fields         | LT       |    ✔     |
 | 3 Deformation Of Solids        |          |          |
 | 4 Energy Concepts              |          |          |
-| 5 Electricity                  | PS       |    ✔      |
+| 5 Electricity                  | PS       |    ✔     |
 | 6 Waves                        |          |          |
 | 7 Superposition                |          |          |
 | 8 Atomic And Nuclear Processes |          |          |
@@ -20,10 +20,10 @@ If you have found an error please open an issue and if you would like to contrib
 | 11 Oscillations                | SEQ      |          |
 | 12 Electric Fields             |          |          |
 | 13 Gravitation                 | LT       |    ✔     |
-| 14 Electromagnetism            |          |          |
+| 14 Electromagnetism            | PS       |          |
 | 15 Special Relativity          | CJRU     |          |
 | 16 Molecular Kinetic Theory    |          |          |
 | 17 Nuclear Physics             |          |          |
 | 18 The Quantum Atom            |          |          |
-| 19 Interpreting Quantum Theory |          |          |
+| 19 Interpreting Quantum Theory | PS       |          |
 | 20 Astronomy And Cosmology     | KAPW     |          |
