@@ -5,7 +5,7 @@ If you have found an error please open an issue and if you would like to contrib
 
 ## Progress so far:
 
-| Chapter                        | Assigned | Complete |
+| Chapter                        | Assigned | Draft Complete |
 |:-------------------------------|:---------|:--------:|
 | 1 Mechanics                    | PS       |    ✔     |
 | 2 Gravitational Fields         | LT       |    ✔     |
@@ -20,7 +20,7 @@ If you have found an error please open an issue and if you would like to contrib
 | 11 Oscillations                | SEQ      |          |
 | 12 Electric Fields             |          |          |
 | 13 Gravitation                 | LT       |    ✔     |
-| 14 Electromagnetism            | PS       |          |
+| 14 Electromagnetism            | PS       |     ✔     |
 | 15 Special Relativity          | CJRU     |          |
 | 16 Molecular Kinetic Theory    |          |          |
 | 17 Nuclear Physics             |          |          |
