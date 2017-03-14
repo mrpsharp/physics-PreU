@@ -3,6 +3,7 @@
 \usepackage{graphicx}
 \usepackage{titlesec}
 \usepackage{tikz}
+\usepackage[european,siunitx]{circuitikz}
 \usepackage[]{amsmath}
 \usepackage{wrapfig}
 \usepackage{needspace}
@@ -13,7 +14,8 @@
 \usepackage{hyperref}
 
 % Section title formatting
-\titleformat{\chapter}[hang]{\normalfont\Huge\bfseries}{\thechapter\ }{1ex}{}
+% \titleformat{\chapter}[hang]{\normalfont\Large\bfseries}{\thechapter\ }{1ex}{}
+\chapterstyle{section}
 
 % Title page formatting
 \pretitle{\begin{center}\Huge\bfseries}
@@ -78,6 +80,7 @@
 \subfile{19-interpreting-quantum-theory}
 \subfile{20-astronomy-and-cosmology}
 \appendix
+\part*{Appendicies}
 \addcontentsline{toc}{part}{Appendicies}
 \subfile{A-equations}
 
