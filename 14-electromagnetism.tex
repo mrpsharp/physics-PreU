@@ -21,7 +21,7 @@ This is the equation for the force on a current-carrying wire of length $l$ with
 
 \spec{recognise and use $F = BQv\sin\theta$}
 
-This is the equation for a particle of charge $Q$ moving at a velocity $v$ at an angle $\theta$ to a magnetic field of strength $B$.
+This is the equation for a particle of charge $Q$ moving at a velocity $v$ at an angle $\theta$ to a magnetic field of strength $B$. Note that this is sometimes called the Lorentz force.
 
 \spec{use Fleming's left-hand rule to solve problems}
 
@@ -40,7 +40,37 @@ Fleming's left-hand rule allows the calculation of the direction of the force on
 \end{figure}
 
 \spec{explain qualitatively the factors affecting the emf induced across a coil when there is relative motion between the coil and a permanent magnet or when there is a change of current in a primary coil linked with it}
+
+Since the emf depends on the rate of change of flux linkage the size of the emf is proportional to the number of turns on a coil. The rate of change of flux is determined by strength of the magnet and how quickly it is moving through the coil.
+
 \spec{recognise and use $E=-\frac{d(N\Phi)}{dt}$ and explain how it is an expression of Faraday’s and Lenz’s laws}
+
+Since $N\Phi$ is the flux linkage then $\frac{d(N\Phi)}{dt}$ is the rate of change of flux linkage. The negative sign indicates that the induced emf acts to oppose the change in flux linkage which created it (which is Lenz's Law).
+
 \spec{derive, recall and use $r = \frac{mv}{BQ}$ for the radius of curvature of a deflected charged particle}
+
+When a charged particle moves through a uniform magnetic field at a constant speed it experiences a constant force at right-angles to its velocity. This results in it moving in circular motion with the Lorentz force providing the centripetal force.
+\[ BQv = \frac{mv^2}{r} \]
+\[\implies r = \frac{mv}{BQ} \]
+
+This allows the calculation of the mass to charge ratio of the particle providing its velocity can be determined (e.g. from an accelerating potential).
+
 \spec{explain the Hall effect, and derive and use $V = Bvd$}
+
+When an electron moves through a magnetic field it will experience a force at right-angles to its motion. This motion could be due to the drift of electrons through a metal due to a current. Figure \ref{halleffect} shows this force acting.
+
+\begin{figure}[h]
+  \begin{center}
+  \begin{tikzpicture}
+    \filldraw [fill=yellow!50!white,draw=black] (0,0) rectangle (5,5);
+    \filldraw[fill=red] (2,2.5) circle (0.2);
+  \end{tikzpicture}
+  \end{center}
+  \caption{The Hall Effect}
+  \label{halleffect}
+\end{figure}
+
+
+
+
 \end{document}
