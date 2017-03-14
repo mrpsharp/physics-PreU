@@ -1,5 +1,5 @@
 \documentclass[main.tex]{subfiles}
-%% Current Author:
+%% Current Author: PS
 \setcounter{chapter}{13}
 \begin{document}
 \chapter{Electromagnetism}
@@ -57,20 +57,32 @@ This allows the calculation of the mass to charge ratio of the particle providin
 
 \spec{explain the Hall effect, and derive and use $V = Bvd$}
 
-When an electron moves through a magnetic field it will experience a force at right-angles to its motion. This motion could be due to the drift of electrons through a metal due to a current. Figure \ref{halleffect} shows this force acting.
+When an electron moves through a magnetic field it will experience a force at right-angles to its motion. If a current flows through a thin film of material then a negative charge will accumulate on one edge of the film. Figure \ref{halleffect} shows this force acting and charge building up.
 
 \begin{figure}[h]
   \begin{center}
   \begin{tikzpicture}
-    \filldraw [fill=yellow!50!white,draw=black] (0,0) rectangle (5,5);
-    \filldraw[fill=red] (2,2.5) circle (0.2);
+    \filldraw [fill=yellow!20!white,draw=black] (0,0) rectangle (10,10);
+    \draw (10,0)  node[anchor=north east] {Magnetic field into page};
+    \filldraw[fill=green] (4,6) circle (0.1) node[anchor=south] {e$^-$};
+    \draw[->] (4.2,6) -- (5.5,6) node[midway,above]{$v$};
+    \draw[->, thick, red] (4,5.8) -- (4,4) node[anchor=north] {$F$};
+    \foreach \x in {1,2,...,9} 
+        {\draw (\x,.25) node{--};\draw[color=red] (\x,9.75) node{+};}
+    \draw[<->] (10.5,0) -- (10.5,10) node[midway, right] {$d$};
   \end{tikzpicture}
   \end{center}
   \caption{The Hall Effect}
   \label{halleffect}
 \end{figure}
 
+Over time the charges build up on either side of the wager until equilibrium is reached. At this point the the force due to the electric field on the charge equals the force due to the Lorentz force on the charge.
+$$ q\frac{V}{d} = Bqv $$
+$$ V_\text{hall} = Bvd $$
 
+This relationship is the basis of a Hall Probe which is used to measure magnetic fields. In these circumstances the velocity $v$ is the drift velocity of the electrons.
 
 
 \end{document}
+
+%sagemathcloud={"latex_command":"latexmk -xelatex -f -g -bibtex -synctex=1 -interaction=nonstopmode '14-electromagnetism.tex'"}
