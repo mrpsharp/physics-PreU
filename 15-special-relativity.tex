@@ -4,20 +4,6 @@
 \begin{document}
 \chapter{Special Relativity}
 
-\usepackage{tikz}
-%% Current Author: CJRU
-% \setsecnumdepth{part} %% Uncomment to remove numbering for individual run
-	\normalsize
-%	\chapter{Special Relativity}
-
-\Large 
-\bf Special Relativity
-\normalfont
-\normalsize
-\\
-
-
-
 This chapter contains revision on the topics of:
 
 \begin {itemize}
@@ -27,14 +13,8 @@ This chapter contains revision on the topics of:
 
 \end {itemize}
 
-\bf Candidates should be able to:
-\normalfont
-
-\begin{enumerate}
-	
-\item recall that Maxwell’s equations describe the electromagnetic field and predict the existence of
-electromagnetic waves that travel at the speed of light (Maxwell’s equations are not required)
-\\
+\textbf{Candidates should be able to:}
+\spec{recall that Maxwell’s equations describe the electromagnetic field and predict the existence of electromagnetic waves that travel at the speed of light (Maxwell’s equations are not required)}
 
 Maxwell related electricity and magnetism in a mathematically elegant way, and in doing so predicted that the speed of electromagnetic waves was:
 \\
@@ -43,24 +23,26 @@ $c=\frac{1}{\sqrt{\epsilon_0\mu_0}}$ = 3 x 10$^8$ ms$^{-1}$
 
 
 
-\item *recall that analogies with mechanical wave motion led most physicists to assume that electromagnetic
-waves must be vibrations in an electromagnetic medium (the aether) filling absolute space
+\spec{*recall that analogies with mechanical wave motion led most physicists to assume that electromagnetic
+waves must be vibrations in an electromagnetic medium (the aether) filling absolute space}
 
 Just what was it that was oscillating? Most physicists thought there must be a medium...
 
-\item *recall that experiments to measure variations in the speed of light caused by the Earth’s motion
-through the ether gave null results
-\\
+\spec{*recall that experiments to measure variations in the speed of light caused by the Earth’s motion
+through the ether gave null results}
 
 ...However experiments such as the Michelson-Morley experiment\footnote{http://scienceworld.wolfram.com/physics/Michelson-MorleyExperiment.html} showed that there was no difference in the measurement of the speed of light over the course of a year - if the Earth was travelling through an aether you would expect the discrepancy to be measurable. But crucially no differences were found.
-\\
-\item *understand that Einstein’s theory of special relativity dispensed with the aether and postulated that the
-speed of light is a universal constant
+
+
+\spec{*understand that Einstein’s theory of special relativity dispensed with the aether and postulated that the
+speed of light is a universal constant}
 
 Einstein put forward the idea that there was no medium, and the speed of light was fixed.
-\\
-\item *state the postulates of Einstein’s special principle of relativity
-\\
+
+
+\spec{*state the postulates of Einstein’s special principle of relativity}
+
+
 
 His two postulates were 
 \begin{itemize}
@@ -70,11 +52,10 @@ His two postulates were
 
 From these two postulates, it is possible to deduce the idea that time is not fixed for all observers, and that distances measured by two observers moving relative to each other may be different! A whole new avenue of physics was opened.
 
-\item *explain how Einstein’s postulates lead to the idea of time dilation and length contraction that
-undermines the idea of absolute time and space
+\spec{*explain how Einstein’s postulates lead to the idea of time dilation and length contraction that
+undermines the idea of absolute time and space}
 
-
-Light clock
+\subsection{Light clock}
 
 Imagine a beam of light bouncing up and down between two mirrors, spaced a distance of 3 x 10$^8$ m apart
 
@@ -93,7 +74,7 @@ Imagine a beam of light bouncing up and down between two mirrors, spaced a dista
 \end{figure}
 
 Now imagine that you are moving right-to-left relative to the 'light clock' (or that the light clock is moving left-to-right relative to you - it doesn't matter...)
-\\
+
 
 If the speed of light is constant for all observers, as Einstein's postulates require it will take longer between bounces, because it has to travel further due to the extra horizontal component:
 
@@ -120,13 +101,15 @@ If the speed of light is constant for all observers, as Einstein's postulates re
 
 
 
-\item *recognise and use $t'=\frac{t}{\sqrt{1-\frac{v^2}{c^2}}}$ and $l=l\sqrt{1-\frac{v^2}{c^2}}$
+\spec{*recognise and use $t'=\frac{t}{\sqrt{1-\frac{v^2}{c^2}}}$ and $l=l\sqrt{1-\frac{v^2}{c^2}}$}
 
-example question: 
+\begin{example}
 
 Cosmic radiation constantly bombards the Earth from outer space. The majority of these cosmic rays are protons which, when they hit the Earth’s upper atmosphere, create sub-atomic particles called pions, which then quickly decay into muons. Suppose a cosmic ray proton hits a molecule of nitrogen in the upper atmosphere at a distance of 50 km above the Earth’s surface. If the pion produced has a velocity of 0.9999c and has an average lifetime (in its own time) of t = 2.60 × 10–8 s. How far would the pion travel before decaying taking into the effects of time dilation?
 
-answer: First we must calculate the time it takes to decay according to a stationary observer. We do this by calculating the Lorentz factor $\gamma$ and multiplying this by the lifetime in its own frame of reference:
+\answer 
+
+First we must calculate the time it takes to decay according to a stationary observer. We do this by calculating the Lorentz factor $\gamma$ and multiplying this by the lifetime in its own frame of reference:
 
 $\gamma = \frac{1}{\sqrt{1-\frac{v^2}{c^2}}} = 70.7$
 \\
@@ -134,10 +117,11 @@ $\gamma = \frac{1}{\sqrt{1-\frac{v^2}{c^2}}} = 70.7$
 so time taken to decay = 70.7 x 2.60 x 10$^{-8}$ = 1.83 x 10$^{-6}$ seconds
 \\
 Then distance travelled = speed x time = 550 m
+\end{example}
 
-\item *understand that two events which are simultaneous in one frame of reference may not be
+\spec{*understand that two events which are simultaneous in one frame of reference may not be
 simultaneous in another; explain this in terms of the fundamental postulates of relativity and distinguish
-this from the phenomenon of time dilation
+this from the phenomenon of time dilation}
 \\
 
 Imagine a situation in which a light is turned on in the middle of a train carriage, and light rays travel out in both forward and backwards directions. 
@@ -166,7 +150,7 @@ From the reference frame of a person riding along with the train, the light reac
 		
 		\begin{tikzpicture}
 		
-		\draw[very thick, grey, ->] (4,6) --   (6,6);
+		\draw[very thick, gray, ->] (4,6) --   (6,6);
 		\draw (2,0) rectangle (12,5);
 		\draw (4,0) circle (1);
 		\draw (10,0) circle (1);
@@ -186,7 +170,7 @@ In the reference frame of a stationary observer, the train is moving forward (to
 		
 		\begin{tikzpicture}
 		
-		\draw[very thick, grey, ->] (6,6) --   (4,6);
+		\draw[very thick,gray, ->] (6,6) --   (4,6);
 		\draw (-2,0) rectangle (8,5);
 		\draw (0,0) circle (1);
 		\draw (6,0) circle (1);
@@ -202,11 +186,10 @@ In the reference frame of somebody travelling faster than the train, the train a
 The idea of two events being simultaneous is therefore impossible - it depends on your reference frame.
 \\
 
-This effect is  a completely different effect to time dilation.  The effect we are dealing with here is called \bf loss of simultaneity.\normalfont
-
-\end{enumerate}
+This effect is  a completely different effect to time dilation.  The effect we are dealing with here is called \textbf{loss of simultaneity}.
 
 
 
-\normalsize	
+
+
 \end{document}
