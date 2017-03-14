@@ -25,5 +25,5 @@ If you have found an error please open an issue and if you would like to contrib
 | 16 Molecular Kinetic Theory    |          |          |
 | 17 Nuclear Physics             |          |          |
 | 18 The Quantum Atom            |          |          |
-| 19 Interpreting Quantum Theory |          |          |
+| 19 Interpreting Quantum Theory |  PS     |          |
 | 20 Astronomy And Cosmology     | KAPW     |          |
