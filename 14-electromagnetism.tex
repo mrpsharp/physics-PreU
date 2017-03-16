@@ -27,22 +27,28 @@ This is the equation for a particle of charge $Q$ moving at a velocity $v$ at an
 
 Fleming's left-hand rule allows the calculation of the direction of the force on either a charged particle or a current-carrying wire. The geometry is shown below.
 
-\begin{figure}[h]
+\begin{figure}[ht]
   \begin{center}
   \begin{tikzpicture}
-      \draw [->, gray,very thick] (0,0) -- (2,0) node[anchor=west] {current};
-      \draw [->, red,very thick] (0,0) -- (0,3) node[anchor=south] {force};
-      \draw [->, black,very thick] (0,0) -- (1.4,1.4) node[anchor=south west] {field};
+      \draw [->, gray,very thick] (0,0) -- (4,0) node[anchor=west,text width=5cm, ] {second finger:\\current, $I$};
+      \draw [->, red,very thick] (0,0) -- (0,3) node[anchor=south,text width=2cm, ] {thumb:\\force};
+      \draw [->, black,very thick] (0,0) -- (2,2) node[text width=5cm, anchor=west] {first finger:\\field, $B$};
     \end{tikzpicture}
   \end{center}
   \caption{Fleming's left-hand rule}
   \label{flemminglh}
 \end{figure}
 
+It is important to note that if you are using the left-hand rule to predict the direction of force on a moving negatively charged particle then the \emph{current} is flowing in the opposite direction to the velocity of the particle.
+
+\emph{Note that vector form of the equations explains the left-hand rule and sine terms as follows:}
+$$\mathbf{F} = q\mathbf{v}\times\mathbf{B}$$
+$$\mathbf{F} = \mathbf{I}L\times\mathbf{B}$$
+
 \spec{explain qualitatively the factors affecting the emf induced across a coil when there is relative motion between the coil and a permanent magnet or when there is a change of current in a primary coil linked with it}
 
 Since the emf depends on the rate of change of flux linkage the size of the emf is proportional to the number of turns on a coil. The rate of change of flux is determined by strength of the magnet and how quickly it is moving through the coil.
-
+\newpage
 \spec{recognise and use $E=-\frac{d(N\Phi)}{dt}$ and explain how it is an expression of Faraday’s and Lenz’s laws}
 
 Since $N\Phi$ is the flux linkage then $\frac{d(N\Phi)}{dt}$ is the rate of change of flux linkage. The negative sign indicates that the induced emf acts to oppose the change in flux linkage which created it (which is Lenz's Law).
@@ -55,6 +61,7 @@ When a charged particle moves through a uniform magnetic field at a constant spe
 
 This allows the calculation of the mass to charge ratio of the particle providing its velocity can be determined (e.g. from an accelerating potential).
 
+\newpage
 \spec{explain the Hall effect, and derive and use $V = Bvd$}
 
 When an electron moves through a magnetic field it will experience a force at right-angles to its motion. If a current flows through a thin film of material then a negative charge will accumulate on one edge of the film. Figure \ref{halleffect} shows this force acting and charge building up.
