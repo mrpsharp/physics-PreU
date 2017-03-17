@@ -10,6 +10,8 @@
 \usepackage{xcolor}
 \usepackage{siunitx}
 
+
+
 % Should be final package loaded
 \usepackage{hyperref}
 
@@ -50,6 +52,7 @@
 \setcounter{tocdepth}{0}
 
 \begin{document}
+\raggedbottom
 \frontmatter
 \begin{titlingpage}
 	\maketitle
@@ -76,6 +79,7 @@
 \subfile{7-superposition}
 \subfile{8-atomic-and-nuclear-processes}
 \subfile{9-quantum-ideas}
+\addtocontents{toc}{\protect\newpage}
 \part*{Part B}
 \addcontentsline{toc}{part}{Part B}
 \subfile{10-rotational-mechanics}
