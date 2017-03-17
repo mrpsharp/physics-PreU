@@ -36,6 +36,9 @@
 {\begin{lrbox}{\examplebox}\begin{minipage}{0.9\textwidth}\textbf{Example Question}\par}
 {\end{minipage}\end{lrbox}\fbox{\usebox{\examplebox}}}
 
+% Content
+\newenvironment{content}{\section*{Content}
+\begin{itemize}}{\end{itemize}}
 
 % Paragraph formatting
 \setlength{\parindent}{0em}
@@ -96,4 +99,4 @@
 
 \end{document}
 
-%sagemathcloud={"latex_command":"pdflatex -synctex=1 -interact=nonstopmode 'main.tex'"}
+%sagemathcloud={"latex_command":"latexmk -xelatex -f -g -bibtex -synctex=1 -interaction=nonstopmode 'main.tex'"}
