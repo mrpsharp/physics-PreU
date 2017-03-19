@@ -42,7 +42,7 @@ Developing a quantitative scale for temperature was a difficult process\footnote
     \caption{Pressure against Temperature of a Gas}
 \end{figure}
 
-The temperature of Absolute Zero was defined as zero kelvin, \SI{0}{\kelvin} with this being equal to \SI{-273}{\celsius}. This scale is known as the absolute temperature scale. 
+The temperature of Absolute Zero was defined as zero kelvin, \SI{0}{\kelvin} with this being equal to \SI{-273}{\celsius}. This scale is known as the absolute temperature scale.
 
 If the absolute temperature scale is used, then two more empirical laws can be stated. The first is Charles' Law:
 
@@ -63,7 +63,7 @@ $$ \SI{0}{\kelvin} = \SI{-273}{\celsius}$$
 
 \spec{recognise and use the Avogadro number $N_A = \SI{6.02e23}{\per\mol}$}
 
-The Avogadro number is the number of particles (atoms or molecules) which are present in one mole of the substance. It can also be thought of as the constant of proportionality between the mass of the particle and the mass of one mole of the substance. 
+The Avogadro number is the number of particles (atoms or molecules) which are present in one mole of the substance. It can also be thought of as the constant of proportionality between the mass of the particle and the mass of one mole of the substance.
 
 For example, using carbon-12:
 $$ N = \frac{\SI{0.012}{\kilo\gram}}{\SI{1.99e-26}{\kilo\gram}} = 6.0302\times10^{23}$$
@@ -96,11 +96,20 @@ When a small, visible particle such as a pollen grain or smoke particle is obser
 \spec{understand that the kinetic theory model is based on the assumptions that the particles occupy no volume, that all collisions are elastic, and that there are no forces between particles until they collide}
 
 Notes on these assumptions:
-
+\begin{enumerate}
+  \item \SI{1}{\metre^3} of air contains approximately $$N = \frac{PV}{KT} = \frac{\SI{101}{\kilo\pascal}\SI{1}{\metre^3}}{\SI{1.38e-23}{\joule\per\kelvin}\SI{298}{\kelvin}} = 2.5\times 10^{25}$$
+  particles. If these particles are modeled as spheres with a diameter of \SI{300}{\pico\metre} then the particles take up a fraction of the total volume of around $10^{-27}$.
+  \item Elastic collisions mean that the kinetic energy of the particles is not lost.
+  \item The particles travel in straight lines between collisions. Forces between the particles would cause them to clump together. The lack of forces between particles also means that all the energy is in the form of kinetic energy of the particles.
+\end{enumerate}
 
 \spec{understand that a model will begin to break down when the assumptions on which it is based are no longer valid, and explain why this applies to kinetic theory at very high pressures or very high or very low temperatures}
 
-
+\begin{description}
+  \item[High pressures] At high pressures particles will be forces together. This means that the first assumption about negligible volume may break down as the gaps between particles decreases. In addition, the gas may get close to the point of condensation and particles may begin to attract each other.
+  \item[Very low temperatures] Similarly to high pressures, at low temperatures the molecules may be very close to one another and may begin to condense, implying forces between particles.
+  \item[Very high temperatures] At very high temperatures atoms become a plasma, i.e. separate into positive ions and free electrons. Under such circumstances forces exist between the particles.
+\end{description}
 
 \spec{derive $PV=\frac{1}{3}Nm\langle c^2\rangle$ from first principles to illustrate how the microscopic particle model can account for macroscopic observations}
 
@@ -125,7 +134,7 @@ If we take a system of $N$ particles and replace the properties of our particle 
 \[ F = \sum_i f_i = \frac{Nm\langle{v_x}^2\rangle}{d}\]
 Note that this includes the expression $\langle{v_x}^2\rangle$ - the mean of the squared x-velocity. The order here is important and the mean velocity of the particles is zero. The square of a component of velocity is related to the velocity by pythagoras:
 \[ c^2 = {v_x}^2 + {v_y}^2 + {v_z}^2\]
-Now we are using many particles we can make the assumption that a particle is equally likely to be travelling in any direction, therefore 
+Now we are using many particles we can make the assumption that a particle is equally likely to be travelling in any direction, therefore
 \[ \langle{v_x}^2\rangle = \langle{v_y}^2\rangle = \langle{v_y}^2\rangle \]
 giving
 \[ \langle{v_x}^2\rangle = \frac{1}{3}\langle c^2 \rangle \]
@@ -143,14 +152,53 @@ We now note that $Ad$ is equal to the volume of the box and re-arrange to give
 The formula for $PV$ derived above can be equated with the formula from the empirical gas laws ($PV=nRT$) to give:
 \[  \frac{1}{3}Nm\langle c^2\rangle = nRT \]
 Since $n = N / N_A $ and $ R = N_A k $ the right-hand side becomes $NkT$. This is usually re-arranged to give
-\[ \frac{1}{2}m<c^2> = \frac{3}{2}kT \]
+\[ \frac{1}{2}m\langle c^2 \rangle = \frac{3}{2}kT \]
 as now the left-hand side represents the average kinetic energy of a molecule in the gas. Since this is an ideal gas and has no potential energies this is also the total energy per molecule. Hence the link between the macroscopic quantity of temperature and the microscopic energy per molecule is arrived at.
 
 \spec{understand and calculate the root mean square speed for particles in a gas}
+
+The root mean square (RMS) is usually calculated by re-arranging the equation above and square-rooting:
+
+$$ \sqrt{\langle c^2 \rangle} = \sqrt{\frac{3kT}{m}} $$
+
 \spec{understand the concept of internal energy as the sum of potential and kinetic energies of the molecules}
-\spec{recall and use the first law of thermodynamics expressed in terms of the change in internal energy, the
-heating of the system and the work done on the system}
+
+In an ideal gas the internal energy is equal to the sum of kinetic energyies of the molecules, i.e.
+
+$$ U = \frac{1}{2}Nm\langle c^2 \rangle = \frac{3}{2}NkT $$
+
+\spec{recall and use the first law of thermodynamics expressed in terms of the change in internal energy, the heating of the system and the work done on the system}
+
+This can be written as:
+$$ \Delta U = \Delta Q + \Delta W $$
+\emph{Note that in some textbooks the first law is written in terms of the work done \emph{by} the system, giving $\Delta W$ a different sign. If you think in terms of conservation of energy in the particular example you will be alright.}
+
+\begin{figure}
+  \begin{tikzpicture}[domain=1:9]
+    \draw[->] (-0.5,0) -- (12,0) node[anchor=north] {$V$};
+    \draw[->] (0,-0.5) -- (0,10) node[anchor=east] {$P$};
+    \draw (1,9) node[anchor=south]  {\textbf{A}};
+    \draw[thick, ->]  (1,9) .. controls (4,7) and (7,6.2) .. (8,6) node[midway, anchor=south west] {\textbf{1}};
+    \draw[thick, ->] (8,6) .. controls (9,4.5) and (10,3) .. (12,1) node[anchor=south west, midway] {\textbf{2}};
+    \draw[thick, ->] (12,1) .. controls (8,1.5)  .. (3,3) node[midway, anchor=north east] {\textbf{3}};
+    \draw[thick, ->] (3,3) .. controls (1.6,6)  .. (1,9) node[midway, anchor=north east] {\textbf{4}};
+  \end{tikzpicture}
+  \caption{The Carnot Cycle}
+  \label{carnotcycle}
+\end{figure}
+
+The Carnot Cycle shown in Firgure \ref{carnotcycle} is commonly used to test the understanding for the first law. The cycle begins and ends at point \textbf{A}. This means that the internal energy of the system at the start and end of the cycle is the same (as $PV=nRT$ and $T$ is proportional to the internal energy). The changes at each stage of the cycle are as follows:
+
+\begin{description}
+  \item[1. Isothermal Expansion]
+  \item[2. Adiabatic Expansion]
+  \item[3. Isothermal Compression]
+  \item[4. Adiabatic Compression]
+\end{description}
+
 \spec{recognise and use W = p∆V for the work done on or by a gas}
+
+
 \spec{understand qualitatively how the random distribution of energies leads to the Boltzmann factor $e^{-\frac{E}{kT}}$ as a
 measure of the chance of a high energy}
 \spec{apply the Boltzmann factor to activation processes including rate of reaction, current in a semiconductor
