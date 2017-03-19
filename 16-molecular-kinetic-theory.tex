@@ -17,20 +17,135 @@
 
 \spec{explain how empirical evidence leads to the gas laws and to the idea of an absolute scale of temperature}
 
+In the seventeenth century Robert Boyle began making quantitative measurements on gases at different pressures. By observing the results of varying the volumes of gases on their pressures he postulated what has become known as Boyles' Law.
 
+\begin{center}
+The product of the pressure and volume of a sample of gas at constant termperature remains constant.
+\end{center}
+
+Developing a quantitative scale for temperature was a difficult process\footnote{see Hasok Chang's \emph{Inventing Temperature} for more details} and it was not until the end of the eighteenth century that a relationship between pressure and temperature was discovered. Pressure was found to be linearly related to temperature as measured in the celsius scale. It was found that all samples of gases had the same intercept with the x-axis and this lead to the idea of \emph{absolute zero}, the temperature at which the pressure of the gas would be zero.
+
+\begin{figure}[ht]
+    \begin{tikzpicture}
+        \draw[->](0,0) -- (10,0) node[anchor=north] {$T$ \si{\celsius}};
+        \draw[->](8,-0.2) -- (8,5) node[anchor=west] {$P$};
+        \draw[thick, red, dashed] (1,0) -- (8,3.0975);
+        \draw[thick, red] (8,3.0975) -- (9.7,3.85);
+        \draw (8.1,3.175) node[color=blue] {x};
+        \draw (8.4,3.25) node[color=blue] {x};
+        \draw (8.7,3.4) node[color=blue] {x};
+        \draw (9.0,3.5) node[color=blue] {x};
+        \draw (9.3,3.65) node[color=blue] {x};
+        \draw (9.6,3.75) node[color=blue] {x};
+        \draw[->] (1,-1) node[anchor=north]{Absolute Zero} -- (1,-0.2);
+    \end{tikzpicture}
+    \caption{Pressure against Temperature of a Gas}
+\end{figure}
+
+The temperature of Absolute Zero was defined as zero kelvin, \SI{0}{\kelvin} with this being equal to \SI{-273}{\celsius}. This scale is known as the absolute temperature scale. 
+
+If the absolute temperature scale is used, then two more empirical laws can be stated. The first is Charles' Law:
+
+\begin{center}
+For a fixed volume of gas, the pressure is proportional to the absolute temperature.
+\end{center}
+
+The second is Gay-Lussac's law:
+
+\begin{center}
+For gas at a fixed pressure, the volume of a sample of gas is proportional to its absolute temperature
+\end{center}
 
 \spec{use the units kelvin and degrees Celsius and convert from one to the other}
-\spec{recognise and use the Avogadro number NA = 6.02 × 1023 mol–1}
+
+Conversion between kevin and degrees celsius is simply a matter of adding or subtracting 273 as the two scale share the same size of unit:
+$$ \SI{0}{\kelvin} = \SI{-273}{\celsius}$$
+
+\spec{recognise and use the Avogadro number $N_A = \SI{6.02e23}{\per\mol}$}
+
+The Avogadro number is the number of particles (atoms or molecules) which are present in one mole of the substance. It can also be thought of as the constant of proportionality between the mass of the particle and the mass of one mole of the substance. 
+
+For example, using carbon-12:
+$$ N = \frac{\SI{0.012}{\kilo\gram}}{\SI{1.99e-26}{\kilo\gram}} = 6.0302\times10^{23}$$
+
+The number of moles of a substance can be found by:
+\begin{enumerate}
+\item dividing the number of particles by the Avogadro number;
+\item dividing the mass of the sample by the molar mass.
+\end{enumerate}
+
 \spec{recall and use pV = nRT as the equation of state for an ideal gas}
+
+This equation includes the following quantities:
+
+\begin{center}\begin{tabular}{ccc}
+Symbol & Quantity & Standard Unit \\ \hline
+$p$ & pressure & \si{\pascal} \\
+$V$ & volume & \si{\metre^3} \\
+$n$ & no. of moles of the gas & N/A \\
+$R$ & the molar gas constant & \si{\joule\per\mole\per\kelvin} \\
+$T$ & the absolute temperature & \si{\kelvin} \\
+\end{tabular}\end{center}
+
+$R$, the molar gas constant, has a value of \SI{8.314}{\joule\per\mole\per\kelvin} and is equal to $N_A k$.
+
 \spec{describe Brownian motion and explain it in terms of the particle model of matter}
-\spec{understand that the kinetic theory model is based on the assumptions that the particles occupy no volume,
-that all collisions are elastic, and that there are no forces between particles until they collide}
-\spec{understand that a model will begin to break down when the assumptions on which it is based are no
-longer valid, and explain why this applies to kinetic theory at very high pressures or very high or very low
-temperatures}
-\spec{derive $PV=\frac{1}{3}Nm<c^2>$ from first principles to illustrate how the microscopic particle model can account
-for macroscopic observations}
-\spec{recognise and use $\frac{1}{2}m<c^2> = \frac{3}{2}kT$}
+
+When a small, visible particle such as a pollen grain or smoke particle is observed under a microscope it is seen to move around in an erratic, random manner. This is explained by the fact that it is being constantly bombarded by air molecules whose effects do not quite cancel out. Since the pollen grain or smoke particle is much more massive than the air molecules it follows that these must be moving very rapidly. In 1905 Albert Einsein published a detailed statistical treatment of Brownian motion using the theory of atoms and thus Brownian motion provides very strong evidence for the atomic hypothesis.
+
+\spec{understand that the kinetic theory model is based on the assumptions that the particles occupy no volume, that all collisions are elastic, and that there are no forces between particles until they collide}
+
+Notes on these assumptions:
+
+
+\spec{understand that a model will begin to break down when the assumptions on which it is based are no longer valid, and explain why this applies to kinetic theory at very high pressures or very high or very low temperatures}
+
+
+
+\spec{derive $PV=\frac{1}{3}Nm\langle c^2\rangle$ from first principles to illustrate how the microscopic particle model can account for macroscopic observations}
+
+This theory assumes that pressure is caused by the averaging the many elastic collisions of a number of particles with the walls of the container.
+
+\begin{figure}[ht]
+    \begin{center}\begin{tikzpicture}
+        \draw (0,0) rectangle (10,10);
+        \fill (5,5) circle (2pt);
+        \draw[->] (5,5) -- (6,6) node[anchor=west] {$v$};
+        \draw[->, red] (5,5) -- (6,5) node[anchor=west] {$v_x$};
+        \draw[<->] (0.1, 1) -- (9.9,1) node[midway, above] {$d$};
+    \end{tikzpicture}\end{center}
+    \caption{A particle in a box}
+\end{figure}
+
+When the particle, $i$,  collides with the right-hand wall of the box it rebounds with the same y-velocity and a negative x-velocity. The change in momentum of the particle is therefore $ \Delta p = 2mv_x $, where $m$ is the mass of the particle. This is equal to the impulse delivered on the wall during the particle collision.
+$$ \text{Impulse} = 2mv_x $$
+The particle will now travel to the left-hand side of the box and back. The time taken to do this is equal to $2d/v_x$. We can therefore think of the impulse due to a single collision being averaged over this period of time. If this is the case then the force due to an individual particle is given as:
+\[ f_i = \frac{2mv_x}{2d/v_x} = \frac{m{v_x}^2}{d}\]
+If we take a system of $N$ particles and replace the properties of our particle with the average properties of the particles in the system we get:
+\[ F = \sum_i f_i = \frac{Nm\langle{v_x}^2\rangle}{d}\]
+Note that this includes the expression $\langle{v_x}^2\rangle$ - the mean of the squared x-velocity. The order here is important and the mean velocity of the particles is zero. The square of a component of velocity is related to the velocity by pythagoras:
+\[ c^2 = {v_x}^2 + {v_y}^2 + {v_z}^2\]
+Now we are using many particles we can make the assumption that a particle is equally likely to be travelling in any direction, therefore 
+\[ \langle{v_x}^2\rangle = \langle{v_y}^2\rangle = \langle{v_y}^2\rangle \]
+giving
+\[ \langle{v_x}^2\rangle = \frac{1}{3}\langle c^2 \rangle \]
+Substitution into the equation for $F$ gives
+\[ F = \frac{\frac{1}{3}Nm\langle c^2\rangle}{d} \]
+and
+\[ P = \frac{F}{A} = \frac{\frac{1}{3}Nm\langle c^2\rangle}{Ad} \]
+We now note that $Ad$ is equal to the volume of the box and re-arrange to give
+\[ PV = \frac{1}{3}Nm\langle c^2\rangle \]
+
+
+
+\spec{recognise and use $\frac{1}{2}m\langle c^2\rangle = \frac{3}{2}kT$}
+
+The formula for $PV$ derived above can be equated with the formula from the empirical gas laws ($PV=nRT$) to give:
+\[  \frac{1}{3}Nm\langle c^2\rangle = nRT \]
+Since $n = N / N_A $ and $ R = N_A k $ the right-hand side becomes $NkT$. This is usually re-arranged to give
+\[ \frac{1}{2}m<c^2> = \frac{3}{2}kT \]
+as now the left-hand side represents the average kinetic energy of a molecule in the gas. Since this is an ideal gas and has no potential energies this is also the total energy per molecule. Hence the link between the macroscopic quantity of temperature and the microscopic energy per molecule is arrived at.
+
 \spec{understand and calculate the root mean square speed for particles in a gas}
 \spec{understand the concept of internal energy as the sum of potential and kinetic energies of the molecules}
 \spec{recall and use the first law of thermodynamics expressed in terms of the change in internal energy, the
