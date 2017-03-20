@@ -2,6 +2,7 @@
 %% Current Author: PS
 \setcounter{chapter}{15}
 \begin{document}
+\raggedbottom
 \chapter{Molecular Kinetic Theory}
 \begin{content}
 \item absolute scale of temperature
@@ -173,7 +174,7 @@ This can be written as:
 $$ \Delta U = \Delta Q + \Delta W $$
 \emph{Note that in some textbooks the first law is written in terms of the work done \emph{by} the system, giving $\Delta W$ a different sign. If you think in terms of conservation of energy in the particular example you will be alright.}
 
-\begin{figure}
+\begin{figure}[h]
   \begin{tikzpicture}[domain=1:9]
     \draw[->] (-0.5,0) -- (12,0) node[anchor=north] {$V$};
     \draw[->] (0,-0.5) -- (0,10) node[anchor=east] {$P$};
@@ -190,21 +191,82 @@ $$ \Delta U = \Delta Q + \Delta W $$
 The Carnot Cycle shown in Firgure \ref{carnotcycle} is commonly used to test the understanding for the first law. The cycle begins and ends at point \textbf{A}. This means that the internal energy of the system at the start and end of the cycle is the same (as $PV=nRT$ and $T$ is proportional to the internal energy). The changes at each stage of the cycle are as follows:
 
 \begin{description}
-  \item[1. Isothermal Expansion]
-  \item[2. Adiabatic Expansion]
-  \item[3. Isothermal Compression]
-  \item[4. Adiabatic Compression]
+  \item[1. Isothermal Expansion] In stage 1 the gas expands at contant temperature. Since it is expanding, the gas is doing work on the surroundings and since it is at constant temperature the internal energy of the gas remains constant. Therefore the second law implies that the gas must be absorbing heat. \emph{Note that isothermal changes are often indicated by describing the change as occuring slowly.}
+  \item[2. Adiabatic Expansion] In stage 2 the gas expands without transferring heat to/from the surroundings. Since it is doing work the gas's internal energy drops, as does its temperature.
+  \item[3. Isothermal Compression] In stage 3 the gas is compressed at constant temperature. Since work is done on the gas and the internal energy remains constant it must be the case that heat is lost to the surroundings.
+  \item[4. Adiabatic Compression] Finally, the gas is compressed without heat transfer to/from the surroundings. Work is done on the gas and therefore the internal energy, and termperature, increase.
 \end{description}
+
+
+\begin{example}
+
+Complete the table for the Carnot Cycle shown in figure \ref{carnotcycle}.
+
+\begin{tabular}{|c|p{3cm}|p{3cm}|p{3cm}|}
+  \hline
+  stage & \centering thermal energy supplied \textbf{to} the gas / J & \centering work done \textbf{on} the gas / J & \centering \textbf{increase} in internal energy of the gas / J \tabularnewline \hline
+  1 & \centering\centering(a) & \centering-936 & \centering(b) \tabularnewline \hline
+  2 & \centering0 & \centering(c) & \centering(d) \tabularnewline \hline
+  3 & \centering(e) & \centering+702 & \centering0 \tabularnewline \hline
+  4 & \centering(f) & \centering+844 & \centering+844 \tabularnewline \hline
+\end{tabular}
+
+
+\answer
+
+In stage 1 there is no change in internal energy of the gas, so (b) equals zero. In order to satisfy the first law of thermodynamics the thermal energy supplied must equal the work done \textbf{by} the gas so (a) equals \SI{+936}{\joule}.
+
+As the total change in internal energy throughout the cycle must be zero, we can now calculate (d) as being \SI{-844}{\joule}.
+
+(c) can be calculated using the first law as \SI{-844}{\joule}.
+
+A similar argument to that used in stage 1 can be used in stage 3 to give (e) as \SI{-702}{\joule}.
+
+In stage 4 no energy is transferred by heating therefore (f) is equal to zero.
+
+
+
+The final table is therefore:
+
+\begin{tabular}{|c|p{3cm}|p{3cm}|p{3cm}|}
+  \hline
+  stage & \centering thermal energy supplied \textbf{to} the gas / J & \centering work done \textbf{on} the gas / J & \centering \textbf{increase} in internal energy of the gas / J \tabularnewline \hline
+  1 & \centering\centering \textbf{+936} & \centering-936 & \centering \textbf{0} \tabularnewline \hline
+  2 & \centering0 & \centering \textbf{-844} & \centering \textbf{-844} \tabularnewline \hline
+  3 & \centering \textbf{-702} & \centering+702 & \centering0 \tabularnewline \hline
+  4 & \centering \textbf{0} & \centering+844 & \centering+844 \tabularnewline \hline
+\end{tabular}
+
+\end{example}
+
 
 \spec{recognise and use W = p∆V for the work done on or by a gas}
 
+This follows from the definition of work done. If the cross-sectional area is a contant $A$, then derivation is as follows:
+\[ W = F\Delta s = PA \times \Delta s = P\Delta V \]
 
 \spec{understand qualitatively how the random distribution of energies leads to the Boltzmann factor $e^{-\frac{E}{kT}}$ as a
 measure of the chance of a high energy}
+
+When a large number of particles share a fixed amount of energy between them and are able to transfer energy through random collisions, it turns out that the most likely distribution of energies  follows a specific distribution - the Boltzmann distribution. One of the features of this distribution is that the fraction of particles with an energy greater than a certain amount of energy, $E$, is given by the Boltzmann factor, i.e.
+\[ \frac{N_{E}}{N_{total}} = e^{-\frac{E}{kT}} \]
 \spec{apply the Boltzmann factor to activation processes including rate of reaction, current in a semiconductor
 and creep in a polymer}
-\spec{*describe entropy qualitatively in terms of the dispersal of energy or particles and realise that entropy is
-related to the number of ways in which a particular macroscopic state can be realised}
+
+From the point above, it follows that the rate of any process which depends on an activation energy is likely to be proportional to the Boltzmann factor.
+
+\begin{center}
+  \begin{tabular}{p{3cm}p{4cm}p{4cm}}
+    \textbf{Process} & \textbf{Depends on } & \textbf{Energy $E$ represents} \\ \hline
+    rate of reaction & the number of particles with an energy above the activation energy & the activation energy of the process \\
+    current in a semiconductor & the number of free charge carriers & the energy required for a charge carrier to move the the conduction band, i.e. the band gap \\
+    creep in a polymer & the ability of the polymer chains to break the weak intermolecular forces between them & the energy required to break the intermolecular bonds between polymer chains \\
+  \end{tabular}
+\end{center}
+
+\spec{*describe entropy qualitatively in terms of the dispersal of energy or particles and realise that entropy is related to the number of ways in which a particular macroscopic state can be realised}
+
+
 \spec{*recall that the second law of thermodynamics states that the entropy of an isolated system cannot
 decrease and appreciate that this is related to probability}
 \spec{*understand that the second law provides a thermodynamic arrow of time that distinguishes the future
