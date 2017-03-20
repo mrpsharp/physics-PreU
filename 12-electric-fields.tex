@@ -1,5 +1,6 @@
 \documentclass[main.tex]{subfiles}
 %% Current Author:
+\usetikzlibrary{arrows.meta}
 \setcounter{chapter}{11}
 \begin{document}
 \chapter{Electric Fields}
@@ -12,14 +13,98 @@
 \end{content}
 \subsection{Candidates should be able to:}
 \spec{explain what is meant by an electric field and recall and use $E=\frac{F}{q}$ for electric field strength}
+
+An electric field is the region of space in which electrical forces are exerted on charged bodies. The definition of electric field strength is force per unit charge, and this is written in symbols as:
+\[ E=\frac{F}{q} \]
+Electric field therefore has units of \si{\newton\per\coulomb}.
+
 \spec{recall that applying a potential difference to two parallel plates stores charge on the plates and produces a uniform electric field in the central region between them}
+
+If an electric potential is created between two parallel plates a distance $d$ apart then an electric field exists between them. Except at the edges, the field is \emph{uniform}. This is shown in figure \ref{parallelplates} by the fact that the field lines are parallel.
+
+\begin{figure}[ht]
+  \begin{center}
+    \begin{tikzpicture}
+      \draw[thick] (0,0) -- (10,0);
+      \draw[thick] (0,3) -- (10,3);
+      \foreach \x in {1.2,2,...,8.8} {
+        \draw[-{Latex[length=5mm, width=2mm]},red] (\x,3) -- (\x,1.25);
+        \draw[red] (\x,1.25) -- (\x,0);
+      }
+      \foreach \x in {0,0.4,...,10} {
+        \draw (\x,3.2) node {+};
+        \draw (\x, -0.2) node {-};
+      }
+    \end{tikzpicture}
+  \end{center}
+  \caption{Uniform field between parallel plates}
+  \label{parallelplates}
+\end{figure}
+
+
+Note that field lines show the direction in which a force would act on a \emph{postive} charge so they are from positive to negative.
+
 \spec{derive and use the equations Fd = QV and $E=\frac{V}{d}$ for a charge moving through a potential difference in a uniform electric field}
+
+From the definition potential difference we can say that the work done moving through a potential difference is \[ W = QV \] and that is equal to the force multiplied by the distance moved, \[ Fd \] If the movement is through a uniform field we can equate these two to give
+\[ Fd = QV \]
+The definition of electric field strength gives $F=QE$ and therefore substitution and re-arrangement give \[ E = \frac{V}{d} \]
+
 \spec{recall that the charge stored on parallel plates is proportional to the potential difference between them}
-\spec{recall and use $C = <frac{Q}{V}$ for capacitance}
+
+This is an application of Gauss' law which relates the electric field strength around an object to the charge contained within a surface. It is enough to recall this fact at Pre-U.
+
+\spec{recall and use $C = \frac{Q}{V}$ for capacitance}
+
+This is the definition of capacitance and should be learnt. It can also be calculated from the gradient of a graph of $Q$ against $V$.
+
 \spec{recognise and use $W = \frac{1}{2}QV$ for the energy stored by a capacitor, derive the equation from the area under a graph of charge stored against potential difference, and derive and use related equations such as $W = \frac{1}{2}CV^2$}
+
+If a capacitor is partially charged with a charge $Q$ then to increase its potential difference by $\delta V$ will require a small amount of work $\delta W$ such that
+
+\[ \delta W = Q \delta V  \]
+
+If a graph is plotted of $Q$ against $V$ then this can be seen as the area of a small section. Thus, the energy required to charge a capacitor from uncharged to a p.d. of $V$ is given by the area of a graph of $Q$ against $V$ from zero to $V$, hence
+\[ W = \frac{1}{2}QV \]
+
+We can substitute for each quantity in turn to give the following variations of the equation:
+\[ W = \frac{1}{2}QV = \frac{1}{2}CV^2 = \frac{1}{2}\frac{Q^2}{C} \]
+
+This can, of course, also be done with integration
+\[ W = \int_0^V Q dV = \int_0^V CV dV  = \frac{1}{2}CV^2 \]
+
 \spec{analyse graphs of the variation with time of potential difference, charge and current for a capacitor discharging through a resistor}
+
+When a capacitor discharges through a resistor the potential difference on the capacitor drives current around the circuit. Since it is this current which removes charge from the capacitor, it is the case that the rate of change of charge on the capacitor is proportional to the charge on the capacitor.
+
+\[ \frac{dQ}{dt} = -I = -\frac{V}{R} = -\frac{Q}{RC} \]
+
+This is a first order differential equation and has a solution
+
+\[ Q = Q_0 e^{-\frac{t}{RC}} \]
+
+The substitutions $Q=CV$ and then $I = \frac{V}{R}$ can be used to get similar equations for each of the above. The graph of this change is exponential decay. The key features are the initial value (e.g. $V_0$) and the fact that all three quantities tend to zero.
+
 \spec{define and use the time constant of a discharging capacitor}
+
+The time constant, $\tau$, is defines as follows:
+\[ \tau = RC \]
+
+This means that in one time constant the current, voltage and charge on a capacitor have declined to $\frac{1}{e}$ of their initial values.
+
+A common rule-of-thumb from electronics is that a capacitor takes five time constants to discharge. If we plug this into the equation
+
+\[ V = V_0 e^{-\frac{t}{RC}} = V_0 e^{-5} = 0.067\ V_0 \]
+
+So the voltage across the capacitor has declined to less than 1\% of its initial value.
+
 \spec{analyse the discharge of a capacitor using equations of the form $x=x_0e^{\frac{-t}{RC}}$}
+
+Much of this has been covered above. One important point to note is that the analysis of capacitor decay is usually carried out by plotting a graph of $\ln{V}$ against time. This changes the equation to give
+\[ \ln{V} = -\frac{t}{RC} + \ln{V_0} \]
+Therefore the gradient of the graph is $-\frac{1}{RC}$ and the intercept $\ln{V_0}$.
+
+
 \spec{understand that the direction and electric field strength of an electric field may be represented by field lines (lines of force), and recall the patterns of field lines that represent uniform and radial electric fields}
 \spec{understand electric potential and equipotentials}
 \spec{understand the relationship between electric field and potential gradient, and recall and use $E = -\frac{dV}{dX}$}
