@@ -106,10 +106,49 @@ Therefore the gradient of the graph is $-\frac{1}{RC}$ and the intercept $\ln{V_
 
 
 \spec{understand that the direction and electric field strength of an electric field may be represented by field lines (lines of force), and recall the patterns of field lines that represent uniform and radial electric fields}
+
+Field lines are a way of visualising the field. The direction of the field lines is from north to south and show the direction in which a positively charged particle will move. The density of field lines represent the stregth of the field.
+
+\begin{figure}[h]
+	\begin{tikzpicture}
+		\foreach \x in {1,2,3,4,5} {
+			\draw (\x,0) circle (0.4);
+			\draw (\x,3) circle (0.4);
+		}
+		\draw[-{latex[legth=5mm,width=2mm]}] (0,2.5) -- (2.75,2.5);
+		\draw (2.75,2.5) -- (5,2.5);
+		\draw (5,2.5) .. (7,2.5) and (7,4) .. (5,4);
+		\draw[-{latex[legth=5mm,width=2mm]}] (5,4) -- (2.25,4);
+		\draw (2.25,4) -- (0,4);
+		\draw (0,4) .. (-2,4) and (-2,2.5) .. (0,2.5);
+		
+	\end{tikzpicture}
+\end{figure}
+
 \spec{understand electric potential and equipotentials}
+
+Electric potential is defined as the energy per unit charge due to an electric field. Space without an electric field is defined as having zero potential. An equipotential is a line or surface on which the potential is a constant value. Therefore no work is done against the electric force moving along an equipotential. On diagrams equipotentials always cross field lines at right angles.
+
 \spec{understand the relationship between electric field and potential gradient, and recall and use $E = -\frac{dV}{dX}$}
-\spec{recognise and use $ F = \frac{Q_1 Q_2}{4\pi\epsilon_0 r^2} $ for point charges}
-\spec{derive and use $E = \frac{Q}{4\pi\epsilon_o r} $ for the electric field due to a point charge}
+
+The strength of the electric field at any point is equal to the negative of the potential gradient. This can be seen most easily in a uniform field. If a unit charge is moved through a distance $\Delta x$ within a uniform field $E$ then the work down equals $Fx = -Ex$ (for a unit charge). The negative sign comes from the fact that if the force is doing work on the charge it must be moving in the opposite direction to the force on that charge. Thus, the change in energy per unit charge is given by $\Delta V = -E\Delta x$ or $E = -\frac{\Delta V}{Delta x}$. This can be generalised for a non-unform field as
+\[ E = - \frac{dV}{dx} \]
+
+\spec{recognise and use \[ F = \frac{Q_1 Q_2}{4\pi\epsilon_0 r^2} \] for point charges}
+
+The equation above is known as Coulomb's law and enables the calculation of the force between two point charges separated by a distance $r$.
+
+\spec{derive and use $E = \frac{Q}{4\pi\epsilon_o r^2} $ for the electric field due to a point charge}
+
+This is simply from the definition of electric field strength:
+
+\[ E = \frac{F}{Q} = \frac{1}{Q_2} \frac{Q_1 Q_2}{4\pi\epsilon_0 r^2} = \frac{Q}{4\pi\epsilon_o r^2}
+
 \spec{*use integration to derive $W = \frac{Q_1 Q_2}{4\pi\epsilon_0 r}$ from $F=\frac{Q_1 Q_2}{4\pi\epsilon_0 r^2}$ for point charges}
+
+Since free space is defined as having zero potential, the electrostatic potential energy, $W$, of a particle is equal to the work done moving the particle from infinity to a distance $r$. Since work done is equal to $\int F dx$ it follows:
+\[ W = \int_\inf^r \frac{Q_1 Q_2}{4\pi\epsilon_0 r^2} dr
+
+
 \spec{*recognise and use $W = \frac{Q_1 Q_2}{4\pi\epsilon_0 r }$ for the electrostatic potential energy for point charges.}
 \end{document}
