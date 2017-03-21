@@ -9,7 +9,7 @@ If you have found an error please open an issue and if you would like to contrib
 |:-------------------------------|:---------|:--------------:|
 | 1 Mechanics                    | PS       |       ✔        |
 | 2 Gravitational Fields         | LT       |       ✔        |
-| 3 Deformation Of Solids        |          |                |
+| 3 Deformation Of Solids        | PS       |                |
 | 4 Energy Concepts              |          |                |
 | 5 Electricity                  | PS       |       ✔        |
 | 6 Waves                        |  BC        |                |
