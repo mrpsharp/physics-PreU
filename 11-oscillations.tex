@@ -1,5 +1,20 @@
 \documentclass[main.tex]{subfiles}
 \usetikzlibrary{decorations.pathmorphing,patterns}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.8}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\tikzset{
+  every pin/.style={
+      font=\scriptsize,
+      pin distance=4ex},
+  small dot/.style={
+      fill=gray,
+      circle,
+      scale=0.1}
+}
 %% Current Author: SEQ
 \setcounter{chapter}{10}
 \begin{document}
@@ -148,7 +163,7 @@ Putting these two together gives the condition for simple harmonic motion as.
 \dfrac{d^2x}{dt^2}=-\omega ^2 x
 \]
 
-where $\omega ^2$ is a (strange choice) of constant.
+where $\omega ^2$ is a (strange choice of) constant.
 
 This is a second order differential equation and to solve it we need to find a function which when differentiated twice gives us the negative of the original function.
 
@@ -219,7 +234,7 @@ for simple harmonic motion.}
 
 
 
-This is very simply achieved by differentiating our expression for displacement with respect to time as velocity =$\dfrac{dx}{dt}$ and acceleration = $\dfrac{dv}{dt}$
+This is achieved very simply by differentiating our expression for displacement with respect to time as velocity =$\dfrac{dx}{dt}$ and acceleration = $\dfrac{dv}{dt}$
 
 Remember that the differential of cos is -sin.
 
@@ -263,11 +278,11 @@ Plotting these equations onto a graph gives the following.
 		\draw [->] (0.5,0) -- (11.5,0);
 		\node at (11.7,0) {$t$};
 		\node[rotate=90] at (0.2,0) {displacement};
-        \node[rotate=90, blue] at (-0.2,0) {acceleration};
-        \node[rotate=90, red] at (-0.5,0) {velocity};
+        \node[rotate=90, blue] at (-0.12,0) {velocity};
+        \node[rotate=90, red] at (-0.5,0) {acceleration};
 	%Phase difference description
-		\draw [<->] (1.5,1.2) -- (3.5,1.2);
-		\node at (2.5,1.5) {$180^\circ$};
+		\draw [<->] (0.5,1.2) -- (2.5,1.2);
+		\node at (1.5,1.5) {$180^\circ$};
 \end{tikzpicture}
 
 
@@ -290,7 +305,7 @@ The last equation is a combination of $a = -\omega^2 x$ and $F = ma$
 \begin{example}
 
 
-A mass attached to a spring is set into motion on a horizontal frictionless surface. The amplitude of oscillation is 15mm and it takes 5 seconds to perform 20 oscillations.
+A mass attached to a spring is set into motion on a smooth horizontal surface. The amplitude of oscillation is 15mm and it takes 5 seconds to perform 20 oscillations.
 
 Calculate the time period and frequency.
 
@@ -345,16 +360,238 @@ a = 2900 mms^{-2} = 2.9ms^{-2}
 \spec{ recall and use $T = \dfrac{2 \pi}{\omega}$
 as applied to a simple harmonic oscillator}
 
+Angular frequency $w$ is how many radians per second the oscillator goes through with one complete cycle being $2 \pi$ radians.
+
+So $\dfrac{1}{\omega}$ is how many seconds is takes to complete one radian.
+
+and the time for one complete cycle is $T = \dfrac{2 \pi}{\omega}$
 
 
 \spec{ *show that the total energy of an undamped simple harmonic system is given by $E = \dfrac{1}{2}mA^2\omega^2$ and
 recognise that this is a constant}
 
+For an undamped system no energy is lost to the surroundings so the total energy is conserved.
+
+The total energy will take the form of Potential Energy  and Kinetic Energy.
+
+Considering our mass on a spring at maximum displacement the spring will be at maximum extension and the mass will be stationary. So the total energy will be in the form of P.E.
+
+Similarly when the displacement is zero all the energy will be K.E.
+
+At any point in between the total energy will be a mixture of K.E. and P.E. 
+
+As the total energy is the same at any point we can pick what's easiest to derive an equation for it.
+
+So at zero displacement.
+
+
+
+
+\begin{align*} 
+T.E. &= K.E. \\
+&= \dfrac{1}{2}mv_{max}^2 \\
+&= \dfrac{1}{2}mA^2\omega^2 \\
+\end{align*}
+
 \spec{ recognise and use $E = \dfrac{1}{2}mA^2\omega^2$ to solve problems}
+
+
+\begin{example}
+
+A mass of 8kg is attached to a spring with a spring constant of $5 Nm^{-1}$ on a smooth horizontal surface.
+It is pulled back a distance of 20 cm and then released. 
+
+Calculate the total energy of the system, the time period of oscillation and the velocity of the mass when the displacement is 10 cm.
+
+
+
+
+    
+\textbf{Answer}
+
+One way to approach this question is by using our equation for the energy stored in a spring.
+
+\[
+P.E = \dfrac{1}{2}kx^2
+\]
+
+\[
+P.E = \dfrac{1}{2} \times 5 \times .2^2 = 0.1J
+\]
+
+We also know that all the energy at this point is in the form of potential as the mass is not moving so this is the total energy of the system and will not change.
+
+For the time period we can first calculate the angular frequency using our energy equation.
+
+\begin{align*} 
+E = \dfrac{1}{2}mA^2\omega^2 &= 0.1 J\\
+\therefore \omega &= \sqrt{\dfrac{2 E}{m A^2}}\\
+&= \sqrt{\dfrac{2 \times 0.1}{5 \times 0.2^2}}\\
+&= 1 rads^{-1}\\
+\omega &= \dfrac{2 \pi}{T} \\
+\therefore T &= 2 \pi = 6.2 seconds \\
+\end{align*}
+
+
+When the mass has a displacement of 10cm, the total energy will be the kinetic and potential energy.
+
+
+\begin{align*} 
+T.E. = P.E + K.E. &= 0.1J \\
+ \dfrac{1}{2} \times 5 \times .1^2 + K.E. &= 0.1J\\
+ 0.025 + K.E. &= 0.1J  \\
+ \implies K.E. &= 0.075J \\
+ \dfrac{1}{2}mv^2 &= 0.075J \\
+ v &= 0.17 ms^{-1} \\
+ \end{align*}
+
+\end{example}
+
+
 \spec{ distinguish between free, damped and forced oscillations}
+
+A free oscillator is one which is set in motion and left to oscillate without any external forces.
+
+e.g. a pendulum.
+
+A forced oscillation is one where an external periodic force is applied. 
+
+e.g. pushing a child on a swing.
+
+Damping is where frictional forces remove energy from the system and the oscillations die down.
+
+This can be increased intentionally for example adding thick oil to car suspension to prevent you bouncing around every time the car hits a bump.
+
+If a system is lightly damped it will gradually come to rest after a number of cycles. 
+
+An important case is critical damping where the system comes to rest without overshooting and in the shortest possible time. 
+
+ 
+
 \spec{ recall how the amplitude of a forced oscillation changes at and around the natural frequency of a system
 and describe, qualitatively, how damping affects resonance.}
 
+Every system has a natural frequency of oscillation which will depend on its physical properties. In the case of a mass on a spring it will depend on the mass and spring constant but more complex examples e.g. washing machines or the millennium bridge will also have natural frequencies.
+
+If we apply a driving force to an oscillator, the effect it has will depend on the amplitude of the driving force and its frequency compared to the natural frequency of the system. 
+
+For a simple example try holding a spring with a mass on the end of it and move your hand up and down rhythmically.
+
+If you move your hand very slowly the spring won't stretch or contract and the mass will simply follow the movement of your hand. So the amplitude will be the same as the amplitude of the driving frequency.
+
+As you start to increase the frequency of your hand movement the spring will start to stretch and contract and the mass will move more than your hand. So the amplitude of oscillation increases.
+
+Once the frequency of your hand is close to the natural frequency you are adding energy at just the right point in the cycle to increase the amplitude with each cycle and the amplitude gets very large. We call this resonance.
+
+If we know move our hand with a very high frequency, the spring stretches and compresses but the mass doesn't much have time to accelerate hence the amplitude starts to get very small.
+
+
+\begin{itemize}
+\item Low frequency driving force, amplitude of oscillator = amplitude of driver.
+\item Driving frequency around natural frequency, resonance - very high amplitude oscillations.
+\item High frequency driving force, low amplitude oscillations.
+
+
+
+\end{itemize}
+
+
+
+In the real world we need to consider damping which will affect all systems to some degree. Damping will come from frictional forces and will remove energy from the system every cycle. If the energy added by the driving force is more than is removed by damping then the amplitude will increase. As the amplitude increases, the energy removed each cycle will also increase until a maximum amplitude is reached.
+
+From this it is clear that the more damping there is, the lower the amplitude. 
+
+Another feature is that as we have more damping, the frequency at which resonance occurs is less. You can think of this as damping slowing down the system and so reducing the natural frequency (although strictly speaking the natural frequency refers to an undamped system).
+
+
+This is all expressed in the following graph where I have used the damping ratio $\zeta$ as a measure of how much damping there is. Its not on the syllabus, you will only need to know qualitatively how damping affects resonance e.g. light damping and heavy damping but I though it would be good to introduce you to another Greek letter.
+
+
+\begin{tikzpicture}
+  \begin{axis}[
+    % labels
+    tick label style={font=\scriptsize},
+    xlabel={Driving Frequency},
+    ylabel={Amplitude / Driving Amplitude},
+    ytick={0,1,2,3,4,5},
+    xtick={0,1,2,3},
+    xticklabels={0,$\omega_\mathrm{f}$,,},
+    %
+    % plot lines property
+    no markers,
+    line width=0.3pt,
+    cycle list={{black,solid}},
+    %
+    % dominio 2D
+    samples=200,
+    smooth,
+    domain=0:2.5,
+    xmin=0, xmax=2.5,
+    ymin=0, ymax=5.0,
+    %
+    % canvas dimensions
+    width=12cm, height=12cm
+    ]
+
+    % horizontal help line
+    \draw[help lines] (axis cs:0,1) -- (axis cs:2.5,1);
+    % vertical help line
+    \draw[help lines] (axis cs:1,0) -- (axis cs:1,5);
+
+    % draw curves
+    \addplot {1/sqrt((1-x^2)^2+4*0.05^2*x^2)};
+    \addplot {1/sqrt((1-x^2)^2+4*0.10^2*x^2)};
+    \addplot {1/sqrt((1-x^2)^2+4*0.20^2*x^2)};
+    \addplot {1/sqrt((1-x^2)^2+4*0.30^2*x^2)};
+    \addplot {1/sqrt((1-x^2)^2+4*0.40^2*x^2)};
+    \addplot {1/sqrt((1-x^2)^2+4*0.50^2*x^2)};
+   % \addplot {1/sqrt((1-x^2)^2+4*1.00^2*x^2)};
+   % \addplot {1/sqrt((1-x^2)^2+4*2.00^2*x^2)};
+
+    % draw maximum curve
+    \addplot[dashed,domain=0:0.99] {1/sqrt(1-x^4)};
+
+    %  curve labels
+    \node[small dot,pin=30:{$\zeta_0=0{,}05$}] at
+      (axis cs:1.10,4.22) {};
+    \node[small dot,pin=30:{$\zeta_0=0{,}10$}] at
+      (axis cs:1.10,3.29) {};
+    \node[small dot,pin=30:{$\zeta_0=0{,}20$}] at
+      (axis cs:1.10,2.05) {};
+    \node[small dot,pin=30:{$\zeta_0=0{,}30$}] at
+      (axis cs:1.20,1.19) {};
+    \node[small dot,pin=30:{$\zeta_0=0{,}40$}] at
+      (axis cs:1.28,0.83) {};
+    \node[small dot,pin=30:{$\zeta_0=0{,}50$}] at
+      (axis cs:1.50,0.51) {};
+
+   % \node[small dot,pin=210:{$\zeta_0=1{,}00$}] at
+      (axis cs:0.52,0.79) {};
+   % \node[small dot,pin=210:{$\zeta_0=2{,}00$}] at
+      (axis cs:0.60,0.40) {};
+  \end{axis}
+\end{tikzpicture}
+
+
+\begin{itemize}
+\item At very low driving frequencies the amplitude is the same as the driving amplitude.
+\item With low damping we get a sharp resonance peak.
+\item More damping creates a broader resonance peak.
+
+\item Increasing damping reduces the amplitude at all frequencies.
+
+\item The resonace peak shifts lower with increased damping.
+
+\item More damping creates a broader resonance peak.
+
+\item As the frequency gets high the amplitude gets low regardless of damping.
+
+
+\end{itemize}
+
+
 \end{document}
 
-%sagemathcloud={"latex_command":"latexmk -pdf -f -g -bibtex -synctex=1 -interaction=nonstopmode '11-oscillations.tex'"}
+
+
+%sagemathcloud={"latex_command":"latexmk -xelatex -f -g -bibtex -synctex=1 -interaction=nonstopmode '11-oscillations.tex'"}
