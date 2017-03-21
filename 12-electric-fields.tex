@@ -107,22 +107,52 @@ Therefore the gradient of the graph is $-\frac{1}{RC}$ and the intercept $\ln{V_
 
 \spec{understand that the direction and electric field strength of an electric field may be represented by field lines (lines of force), and recall the patterns of field lines that represent uniform and radial electric fields}
 
-Field lines are a way of visualising the field. The direction of the field lines is from north to south and show the direction in which a positively charged particle will move. The density of field lines represent the stregth of the field.
+Field lines are a way of visualising the field. The direction of the field lines is from north to south and show the direction in which a positively charged particle will move. The density of field lines represent the strength of the field. For example in figure \ref{solenoid} the region \textbf{A} contains a uniform strong field which is stronger than the field at \textbf{B} as the field lines are more closely spaced.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 	\begin{tikzpicture}
 		\foreach \x in {1,2,3,4,5} {
-			\draw (\x,0) circle (0.4);
-			\draw (\x,3) circle (0.4);
+			\draw (\x-0.6,0) circle (0.2cm);
+			\draw (\x-0.6,3) circle (0.2cm);
 		}
-		\draw[-{latex[legth=5mm,width=2mm]}] (0,2.5) -- (2.75,2.5);
-		\draw (2.75,2.5) -- (5,2.5);
-		\draw (5,2.5) .. (7,2.5) and (7,4) .. (5,4);
-		\draw[-{latex[legth=5mm,width=2mm]}] (5,4) -- (2.25,4);
-		\draw (2.25,4) -- (0,4);
-		\draw (0,4) .. (-2,4) and (-2,2.5) .. (0,2.5);
+        % top loop
+		\draw[-{latex[length=5mm,width=2mm]}] (0,2.5) -- (2.5,2.5);
+		\draw (2.5,2.5) -- (5,2.5);
+		\draw (5,2.5) .. controls (7,2.5) and (7,4) .. (5,4);
+		\draw[-{latex[length=5mm,width=2mm]}] (5,4) -- (2.5,4);
+		\draw (2.5,4) -- (0,4);
+		\draw (0,4) .. controls (-2,4) and (-2,2.5) .. (0,2.5);
+        % 2nd loop
+		\draw[-{latex[length=5mm,width=2mm]}] (0,2) -- (2.5,2);
+		\draw (2.5,2) -- (5,2);
+		\draw (5,2) .. controls (8,2) and (8,5) .. (5,5);
+		\draw[-{latex[length=5mm,width=2mm]}] (5,5) -- (2.5,5);
+		\draw (2.5,5) -- (0,5);
+		\draw (0,5) .. controls (-3,5) and (-3,2) .. (0,2);
+        % middle loop
+		\draw[-{latex[length=5mm,width=2mm]}] (-2,1.5) -- (2.5,1.5);
+		\draw (2.5,1.5) -- (7,1.5);
+        % 4th loop
+		\draw[-{latex[length=5mm,width=2mm]}] (0,1) -- (2.5,1);
+		\draw (2.5,1) -- (5,1);
+		\draw (5,1) .. controls (8,1) and (8,-2) .. (5,-2);
+		\draw[-{latex[length=5mm,width=2mm]}] (5,-2) -- (2.5,-2);
+		\draw (2.5,-2) -- (0,-2);
+		\draw (0,-2) .. controls (-3,-2) and (-3,1) .. (0,1);
+        % bottom loop
+		\draw[-{latex[length=5mm,width=2mm]}] (0,0.5) -- (2.5,0.5);
+		\draw (2.5,0.5) -- (5,0.5);
+		\draw (5,0.5) .. controls (7,0.5) and (7,-1) .. (5,-1);
+		\draw[-{latex[length=5mm,width=2mm]}] (5,-1) -- (2.5,-1);
+		\draw (2.5,-1) -- (0,-1);
+		\draw (0,-1) .. controls (-2,-1) and (-2,0.5) .. (0,0.5);
+        % Labels
+        \draw (2.5,1.5) node[anchor=south] {\textbf{A}};
+        \draw (2.5,4.5) node {\textbf{B}};
 		
 	\end{tikzpicture}
+    \caption{Field around a solenoid}
+    \ref{solenoid}
 \end{figure}
 
 \spec{understand electric potential and equipotentials}
@@ -142,13 +172,17 @@ The equation above is known as Coulomb's law and enables the calculation of the 
 
 This is simply from the definition of electric field strength:
 
-\[ E = \frac{F}{Q} = \frac{1}{Q_2} \frac{Q_1 Q_2}{4\pi\epsilon_0 r^2} = \frac{Q}{4\pi\epsilon_o r^2}
+\[ E = \frac{F}{Q} = \frac{1}{Q_2} \frac{Q_1 Q_2}{4\pi\epsilon_0 r^2} = \frac{Q}{4\pi\epsilon_o r^2} \]
 
 \spec{*use integration to derive $W = \frac{Q_1 Q_2}{4\pi\epsilon_0 r}$ from $F=\frac{Q_1 Q_2}{4\pi\epsilon_0 r^2}$ for point charges}
 
-Since free space is defined as having zero potential, the electrostatic potential energy, $W$, of a particle is equal to the work done moving the particle from infinity to a distance $r$. Since work done is equal to $\int F dx$ it follows:
-\[ W = \int_\inf^r \frac{Q_1 Q_2}{4\pi\epsilon_0 r^2} dr
+Since free space is defined as having zero potential, the electrostatic potential energy, $W$, of a particle is equal to the work done by the field moving the particle from a distance $r$ to infinity. Since work done is equal to $\int F dx$ it follows:
+\[ W = \int_{r}^\infty \frac{Q_1 Q_2}{4\pi\epsilon_0 r^2} dr = \frac{Q_1 Q_2}{4\pi\epsilon_0 r}\]
 
+You can define this alternatively by thinking about the work done bringing a charged particle from infinity to a distance $r$. If you do this it is important to remember that $F$ acts in the opposite direction to $r$ so the limits of integration are reversed and the formula has a minus sign, thus reaching the same answer.
 
 \spec{*recognise and use $W = \frac{Q_1 Q_2}{4\pi\epsilon_0 r }$ for the electrostatic potential energy for point charges.}
+
+This is simply applying the equation above. This will allow the calculation of changes in potential energy and possibly transfer to other forms of energy (e.g. kinetic).
+
 \end{document}
