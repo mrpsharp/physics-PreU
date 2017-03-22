@@ -1,7 +1,71 @@
 \documentclass[main.tex]{subfiles}
-%% Current Author:
+%% Current Author: PS
 \setcounter{chapter}{16}
 \begin{document}
 \chapter{Nuclear Physics}
+\begin{content}
+    \item equations of radioactive decay
+    \item mass excess and nuclear binding energy
+    \item antimatter
+    \item the standard model
+\end{content}
+\section*{Candidates should be able to:}
+\spec{show that the random nature of radioactive decay leads to the differential equation 
+\begin{equation} \label{n-diff} \frac{dN}{dt} = -\lambda N \end{equation} and that
+\begin{equation} \label{n-exp} N = N_0 e^{-\lambda t} \end{equation} is a solution to this equation.}
 
+Radioactive decay is characterised by the fact that the number of nuclei which disintegrate per unit time is directly proportional to the number of unchanged nuclei remaining. Since a disintegrating nucleus reduces the number remaining, there is a negative sign in the proportionality. This relationship can be expressed mathematically as equation \ref{n-diff}. Where $N$ is the number of nuclei and $\lambda$ is called the decay constant, with units \si{\per\second}.
+
+Equation \ref{n-diff} is a differential equation with respect to time and therefore the solution to it is a function of time. We can show that equation \ref{n-exp} is a solution to this equation by differentiating it.
+
+\begin{align*}
+N &= N_0 e^{-\lambda t} \\
+\frac{dN}{dt} &= \left( -\lambda \right) N_0 e^{-\lambda t} \\
+&= -\lambda N 
+\end{align*}
+
+\spec{recall that activity \begin{equation} A = -\frac{d N}{dt} \end{equation} and show that \( A = \lambda N \)  and \( A = A_0e^{-\lambda t}\)}
+
+Every time a radioactive nucleus disintegrates it emits a particle of ionising radiation. Thus the activity is simply the negative of the rate of change of the number of unchanged nuclei remaining. Simple substitutions allow the derivation of the following equations.
+
+\begin{align*}
+A &= -\frac{dN}{dt} & N &= N_0 e^{-\lambda t} \\
+&= -(-\lambda N) & -\lambda N &= -\lambda N_0 e^{-\lambda t} \\
+&= \lambda N & A &= A_0e^{-\lambda t}
+\end{align*}
+
+Note that we do not measure the true activity as that would mean detecting all of the radiation given off by the sample. However, we assume that the measured activity is proportional to the true activity and therefore all our measurements behave in the same way.
+
+\spec{show that the half-life \[ t_\frac{1}{2} = \frac{\ln{2}}{\lambda} \]}
+
+The half-life is defined as the time take for half of the nuclei to decay. Therefore I can substitute $N = \frac{N_0}{2}$ into equation \ref{n-diff} to give:
+\begin{align*}
+\frac{1}{2} = e^{-\lambda t_\frac{1}{2}}  \\
+\ln{\frac{1}{2}} = -\lambda t_\frac{1}{2} \\
+t_\frac{1}{2} = \frac{\ln{2}}{\lambda}
+\end{align*}
+
+\spec{use the equations in (a), (b) and (c) to solve problems}
+
+\spec{recognise and use the equation \begin{equation} \label{I-exp} I = I_0e^{- \mu x} \end{equation} as applied to attenuation losses}
+
+When a wave or ionising radiation travels through a medium its amplitude will reduce due to \emph{attenuation}. This is due to scattering and/or absorption by the medium. Note that is this different to a reduction in intensity due to the radiation spreading out. It is assumed that if a given fraction of the intensity is absorbed in a unit length then eqaution \ref{n-diff} can be used, replacing $N$ with intensity, $t$ with distance, $x$ and the constant of proportionality with $\mu$. This gives
+\begin{equation} \label{I-diff}
+\frac{dI}{dx} = -\mu x 
+\end{equation}
+Using a similar logic to that for equation \ref{n-exp} we can show that equation \ref{I-exp} is a solution to this equation.
+
+\spec{recall that radiation emitted from a point source and travelling through a non-absorbing material obeys an
+inverse square law and use this to solve problems}
+\spec{estimate the size of a nucleus from the distance of closest approach of a charged particle}
+\spec{understand the concept of nuclear binding energy, and recognise and use the equation $ \Delta E = c^2 \Delta m$ (binding energy will be taken to be positive)}
+\spec{recall, understand and explain the curve of binding energy per nucleon against nucleon number}
+\spec{recall that antiparticles have the same mass but opposite charge and spin to their corresponding
+particles}
+\spec{relate the equation ΔE = c 2Δm to the creation or annihilation of particle-antiparticle pairs}
+\spec{recall the quark model of the proton (uud) and the neutron (udd)}
+\spec{understand how the conservation laws for energy, momentum and charge in beta-minus decay were used to predict the existence and properties of the antineutrino}
+\spec{balance nuclear transformation equations for alpha, beta-minus and beta-plus emissions}
+\spec{recall that the standard model classifies matter into three families: quarks (including up and down),leptons (including electrons and neutrinos) and force carriers (including photons and gluons)}
+\spec{recall that matter is classified as baryons and leptons and that baryon numbers and lepton numbers are conserved in nuclear transformations.}
 \end{document}
