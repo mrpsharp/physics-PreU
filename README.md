@@ -9,16 +9,16 @@ If you have found an error please open an issue and if you would like to contrib
 |:-------------------------------|:---------|:--------------:|
 | 1 Mechanics                    | PS       |       ✔        |
 | 2 Gravitational Fields         | LT       |       ✔        |
-| 3 Deformation Of Solids        | PS       |                |
-| 4 Energy Concepts              |          |                |
-| 5 Electricity                  | PS       |       ✔        |
-| 6 Waves                        |  BC        |                |
-| 7 Superposition                |    BC      |                |
+| 3 Deformation Of Solids        | PS       |       ✔        |
+| 4 Energy Concepts              | PS         |               |
+| 5 Electricity                  | PS       |       ✔      |
+| 6 Waves                        |  BC      |               |
+| 7 Superposition                |    BC    |                |
 | 8 Atomic And Nuclear Processes |          |                |
 | 9 Quantum Ideas                |          |                |
 | 10 Rotational Mechanics        | CJRU     |       ✔        |
 | 11 Oscillations                | SEQ      |       ✔         |
-| 12 Electric Fields             |  PS       |                |
+| 12 Electric Fields             |  PS       |       ✔         |
 | 13 Gravitation                 | LT       |       ✔        |
 | 14 Electromagnetism            | PS       |       ✔        |
 | 15 Special Relativity          | CJRU     |       ✔        |
