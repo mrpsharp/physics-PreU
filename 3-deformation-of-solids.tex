@@ -1,5 +1,5 @@
 \documentclass[main.tex]{subfiles}
-%% Current Author: 
+%% Current Author: PS
 \setcounter{chapter}{2}
 \begin{document}
 \chapter{Deformation of Solids}
@@ -12,13 +12,69 @@
 \section*{Candidates should be able to:}
 \spec{distinguish between elastic and plastic deformation of a material}
 
+Elastic deformation is defined as deformation where the sample returns to its original length when the load is removed. Plastic deformation involved a permanent change in length of the sample.
+
 \spec{recall the terms brittle, ductile, hard, malleable, stiff, strong and tough, explain their meaning and give examples of materials exhibiting such behaviour}
+
+\begin{description}
+    \item[Brittle] Brittleness is an indicator of how soon after the yield point a material fractures. Failure will be through the propagation of cracks. A brittle material cannot absorb much energy before breaking. For example, glass and ceramics can be strong but brittle.
+    \item[Ductile] Ductility is a measure of plastic behaviour under tension. It gives an indication of how easily a material can be drawn into wires i.e. can withstand large strains without breaking. Copper is highly ductile.
+    \item[Hard] Hardness is a measure of a materials ability to resist impact or scratching. Diamond is an exceptionally hard material.
+    \item[Malleable] Malleability is a measure of plastic behaviour under compression. It gives an indication of how easily a material can be worked. Metals are ductile and hence relatively easy to form into shapes for use in manufacture.
+    \item[Stiff] Stiffness relates the resistance to change of shape a material possesses. A measure of stiffness is the Young Modulus. Glass fibres and steel are both stiff materials.
+    \item[Strong] A strong material is able to withstand a large stress without failing.
+    \item[Tough] Toughness is a measure of the ability of a material to resist failure through crack propagation. It is the opposite of brittleness. A tough material is able to absorb a lot of energy without breaking. Plastics/polymers are often tough.
+\end{description}
 
 \spec{explain the meaning of, use and calculate tensile/compressive stress, tensile/compressive strain, spring constant, strength, breaking stress, stiffness and Young modulus}
 
+Firstly, compressive forces and deformations are those which reduce the length of the sample whereas tensile forces act to increase its length.
+
+\begin{description}
+    \item[Stress] Stress is defined as the force per unit of cross-sectional area applied to a material. \[ \sigma = \frac{F}{A} \] Stress is measured in pascals (Pa).
+    \item[Strain] Strain is the fractional extension of a material. \[ \epsilon = \frac{x}{l} \]
+    where $l$ is the orinal length.
+    \item[Spring constant] The spring constant $k$ is the force per unit of extension of a material during its proportional phase of deformation. It is defined by Hooke's Law: \[ F = kx\] The spring constant is often used as a measure of stiffness of an object.
+    \item[Strength] Strength is often measured as the maximum stress a material can withstand before permanent deformation. This is known as the yield stress.
+    \item[Breaking stress] This is the stress at which the material fails.
+    \item[Young modulus] This is a quantitative measure of the stiffness of a material, defined as stress per unit of strain in the proportional region the material's behaviour. \[ E = \frac{\sigma}{\epsilon} \]
+\end{description}
+
 \spec{draw force-extension, force-compression and tensile/compressive stress-strain graphs, and explain the meaning of the limit of proportionality, elastic limit, yield point, breaking force and breaking stress}
 
+The gradient of a force-extension graph gives the spring constant.
+
+\begin{figure}[ht]
+    \begin{center}
+        \begin{tikzpicture}
+            \draw[->] (-0.5,0) -- (10,0) node[anchor=north] {$\epsilon$};
+            \draw[->] (0,-0.5) -- (0,6) node[anchor=east] {$\sigma$};
+            \draw (0,0) -- (1.5,3) .. controls (2,3.5) .. (2.5,3) .. controls (3,2.8) .. (4,4) .. controls (5.5,5.5) and (8,5.5) .. (10,4.5);
+            \fill (1.5,3) circle (2pt) node[anchor=south east] {A};
+            \fill (2,3.4) circle (2pt) node[anchor=south] {B};
+            \fill (7,5.2) circle (2pt) node[anchor=south] {C};
+            \fill (10,4.5) circle (2pt) node[anchor=south] {D};
+            \node[draw, text width = 4cm] at (13,3) {
+            \begin{description}
+                \item[A] The limit of proportionality
+                \item[B] The yield point
+                \item[C] The ultimate stress (maximium stress)
+                \item[D] The breaking point
+            \end{description}
+            };
+        \end{tikzpicture}
+    \end{center}
+    \caption{Stress-strain curve for a ductile material}
+    \label{stress-strain}
+\end{figure}
+
+Figure \ref{stress-strain} shows an example stress-strain curve. Note that the limit of proportionality is often a good approximation of the elastic limit of a metal. The ``breaking stress'' usually refers to the ultimate stress, i.e. the maximum stress the material can withstand, rather than the stress at the breaking point. 
+
 \spec{state Hooke’s law and identify situations in which it is obeyed}
+
+\[ F = kx \]
+
+Hooke's law is obeyed by an ideal spring and by a sample of metal up to the limit of proportionality.
 
 \spec{account for the stress-strain graphs of metals and polymers in terms of the microstructure of the material.}
 
