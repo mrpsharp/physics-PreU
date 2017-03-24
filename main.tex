@@ -13,7 +13,8 @@
 \usepackage{siunitx} 
 
 % Tikz settings
-\usetikzlibrary{decorations.pathmorphing,patterns,decorations.markings}
+\usetikzlibrary{decorations.pathmorphing,patterns,decorations.markings,arrows.meta}
+
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.8}
 
@@ -67,15 +68,11 @@
 \begin{titlingpage}
 	\maketitle
 		\thispagestyle{empty}
-	\clearpage
-	\section*{About this revision guide}
-	This has been written by the Physics Department at Westminster School. It is open source and hosted on Github (\url{https://github.com/mrpsharp/physics-PreU}). Please do submit bug reports, enhancement requests or even pull requests. If you would like to report a bug or suggest an enhancement got to the url above and click `issues' and add a new issue.
-
-	This is very much a revision guide, if you are looking for a textbook try \href{https://openstax.org/details/books/college-physics}{Openstax College Physics} or \emph{Advanced Physics} by Adams and Allday.
 \end{titlingpage}
 
 \tableofcontents
-\subfile{introduction}
+\subfile{about}
+\subfile{structure-of-assessment}
 
 \mainmatter
 \part*{Part A}
