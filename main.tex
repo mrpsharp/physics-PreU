@@ -10,6 +10,13 @@
 \usepackage{xcolor}
 \usepackage{siunitx}
 
+% Tikz settings
+\usetikzlibrary{decorations.markings}
+\tikzset{->-/.style={decoration={
+  markings,
+  mark=at position 0.5 with {\arrow{triangle 60}}},postaction={decorate}}}
+
+
 % Should be final package loaded
 \usepackage{hyperref}
 
