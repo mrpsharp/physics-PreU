@@ -257,24 +257,71 @@ From the point above, it follows that the rate of any process which depends on a
 
 \begin{center}
   \begin{tabular}{p{3cm}p{4cm}p{4cm}}
-    \textbf{Process} & \textbf{Depends on } & \textbf{Energy $E$ represents} \\ \hline
-    rate of reaction & the number of particles with an energy above the activation energy & the activation energy of the process \\
-    current in a semiconductor & the number of free charge carriers & the energy required for a charge carrier to move the the conduction band, i.e. the band gap \\
-    creep in a polymer & the ability of the polymer chains to break the weak intermolecular forces between them & the energy required to break the intermolecular bonds between polymer chains \\
+    \textbf{Process} & \textbf{Depends on } & \textbf{Energy $E$ represents} \\ \hline \hline
+    rate of reaction & the number of particles with an energy above the activation energy & the activation energy of the process \\ \hline
+    current in a semiconductor & the number of free charge carriers & the energy required for a charge carrier to move the the conduction band, i.e. the band gap \\ \hline
+    creep in a polymer & the ability of the polymer chains to break the weak intermolecular forces between them & the energy required to break the intermolecular bonds between polymer chains \\ \hline
   \end{tabular}
 \end{center}
 
 \spec{*describe entropy qualitatively in terms of the dispersal of energy or particles and realise that entropy is related to the number of ways in which a particular macroscopic state can be realised}
 
+A common way of describing the concept of entropy is to focus on the idea of disorder. When discussing entropy scientifically it is important to be precise about what this means. A more precise way of characterising entropy is to think about the number of ways in which a macroscopic state can be realised. For example, imagine seven particles in a quantised system with four units of energy to share between them. Each state can be denoted using the notation $S = \{N_0,N_1,N_2,\ldots\}$ where $N_0$ is the number of particles with this much energy.
 
-\spec{*recall that the second law of thermodynamics states that the entropy of an isolated system cannot
-decrease and appreciate that this is related to probability}
-\spec{*understand that the second law provides a thermodynamic arrow of time that distinguishes the future
-(higher entropy) from the past (lower entropy)}
-\spec{*understand that systems in which entropy decreases (e.g. humans) are not isolated and that when
-their interactions with the environment are taken into account their net effect is to increase the entropy
-of the Universe}
-\spec{*understand that the second law implies that the Universe started in a state of low entropy and that
-some physicists think that this implies it was in a state of extremely low probability.}
+For example, one particle could have all four units of energy and the rest have zero. This would be denoted $\{6,0,0,0,1\}$. There are seven different ways in which this macrostate could come about. The table below shows the different possible macrostates and the number of ways these could be attained.
+
+\begin{table}[h]
+\begin{center}
+  \begin{tabular}{c|c}
+    \textbf{State} & \textbf{No. of microstates} \\ \hline
+    $\{6,0,0,0,1\}$ & $ 7$ \\
+    $\{5,1,0,1\}$ &  $7 \times 6 = 42$ \\
+    $\{4,2,1\}$ & $ 7 \times 6 \times 5 / 2 = 105$ \\
+    $\{3,4\}$ & $ TODO$
+  \end{tabular}
+\end{center}
+  \caption{Macrostates and microstates}
+  \label{tbl:macro}
+\end{table}
+
+As you can see, there are far more ways to achieve the macrostate $\{4,2,1\}$ than the others. This makes it the state with the highest entropy.
+
+\spec{*recall that the second law of thermodynamics states that the entropy of an isolated system cannot decrease and appreciate that this is related to probability}
+
+If the energy available to a system, or a distribution of particles, is dispersed through random process then over time the most probable configuration will dominate. As the highest entropy macrostate is also the most probable one it is highly likely that the entropy will increase with time.
+
+As an example, consider 100 coins which are all heads-up. There is only one way to arrange for this particular macrostate to occur. There are \num{1.27e30} possible microstates available and therefore if the coins are tossed it is overwhelmingly likely that the disorder in the system is going to increase. If this idea is multiplied up to the billions of particles in even the smallest sample of matter it is seen that all systems will move towards their highest entropy state.
+
+The only way to return to the original state of the coins would be to intervene and sort them individually one-by-one, thus breaking the isolation of the system.
+
+\spec{*understand that the second law provides a thermodynamic arrow of time that distinguishes the future (higher entropy) from the past (lower entropy)}
+
+The idea here is that nature tends towards higher entropy states. For example, consider the two distributions of gas particles in figure \ref{fig:gas-distrib}. In this case it is overwhelmingly likely that \textbf{B} occured after \textbf{A}. Thus, the second law of theormodynamics provides an arrow of time despite the fact that individual particles may be governed by Newton's laws of motion which are fully reversible and do not give any information about the direction of time.
+
+\begin{figure}[ht]
+  \begin{center}\begin{tikzpicture}
+    \draw (0,0) rectangle (4,4);
+    \draw (5,0) rectangle (9,4);
+    \foreach \x in {0.25,.5,.75,1} {
+      \foreach \y in {.25,.5}
+        \fill[color=blue] (\x,\y) circle (1mm);
+    }
+    \foreach \n in {1,2,...,8} {
+      \fill[color=blue] (rnd*3.5+5.25,rnd*3.5+.25) circle (1mm);
+    }
+    \draw (2,-.5) node {\textbf{A}};
+    \draw (7,-.5) node {\textbf{B}};
+  \end{tikzpicture}\end{center}
+  \caption{Two distributions of particles}
+  \label{fig:gas-distrib}
+\end{figure}
+
+\spec{*understand that systems in which entropy decreases (e.g. humans) are not isolated and that when their interactions with the environment are taken into account their net effect is to increase the entropy of the Universe}
+
+Living organisms including humans take in relatively simple molecules and create highly complex, ordered structures from them. This appears to violate the second law of thermodynamics and entropy appears to be decreasing. However, an individual \emph{part} of a system can have a net increase in entropy if it is not isolated. In such a scenario the overall entropy of the universe (the ultimate isolated system) must still decrease. In the case of life on earth, the whole biosphere can be seen as a complex heat engine extracting work from the heat energy input from the sun whilst radiating heat into the coldness of space.
+
+\spec{*understand that the second law implies that the Universe started in a state of low entropy and that some physicists think that this implies it was in a state of extremely low probability.}
+
+If the universe is seen as the ultimate isolated system then it follows that the second law of thermodynamics should apply. In this case the universe must be moving from a low entropy state to a high entropy. In isolated systems, low entropy states are also highly improbably and this leads to the idea that our universe's initial state is a highly improbable one. However, this requires us to accept that we can extend the idea of probability to the initial state of the universe and that we are not committing a `category error' by considering the universe as a thermodynamic system in this way.
 
 \end{document}
