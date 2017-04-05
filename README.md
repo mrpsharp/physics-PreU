@@ -15,7 +15,7 @@ If you have found an error please open an issue and if you would like to contrib
 | 6 Waves                        |          |
 | 7 Superposition                |          |
 | 8 Atomic And Nuclear Processes |    ✔     |
-| 9 Quantum Ideas                |          |
+| 9 Quantum Ideas                |    ✔      |
 | 10 Rotational Mechanics        |    ✔     |
 | 11 Oscillations                |    ✔     |
 | 12 Electric Fields             |    ✔     |
