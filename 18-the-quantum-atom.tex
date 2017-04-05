@@ -3,6 +3,167 @@
 \setcounter{chapter}{17}
 \begin{document}
 \chapter{The Quantum Atom}
+\begin{content}
+\item linespectra
+\item energy levels in the hydrogen atom
+\end{content}
+\section*{Candidates should be able to:}
 
+\spec{explain atomic line spectra in terms of photon emission and transitions between discrete energy levels}
 
+When a gas of atoms is given energy (e.g. by an electric field) that energy is emitted at electromagnetic waves at a few, specific frequencies. These frequencies are the same for every atom of a specific element; however they differ between elements. At typical line spectrum is shown in Figure %TODO.
+
+The explanation for this behaviour is the quantisation of energy levels within the atom. Electrons are only able have occupy certain (discrete) energies and when they move between these energies they emit (or absorb) photons of electromagnetic radiation. These photons have different frequencies depending on the amount of energy they carry away.
+
+\spec{apply $E = hf$ to radiation emitted in a transition between energy levels}
+
+When an electron in an atom falls from one energy level to a lower one the excess energy is emitted as a photon. The energy of this photon is equal to the energy lost.
+
+\begin{example}
+  An electron in an atom falls from the $n=3$ state to the $n=2$ state as shown below. Calculate the wavelength of the photon emitted.
+  \begin{center}
+    \begin{tikzpicture}
+      \draw[thick, ->] (0,-5) -- (0,0) node[anchor=east] {$E / \si{\electronvolt}$};
+      \draw (0,-4.5) node[anchor=east] {\SI{-23.5}{\electronvolt}} -- (3,-4.5) node[anchor=west] {$n=1$};
+      \draw (0,-1.125) node[anchor=east] {\SI{-5.88}{\electronvolt}} -- (3,-1.125) node[anchor=west] {$n=2$};
+      \draw (0,-0.5) node[anchor=east] {\SI{-2.61}{\electronvolt}} -- (3,-.5) node[anchor=west] {$n=3$};
+      \draw[bend right, very thick, ->] (2,-.5) .. controls (2.1,-0.812) .. (2,-1.125);
+      \draw[decorate, decoration={coil, aspect=0}, ->] (2.1, -0.812) -- (5,-0.812) node[anchor=south]{$\gamma$};
+    \end{tikzpicture}
+  \end{center}
+
+  \answer
+  The difference in energy between the two levels is given by
+  \[ E = \left(\SI{-2.61}{\electronvolt}\right) - \left(\SI{-5.88}{\electronvolt}\right) = \SI{3.27}{\electronvolt} \]
+  The wavelength can be calculated using
+  \[ E = hf = \frac{hc}{\lambda} \]
+  \[ \lambda = \frac{hc}{E} = \frac{hc}{\SI{5.24e-19}{\joule}} = \SI{379}{\nano\meter} \]
+\end{example}
+
+\spec{show an understanding of the hydrogen line spectrum, photons and energy levels as represented by the Lyman, Balmer and Paschen series}
+
+The example above shows a single transition between energy levels. In reality when an atom is excited it will emit photons corresponding to many transitions at once. The example of the Hydrogen atom is shown in Figure \ref{fig:hspec}. These transitions can be grouped into series based on which energy level the electron ends up in. Here there are three series shown which correspond to the Lyman (falling to $n=1$), Balmer (falling to $n=2$) and Paschen (falling to $n=3$) Series. For simplicity only six energy levels are shown but in reality each series has potentially infinitely many possible starting states, although most of them will have very similar energies (as the starting energy approaches zero).
+
+\begin{figure}
+  \begin{center}
+    \begin{tikzpicture}
+      \draw[thick, ->] (0,-5.5 cm) -- (0,1) node[anchor=east] {$E / \si{\electronvolt}$};
+      \foreach \n/\y in {1/-5,2/-3,3/-1.5,4/-.8,5/-.3,6/0}{
+        \draw[thick] (0cm,\y) -- (7cm,\y) node[anchor=west]{$n=\n$};
+      }
+      \foreach \x/\y in {.5/-3,.7/-1.5,.9/-.8,1.1/-.3,1.3/0} {
+        \draw[-{Latex}] (\x,\y) -- (\x,-5);
+      }
+      \foreach \x/\y in {2.5/-1.5,2.7/-.8,2.9/-.3,3.1/0} {
+        \draw[-{Latex}] (\x,\y) -- (\x,-3);
+      }
+      \foreach \x/\y in {3.7/-.8,3.9/-.3,4.1/0} {
+        \draw[-{Latex}] (\x,\y) -- (\x,-1.5);
+      }
+      \draw[thick,dashed] (0cm,.3) node[anchor=east]{0} -- (7cm,.3) node[anchor=west] {$n=\infty$};
+      \draw (1.5,-4) node[anchor=west]{\emph{Lyman Series (UV)}};
+      \draw (3.5,-2.25) node[anchor=west]{\emph{Balmer Series (Visible)}};
+      \draw (4.5, -1.15) node[anchor=west]{\emph{Paschen Series (IR)}};
+    \end{tikzpicture}
+  \end{center}
+  \caption{Transitions corresponding to the Hydrogen spectrum}
+  \label{fig:hspec}
+\end{figure}
+
+\spec{recognise and use the energy levels of the hydrogen atom as described by the empirical equation
+\begin{equation}\label{eqn:hlevels}
+E_n = \frac{\SI{-13.6}{\electronvolt}}{n^2}%
+\end{equation}}
+
+By studying the line spectra of hydrogen equation \ref{eqn:hlevels} can be determined from experiment. The equation can be used to determine the wavelengths of the emission lines of the Hydrogen spectrum:
+\[ E_\gamma = \SI{-13.6}{\electronvolt}\left(\frac{1}{n_2^2}-\frac{1}{n_1^2}\right) \]
+
+\spec{*explain energy levels using the model of standing waves in a rectangular one-dimensional potential well}
+
+The orbital model of electrons in an atom allows electrons to have any energy we require. However, if one considers the electron to be acting as a standing wave then the idea of discrete energy levels comes naturally.
+
+The simplest model of an electron as a standing wave is to consider the standing wave as a linear wave bound at each end. With an electron we define a `potential well', i.e. a region of space in which the electron has zero potential energy and the rest of space the electron would have infinite potential energy. The electron is therefore bound within this space.
+
+\begin{figure}
+  \begin{center}
+    \begin{tikzpicture}[domain=0:6]
+      \draw[-{Latex},thick] (0,-1.5) -- (0,6);
+      \draw[-{Latex},thick] (6,-1.5) -- (6,6);
+      \draw[red] plot (\x, {.5*sin(360*\x/12)}) node[anchor=west]{$n=1$};
+      \draw[red,dashed] plot (\x, {-.5*sin(360*\x/12)});
+      \draw[green] plot (\x, {2+.5*sin(360*\x/6)})node[anchor=west]{$n=2$};
+      \draw[green,dashed] plot (\x, {2-.5*sin(360*\x/6)});
+      \draw[blue] plot (\x, {4+.5*sin(360*\x/4)})node[anchor=west]{$n=3$};
+      \draw[blue,dashed] plot (\x, {4-.5*sin(360*\x/4)});
+      \draw[thick,<->] (0,-1) -- (6,-1) node[midway, anchor=north]{$L$};
+    \end{tikzpicture}
+  \end{center}
+  \caption{Three standing waves in a potential well}
+  \label{fig:potwell}
+\end{figure}
+
+For each of the standing waves described in Figure \ref{fig:potwell} the wavelength can be calculated using
+\begin{equation}
+  \lambda_n = \frac{2L}{n}
+\end{equation}
+
+If the wavelength is related to the de Broglie wavelength of the electron then each of these standing waves can be given an momentum and hence energy.
+
+\begin{equation}\label{eqn:potwell}
+  E_n = \frac{p^2}{2m} = \frac{h^2}{2m\lambda^2} = \frac{h^2n^2}{8mL^2}
+\end{equation}
+
+Equation \ref{eqn:potwell} clearly can not match the empirical equation (\ref{eqn:hlevels}), but it does show a dependence on $n$ and discrete energy levels.
+
+\spec{*derive the hydrogen atom energy level equation
+$E_n = \frac{\SI{-13.6}{\electronvolt}}{n^2}$ algebraically using the model of electron standing waves, the de Broglie relation and the quantisation of angular momentum.
+}
+
+In order to adapt the above model to fit an atom, the idea of the potential well was adapted to say that instead of fitting inside a potential well, a whole number of wavelengths should fit around the circumference of the atom. This gives a new criterion:
+\begin{equation}\label{eqn:2pir}
+  2\pi r = n\lambda
+\end{equation}
+The de Broglie wavelength equation can be substituted into equation \ref{eqn:2pir} to give
+\begin{equation}\label{eqn:quanL}
+  mvr = \frac{nh}{2\pi}
+\end{equation}
+The quantity on the left is the \emph{angular momentum}. It turns out that our quantisation rule based on wavelength is equivalent to stating that the angular momentum is quantised. The value $\frac{h}{2\pi}$ is so common in quantum theory that it has its own symbol, $\hbar$.
+
+Now we have a rule for the quantisation we can apply it to the classical model of the hydrogen atom. The electron in the classical model has electrostatic potential energy due to its attraction to the nucleus and kinetic energy due to its orbit around the nucleus. In order to calculate the kinetic energy we calculate the velocity by equating the centripetal force to the electrostatic attraction.
+\[ \frac{mv^2}{r} = \frac{e^2}{4\pi\epsilon_0 r^2} \]
+\[ v^2 = \frac{e^2}{4m\pi\epsilon_0 r} \]
+Therefore
+\begin{align}
+  E &= \text{KE} + \text{PE}\\
+  &= \frac{1}{2}mv^2 + -\frac{e^2}{4\pi\epsilon_0 r}\label{eqn:e1}\\
+  &= \frac{e^2}{8\pi\epsilon_0 r} - \frac{e^2}{4\pi\epsilon_0 r}\label{eqn:e2}\\
+  &= -\frac{e^2}{8\pi\epsilon_0 r}\label{eqn:e}
+\end{align}
+
+Note that in equation \ref{eqn:e1} the PE is negative due to the opposite signs of the electron and the nucleus and that the total energy (\ref{eqn:e}) is negative due to the bound state of the nucleus.
+
+We can now introduce our quantisation criteria (\ref{eqn:quanL}) by calculating the allowed values of $r$. This is done by equating the kinetic energy term from (\ref{eqn:e2}) with a kinetic energy derived from (\ref{eqn:quanL}).
+\begin{equation}\label{egn:quantatisedr}
+  \text{KE} = \frac{p^2}{2m} = \frac{n^2h^2}{8\pi^2r^2m}
+\end{equation}
+
+Therefore
+\begin{align}
+  \frac{n^2h^2}{8\pi^2r^2m} = \frac{e^2}{8\pi\epsilon_0 r}\\
+  r = \frac{n^2h^2\epsilon_0}{\pi me^2}\label{eqn:quanr}
+\end{align}
+
+Finally, equation (\ref{eqn:quanr}) is substituted into the equation for energy (\ref{eqn:e})
+
+\begin{align*}
+  E &= -\frac{e^2}{8\pi\epsilon_0 r}\\
+  &=  -\frac{me^4}{8\epsilon_0^2 n^2h^2}\\
+  &= \frac{E_1}{n^2}\\
+\end{align*}
+\[   \text{where } E_1 = -\frac{me^4}{8\epsilon_0^2 h^2} = \SI{-2.17e-18}{\joule} = \SI{-13.6}{\electronvolt} \]
+which matches the empirical formula (\ref{eqn:hlevels})!
+
+This powerful piece of reasoning also gives a value for the radius of the hydrogen atom which matches that measured by experiment.
+
+This reasoning can be extended to nuclei with different charges; however it only works with a single electron as further inter-electron interactions are not taken into account.
 \end{document}
