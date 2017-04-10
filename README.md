@@ -1,29 +1,26 @@
-# physics-PreU
-A revision guide for Physics Pre-U, based on the 2016--2018 specification available [here](http://www.cie.org.uk/images/163265-2016-2018-syllabus.pdf).
+About this revision guide
+=========================
 
-If you have found an error please open an issue and if you would like to contribute then open a pull request.
+This is a revision guide for Pre-U Physics 2016-18. The specification is
+available at
+<http://www.cie.org.uk/images/163265-2016-2018-syllabus.pdf>.
 
-## Progress so far:
+This revision guide has been written by the Physics Department at
+Westminster School. This is a narrow revision guide, if you are looking
+for a textbook try [Openstax College
+Physics](https://openstax.org/details/books/college-physics) or
+*Advanced Physics* by Adams and Allday.
 
-| Chapter                        | Complete |
-|:-------------------------------|:--------:|
-| 1 Mechanics                    |    ✔     |
-| 2 Gravitational Fields         |    ✔     |
-| 3 Deformation Of Solids        |    ✔     |
-| 4 Energy Concepts              |    ✔     |
-| 5 Electricity                  |    ✔     |
-| 6 Waves                        |          |
-| 7 Superposition                |          |
-| 8 Atomic And Nuclear Processes |    ✔     |
-| 9 Quantum Ideas                |    ✔      |
-| 10 Rotational Mechanics        |    ✔     |
-| 11 Oscillations                |    ✔     |
-| 12 Electric Fields             |    ✔     |
-| 13 Gravitation                 |    ✔     |
-| 14 Electromagnetism            |    ✔     |
-| 15 Special Relativity          |    ✔     |
-| 16 Molecular Kinetic Theory    |    ✔     |
-| 17 Nuclear Physics             |    ✔     |
-| 18 The Quantum Atom            |          |
-| 19 Interpreting Quantum Theory |          |
-| 20 Astronomy And Cosmology     |          |
+The revision guide is written in LaTeX, is open source and hosted on
+Github (<https://github.com/mrpsharp/physics-PreU>). Most of the work
+was done using [SageMathCloud](https://cloud.sagemath.com), an excellent
+online development environment for LaTeX, Sage, Jupyter notebooks and
+more.
+
+If you find a mistake, or would like to suggest an enhancement, please
+do submit bug reports and enhancement requests. Simply click the link
+and go to ‘issues’ in order to report your thoughts. If you would like
+to contribute to the revision guide, and this would be great, please
+ensure you read ‘CONTRIBUTING.md’ and then you can submit a pull
+request.
+
