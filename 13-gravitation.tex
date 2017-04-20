@@ -3,7 +3,7 @@
 \setcounter{chapter}{12}
 \begin{document}
 \chapter{Gravitation}
-\spec{state Kepler’s laws of planetary motion}
+\spec{state Kepler's laws of planetary motion}
 Before you learn Kepler's laws (which you MUST learn) you should spend
 some time looking through the chapter on rotational mechanics and making
 absolutely sure that you know how to apply Newton's laws of motion to an
@@ -36,7 +36,7 @@ Laws. They are as follows:
 Of course, it looks nothing like this -- this is MASSIVELY exaggerated
 for the sake of seeing what is going on. The Earth's orbit around the
 Sun is very nearly circular, which is why it took so long for
-astronomers to realise that it wasn't.
+astronomers to realize that it wasn't.
 
 \subsection{Second Law}
 
@@ -48,7 +48,7 @@ astronomers to realise that it wasn't.
   \label{kepler-2}
 \end{figure}
 
-As you can see from the diagram, areas x and y are the same. The reason
+Figure \ref{kepler-2} shows the areas swept out in the same amount of time at different parts of the orbit. As you can see from the diagram, areas x and y are the same. The reason
 for this, put simply, is that the objects move more quickly when they
 are closer to the Sun and more slowly when they are further away.
 
@@ -121,14 +121,22 @@ diagram:
 
 \begin{figure}[h]
   \begin{center}
-    \includegraphics{figs/chapt-13/masses-direction.png}
+    \begin{tikzpicture}
+        \draw[thick] (0,0) circle (2cm) node[anchor=south] {$m2$};
+        \draw[dashed] (0,0) -- (0,-4.5);
+        \draw[thick] (7,0) circle (0.6cm) node[anchor=south] {$m1$};
+        \draw[dashed] (7,0) -- (7,-4.5);
+        \draw[->, thick] (0,-4) -- (7,-4) node [midway,below] {$r$};
+        \draw[very thick, red, ->] (7,0) -- (4,0) node[anchor=east] {$F$};
+    \end{tikzpicture}
+    %\includegraphics{figs/chapt-13/masses-direction.png}
   \end{center}
   \label{masses-2}
   \caption{Two masses and a force}
 \end{figure}
 
 Thus we apply F=ma, with F being the gravitational force, as on the
-diagram, and the acceleration being equal to rω\textsuperscript{2}.
+diagram, and the acceleration being equal to $r\omega^2$.
 
 \[F = ma\]
 
@@ -156,7 +164,7 @@ Now re-arrange to make r the subject of the formula:
 
 \[r^{3} = \frac{Gm_{2}}{{4\pi}^{2}}T^{2}\ \ (4)\]
 
-G, m\textsubscript{2} and π are all constants, so we can finally write:
+G, m\textsubscript{2} and $\pi$ are all constants, so we can finally write:
 
 \[r^{3} \propto T^{2}\]
 
@@ -164,6 +172,12 @@ You need to be able to do this for your examination, so make sure that
 you learn this proof.
 
 \spec{understand energy transfer by analysis of the area under a gravitational force-distance graph}
+
+If you apply a force through a distance, you do work on it. This is a definition.
+
+At GCSE, you learnt that it was given by the equation:
+
+Work done = Force x distance
 
 Later you learned that in fact it was the area under the Force-distance
 graph.
@@ -242,7 +256,7 @@ with field strength inside the body varies linearly \textbf{if the
 density is constant.} R is the radius of the body, so therefore the
 distance from the centre. After R it drops off as
 1/r\textsuperscript{2}.
-\newpage
+
 \spec{recall similarities and differences between electric and gravitational fields}
 
 \begin{figure}[h]
@@ -304,7 +318,7 @@ should get about 12 kms\textsuperscript{-1}.
 There is a graphical way of looking at this as well. The GPE gained by
 the body as it moves from the surface of the planet, radius R, is given
 by the area under the force-distance graph from the surface of the
-planet to infinity. If it is launched from the surface of the planet
+planet to infinity (i.e. as in Figure \ref{gpe-area}, but with $R_2$ at infinity). If it is launched from the surface of the planet
 then that also equals its initial KE.
 
 \spec{calculate the distance from the centre of the Earth and the height above its surface required for a geostationary orbit.}
@@ -343,3 +357,5 @@ satellite above the surface of the Earth, and this comes to
 So a geostationary satellite orbits at a height that is about 6 times
 greater than the radius of the Earth.
 \end{document}
+
+%sagemathcloud={"latex_command":"latexmk -xelatex -f -g -bibtex -synctex=1 -interaction=nonstopmode '13-gravitation.tex'"}
