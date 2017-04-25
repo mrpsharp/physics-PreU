@@ -3,6 +3,46 @@
 \setcounter{chapter}{18}
 \begin{document}
 \chapter{Interpreting Quantum Theory}
+
+\textbf{Background Information}
+
+(This is not part of the Pre U syllabus but it will help with your understanding.)
+
+Wave Equation
+
+We have already seen how oscillations can be expressed as second order differential equations in Simple Harmonic Motion.
+
+To describe waves we need to go a step further and consider how it changes with time and distance. 
+
+If we imagine ocean waves, if we stand on the end of a jetty, i.e. in a \emph{fixed position}, we can see the water moving up and down as time goes by.
+
+Equally we could take a photograph, i.e. a \emph{fixed time}, and see how the wave changes with distance.
+
+So for a general wave equation we need a second order differential equation for the oscillations but with respect to time, with position kept constant, and with respect to position with time kept constant. To do this we use partial differentiation which is written with a curly $\partial$ and means keep the other variables constant. 
+
+Here is the equation which describes wave motion where u is a function of time and position and c is the speed of the wave.
+
+\[
+\frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2}
+\]
+
+The derivation of this is slightly beyond the level of the Pre U although it was first done in the 18$^{\text{th}}$ Century.
+
+Schrödinger's Wave Equation
+
+In the 1920's, Austrian physicist Erwin Schrödinger used de Broglie's idea of particles having wavelengths to try and formulate a wave equation which could explain some of the quantum phenomena which had been observed.
+
+He came up with the following equation originally to describe the energy levels in Hydrogen but it has been incredibly successful (matching experimental data to a high degree of accuracy) in explaining a wide number of quantum mechanical phenomena.
+
+\[
+i\hbar \frac{\partial \Psi}{\partial t} = -\frac{\hbar^2}{2m}
+\frac{\partial^2 \Psi}{\partial x^2} 
+\]
+
+Note the partial differentials and Planck's constant as well as the complex numbers.
+
+You will not need to know this but you need to know that it exists. Also note the wave function $\Psi$ (Psi). It is a function of space and time but when Schrödinger first came up with the equation, he didn't know what it represented.
+
 \spec{*interpret the double-slit experiment using the Copenhagen interpretation (and collapse of the wavefunction), Feynman's sum-over-histories and Everett's many-worlds theory}
 
 The double-slit experiment involved shining a beam of light, electrons or other particles through two small slits and observing the interference pattern cast on a screen. This can be explained using the wave theory, path difference and superposition. (see earlier chapter.)
@@ -30,7 +70,9 @@ Schrodinger had already developed his famous wave equation which had great succe
 
 It was Max Born who later suggested that the wave function squared (similar to intensity) represented the probability of finding a particle at that point. 
 
-Before the 
+Just before the photon hits the screen it could be anywhere where the wave function isn't zero and yet once it hits the screen and a measurement is made, it is in one precise point on the screen. We call this change from having a probability of being in a number of places to being in one definite location the \emph{wave function collapsing}.
+
+This is the Copenhagen interpretation, until a measurement is made, the particle is in all the possible different states and it is the act of making a measurement which forces it into one unique outcome. 
 
 
 
@@ -46,3 +88,5 @@ Before the
 \specstar{(iii) incomplete (unable to predict precise values for properties of particles).}
 
 \end{document}
+
+%sagemathcloud={"latex_command":"latexmk -xelatex -f -g -bibtex -synctex=1 -interaction=nonstopmode '19-interpreting-quantum-theory.tex'"}
