@@ -1,4 +1,7 @@
 \documentclass[a4paper,11pt,twoside]{memoir}
+
+\newcommand{\theversion}{v0.5.1}
+
 \usepackage{textalpha}
 \usepackage{subfiles}
 \usepackage{graphicx}
@@ -36,11 +39,12 @@
 \newcommand{\ud}{\,\mathrm{d}}
 
 % Title page formatting
-\pretitle{\begin{center}\Huge\bfseries}
-\title{Pre-U Physics Revision Guide}
-\posttitle{\vfill\end{center}}
-\author{Westminster School}
-\predate{\vfill\begin{center}\large}
+%\pretitle{\begin{center}\Huge\bfseries}
+%\title{Pre-U Physics Revision Guide}
+%\posttitle{\vfill\end{center}}
+%\author{Westminster School}
+%\predate{\vfill\begin{center}}
+%\postdate{\vspace{8mm}\theversion}
 
 % Specification command
 \newcounter{spec}[chapter]
@@ -71,8 +75,12 @@
 \raggedbottom
 \frontmatter
 \begin{titlingpage}
-	\maketitle
-		\thispagestyle{empty}
+	%\maketitle
+    %\vfill
+    \vspace*{\fill}
+    \begin{center}\Huge\bfseries Physics Pre-U Revision Guide \\ \vspace{3cm} \Large Westminster School
+    \vfill \today \\ \theversion \end{center}
+	\thispagestyle{empty}
 \end{titlingpage}
 
 \tableofcontents

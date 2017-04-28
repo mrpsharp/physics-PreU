@@ -129,41 +129,50 @@ The de Broglie wavelength equation can be substituted into equation \ref{eqn:2pi
 \end{equation}
 The quantity on the left is the \emph{angular momentum}. It turns out that our quantisation rule based on wavelength is equivalent to stating that the angular momentum is quantised. The value $\frac{h}{2\pi}$ is so common in quantum theory that it has its own symbol, $\hbar$.
 
-Now we have a rule for the quantisation we can apply it to the classical model of the hydrogen atom. The electron in the classical model has electrostatic potential energy due to its attraction to the nucleus and kinetic energy due to its orbit around the nucleus. In order to calculate the kinetic energy we calculate the velocity by equating the centripetal force to the electrostatic attraction.
-\[ \frac{mv^2}{r} = \frac{e^2}{4\pi\epsilon_0 r^2} \]
-\[ v^2 = \frac{e^2}{4m\pi\epsilon_0 r} \]
-Therefore
+In fact, equation \ref{eqn:quanL} was Bohr's starting point for his model of the atom.
+
+Now we have a rule for the quantisation we can apply it to the classical model of the hydrogen atom. The electron in the classical model has electrostatic potential energy due to its attraction to the nucleus and kinetic energy due to its orbit around the nucleus. In order to calculate the kinetic energy we calculate the $v^2$ by equating the centripetal force to the electrostatic attraction.
 \begin{align}
-  E &= \text{KE} + \text{PE}\\
+\frac{mv^2}{r} &= \frac{e^2}{4\pi\epsilon_0 r^2} \nonumber \\
+v^2 &= \frac{e^2}{4m\pi\epsilon_0 r}\label{eqn:v2}
+\end{align}
+Note that we use this express for $v^2$ \emph{twice} in our derivation.
+
+Energy can now be calculated:
+
+\begin{align}
+  E &= \text{KE} + \text{PE}\nonumber \\
   &= \frac{1}{2}mv^2 + -\frac{e^2}{4\pi\epsilon_0 r}\label{eqn:e1}\\
-  &= \frac{e^2}{8\pi\epsilon_0 r} - \frac{e^2}{4\pi\epsilon_0 r}\label{eqn:e2}\\
+  &= \frac{e^2}{8\pi\epsilon_0 r} - \frac{e^2}{4\pi\epsilon_0 r} \nonumber \\
   &= -\frac{e^2}{8\pi\epsilon_0 r}\label{eqn:e}
 \end{align}
 
-Note that in equation \ref{eqn:e1} the PE is negative due to the opposite signs of the electron and the nucleus and that the total energy (\ref{eqn:e}) is negative due to the bound state of the nucleus.
+Note that in equation \ref{eqn:e1} the PE is negative due to the opposite signs of the electron and the nucleus and that the total energy (\ref{eqn:e}) is negative due to the bound state of the electron.
 
-We can now introduce our quantisation criteria (\ref{eqn:quanL}) by calculating the allowed values of $r$. This is done by equating the kinetic energy term from (\ref{eqn:e2}) with a kinetic energy derived from (\ref{eqn:quanL}).
-\begin{equation}\label{egn:quantatisedr}
-  \text{KE} = \frac{p^2}{2m} = \frac{n^2h^2}{8\pi^2r^2m}
-\end{equation}
+We can now introduce our quantisation criteria (\ref{eqn:quanL}) by calculating the allowed values of $r$. This makes use of the $v^2$ term from equation \ref{eqn:v2}. The difficult point is to remember that equation \ref{eqn:quanL} should be rearranged to give $r$ \emph{squared}.
 
-Therefore
 \begin{align}
-  \frac{n^2h^2}{8\pi^2r^2m} = \frac{e^2}{8\pi\epsilon_0 r}\\
-  r = \frac{n^2h^2\epsilon_0}{\pi me^2}\label{eqn:quanr}
+  r^2 &= \frac{n^2 h^2}{4\pi^2 m^2 v^2}\\
+  &= \frac{n^2 h^2}{4\pi^2 m^2} \frac{4m\pi\epsilon_0 r}{e^2}\\
+  r &= \frac{n^2h^2\epsilon_0}{\pi m e^2} \label{eqn:quanr}
 \end{align}
 
 Finally, equation (\ref{eqn:quanr}) is substituted into the equation for energy (\ref{eqn:e})
 
 \begin{align*}
   E &= -\frac{e^2}{8\pi\epsilon_0 r}\\
-  &=  -\frac{me^4}{8\epsilon_0^2 n^2h^2}\\
+  &=  -\frac{e^2}{8\pi\epsilon_0} \frac{\pi m e^2}{n^2h^2\epsilon_0} \\
+  &= - \frac{me^4}{8\epsilon_0^2 n^2 h^2}\\
   &= \frac{E_1}{n^2}\\
 \end{align*}
 \[   \text{where } E_1 = -\frac{me^4}{8\epsilon_0^2 h^2} = \SI{-2.17e-18}{\joule} = \SI{-13.6}{\electronvolt} \]
 which matches the empirical formula (\ref{eqn:hlevels})!
 
+\emph{Note that many calculators give a value of zero if you type this equation in as one calculation. This is because $me^4 = \num{5.97e-106}$ which casio calculators cannot cope with. A way around this is to calculate directly in electron-volts by dividing through by $e$ thus requring only $me^3$ to be calculated.}
+
 This powerful piece of reasoning also gives a value for the radius of the hydrogen atom which matches that measured by experiment.
 
 This reasoning can be extended to nuclei with different charges; however it only works with a single electron as further inter-electron interactions are not taken into account.
+
+
 \end{document}
