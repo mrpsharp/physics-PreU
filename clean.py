@@ -28,6 +28,8 @@ MODULES = [
     "A-equations"
     ]
 
+MAIN_FILE_NAME = "revision-guide"
+
 TEX_EXTS = [
     ".aux",".bbl",".bbg",".log",".out",".synctex.gz",".blg"
     ]
@@ -36,6 +38,12 @@ print("Do you want to clean pdfs?")
 pdf_choice = input("(Y/N) >")
 if pdf_choice == "Y": TEX_EXTS.append(".pdf")
 else: print("Not cleaning pdfs")
+
+print("Do you want to clean the main file?")
+main_choice = input("(Y/N) >")
+if main_choice == "Y": MODULES.append(MAIN_FILE_NAME)
+else: print("Not cleaning pdfs")
+
 
 for module in MODULES:
 

@@ -1,8 +1,6 @@
 import os,subprocess
 """
 Builds individual chapters to pdf and deletes aux files
-
-FIXME: Currently references to equations are broken and will show up as a bold double question mark
 """
 
 MODULES = [
@@ -40,6 +38,7 @@ for module in MODULES:
 
     #os.system('pdflatex.exe -synctex=1 -output-directory pdf -interaction=nonstopmode "' + module + '".tex')
     #os.system('pdflatex.exe -synctex=1 -interaction=nonstopmode "' + module + '".tex')
+    subprocess.call(["pdflatex.exe","-synctex=1", "-interaction=nonstopmode", "-output-directory=pdf", '"' + module + '"' + ".tex"])
     subprocess.call(["pdflatex.exe","-synctex=1", "-interaction=nonstopmode", "-output-directory=pdf", '"' + module + '"' + ".tex"])
     #subprocess.call(["pdflatex.exe","-synctex=1", "-interaction=nonstopmode", '"' + module + '"' + ".tex"])
 for module in MODULES:
