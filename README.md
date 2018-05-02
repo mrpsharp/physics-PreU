@@ -13,7 +13,7 @@ Physics](https://openstax.org/details/books/college-physics) or
 
 The revision guide is written in LaTeX, is open source and hosted on
 Github (<https://github.com/mrpsharp/physics-PreU>). Most of the work
-was done using [SageMathCloud](https://cloud.sagemath.com), an excellent
+was done using [Cocalc](https://cocalc.com), an excellent
 online development environment for LaTeX, Sage, Jupyter notebooks and
 more.
 
