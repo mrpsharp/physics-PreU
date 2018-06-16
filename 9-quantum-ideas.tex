@@ -24,7 +24,7 @@
 Each of the above features \emph{(a) - (c)} is discussed in turn below.
 
 \begin{enumerate}[label=\emph{(\alph*)}]
-\item In the wave description of light the energy an electron in the metal receives energy from the light arrives continuously. An electron  therefore gradually absorbs enough energy to escape from the surface of the metal, something which is not seen in practice. Additionally, increasing the intensity of a wave corresponds to increasing the amplitude of the oscillation. This would lead us to expect that increasing the intensity of light would give photoelectrons of a higher energy, rather than simply more of them.
+\item In the wave description of light, an electron in the metal receives energy from the light that arrives continuously. An electron therefore gradually absorbs enough energy to escape from the surface of the metal, something which is not seen in practice. Additionally, increasing the intensity of a wave corresponds to increasing the amplitude of the oscillation. This would lead us to expect that increasing the intensity of light would give photoelectrons of a higher energy, rather than simply more of them.
 
 The photon description of light accounts of both of these effects. When light arrives on the surface of the metal a single photon interacts with a single electron. Assuming the photon gives the electron enough energy to escape, the electron will leave the metal instantaneously. In the photon model, the intensity of the light is due to the number of photons arriving per second. Therefore if the intensity doubles, the number of photons doubles and the number of photoelectrons doubles.
 
@@ -67,7 +67,7 @@ We can measure the energy of the photoelectrons by placing a photocell in a circ
 \begin{circuitikz}
   \draw (5,0) -- (5,3) to[pvsource] (0,3);
   \draw (0,0) -- (0,1.5) node[component]{\si{\micro\ampere}} --(0,3);
-  \draw (5,0) to[battery] (0,0);
+  \draw (0,0) to[battery] (5,0);
   \draw (1,0) -- (1, -1.5) -- (2.5,-1.5) node[component]{V} -- (4,-1.5) -- (4,0);
   \draw[->] (2.1,-0.5) -- (2.9,0.5);
 \end{circuitikz}
