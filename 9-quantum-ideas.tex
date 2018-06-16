@@ -67,7 +67,7 @@ We can measure the energy of the photoelectrons by placing a photocell in a circ
 \begin{circuitikz}
   \draw (5,0) -- (5,3) to[pvsource] (0,3);
   \draw (0,0) -- (0,1.5) node[component]{\si{\micro\ampere}} --(0,3);
-  \draw (5,0) to[battery] (0,0);
+  \draw (0,0) to[battery] (5,0);
   \draw (1,0) -- (1, -1.5) -- (2.5,-1.5) node[component]{V} -- (4,-1.5) -- (4,0);
   \draw[->] (2.1,-0.5) -- (2.9,0.5);
 \end{circuitikz}
