@@ -40,7 +40,7 @@ A mass on a spring on a smooth horizontal surface.
 \node[rectangle,scale = 1.8, fill=blue,inner sep=2.5mm, text = white] (a) at (3.75,3) {$m$};
 
 
-\draw[decoration={aspect=0.3, segment length=2mm, amplitude=3mm,coil},decorate] (0,3) -- (a);
+\draw[decoration={aspect=0.3, segment length=2mm, amplitude=3mm,coil},decorate] (0,3) -- (a); 
 
 \fill [pattern = north east lines] (0,2) rectangle (6,2.4);
 \fill [pattern = north east lines] (-.5,2) rectangle (0,4);
@@ -57,7 +57,7 @@ What happens if we move the mass by a distance x and then let it go?
 
 
 
-\draw[decoration={aspect=0.3, segment length=3mm, amplitude=3mm,coil},decorate] (0,3) -- (a);
+\draw[decoration={aspect=0.3, segment length=3mm, amplitude=3mm,coil},decorate] (0,3) -- (a); 
 
 \fill [pattern = north east lines] (0,2) rectangle (6,2.4);
 \fill [pattern = north east lines] (-.5,2) rectangle (0,4);
@@ -70,8 +70,8 @@ What happens if we move the mass by a distance x and then let it go?
 
 Before going into any mathematical detail we can think about what will happen to the mass.
 \begin{itemize}
-\item We know that there is now a force from the stretched string which is pulling the mass back to its original position.
-\item This will cause the mass to accelerate to the left.
+\item We know that there is now a force from the stretched string which is pulling the mass back to its original position. 
+\item This will cause the mass to accelerate to the left. 
 \item Once the mass reaches its starting point it will overshoot and start compressing the spring.
 \item This creates a resultant force which will again restore the mass to its original position.
 \item This will cause the mass to accelerate to the right.
@@ -81,13 +81,13 @@ Note that the direction of the acceleration is always opposite to the displaceme
 
 The mathematical treatment for this starts very simply with a basic knowledge of Hooke's law.
 
-The force on a stretched or compressed spring is given by
+The force on a stretched or compressed spring is given by 
 \[
 F=-kx
 \]
 where k is the spring constant.
 
-Newton's second law tells us that
+Newton's second law tells us that 
 \[
 F=ma
 \]
@@ -109,12 +109,12 @@ Find the maximum acceleration of the mass
 
 	\vspace{1cm}
 
-
+		
 
 		\textbf{Answer}
 
 Using the formula $a = -\dfrac{k}{m}x$
-The maximum acceleration will occur when x is a maximum so
+The maximum acceleration will occur when x is a maximum so 
 \[
 acceleration_{max} = - \dfrac{0.3}{2} \times 0.1
 \]
@@ -129,27 +129,27 @@ acceleration_{max} = -0.015 ms^{-2}
 
 
 
-\spec{*show that the condition for simple harmonic motion leads to a differential equation of the form
-\[
+\spec{* show that the condition for simple harmonic motion leads to a differential equation of the form
+\[ 
 \dfrac{d^2x}{dt^2} = - \omega^2 x
 \]
-and that
-\[
-x = A cos \omega t
-\]
+and that 
+\[ 
+x = A cos \omega t 
+\] 
 is a solution to this equation}
 
 
-Acceleration is the rate of change of velocity
+Acceleration is the rate of change of velocity 
 
 \[
-a = \dfrac{dv}{dt}
+a = \dfrac{dv}{dt} 
 \]
 
 and velocity is the rate of change of displacement
 
 \[
-v = \dfrac{dx}{dt}
+v = \dfrac{dx}{dt} 
 \]
 
 Putting these two together gives the condition for simple harmonic motion as.
@@ -166,7 +166,7 @@ By inspection we can see that functions with $\sin \omega t$ and $\cos \omega t$
 
 e.g.
 
-\begin{align*}
+\begin{align*} 
 x &= A cos \omega t \\
 \dfrac{dx}{dt} &= - A\omega sin \omega t \\
 \dfrac{d^2x}{dt^2} &= -A\omega^2 cos \omega t = -\omega ^2 x \\
@@ -200,7 +200,7 @@ So $\omega$ is the angular frequency (which explains our strange choice of const
 	%Amplitude description
 		\draw [<->] (6.5,0) -- (6.5,-1);
 		%to stop line overlap
-		\draw [fill=white,ultra thick,white] (7,-0.3) rectangle (9,-0.7);
+		\draw [fill=white,ultra thick,white] (7,-0.3) rectangle (9,-0.7); 
 		\node at (8, -0.5) {Amplitude, $A$};
 \end{tikzpicture}
 
@@ -211,7 +211,7 @@ The value of $\omega$ will be given by the physical properties of the system.
 e.g.
 For the mass on a spring we looked at earlier
 
-\begin{align*}
+\begin{align*} 
 F &= -kx && \text {Force on mass by Hooke's Law}\\
 a &= -\dfrac{k}{m} x  && \text{gives acceleration}\\
 \dfrac{d^2x}{dt^2} &= -\omega ^2 x && \text{comparing with condition for SHM} \\
@@ -221,10 +221,10 @@ a &= -\dfrac{k}{m} x  && \text{gives acceleration}\\
 
 \spec{* use differential calculus to derive the expressions
 \[
-v=-A \omega sin \omega t
-\] and
-\[a = -A\omega^2 cos \omega t
-\]
+v=-A \omega sin \omega t 
+\] and 
+\[a = -A\omega^2 cos \omega t 
+\] 
 for simple harmonic motion.}
 
 
@@ -233,7 +233,7 @@ This is achieved very simply by differentiating our expression for displacement 
 
 Remember that the differential of cos is -sin.
 
-so
+so 
 \[
 x = A cos \omega t
 \]
@@ -245,7 +245,7 @@ a = \dfrac{dv}{dt}= -A \omega^2 cos \omega t
 \]
 
 
-\spec{*recall and use the expressions $x = A cos\omega t, v = -A \omega sin \omega t, a = -A \omega^2 cos \omega t$ and $F = –m \omega^2x$ to solve problems}
+\spec{ *recall and use the expressions $x = A cos\omega t, v = -A \omega sin \omega t, a = -A \omega^2 cos \omega t$ and $F = -m \omega^2x$ to solve problems}
 
 We can use these equations to solve problems by identifying the variables and substituting.
 
@@ -261,7 +261,7 @@ Calculate the time period and frequency.
 Hence calculate the velocity and acceleration after 9.3 seconds.
 
 	\vspace{1cm}
-
+    
 \textbf{Answer}
 
 The first part doesn't require any knowledge of SHM. If there are 20 oscillations in 5 seconds this means $\dfrac{20}{5}$ oscillations in one second.
@@ -277,7 +277,7 @@ We are given the amplitude A as 15mm and the time is 9.3 seconds so we can now u
 So for the velocity
 
 \[
-v=-A \omega sin \omega t
+v=-A \omega sin \omega t 
 \]
 
 \[
@@ -315,18 +315,27 @@ So $\dfrac{1}{\omega}$ is how many seconds is takes to complete one radian.
 
 and the time for one complete cycle is $T = \dfrac{2 \pi}{\omega}$
 
+
 \spec{ understand the phase differences between displacement, velocity and acceleration in simple harmonic
 motion}
 
-Plotting these equations onto a graph gives the following.
+Plotting the equations \[x = A cos \omega t
+\]
+\[
+v =  -A \omega sin \omega t
+\]
+\[
+a = -A \omega^2 cos \omega t
+\]
+onto a graph gives the following.
 
 
 
 
 \begin{tikzpicture}
 	%curve 1
-		\draw[blue] (0.5,0) sin (1.5,-1) cos (2.5,0) sin (3.5,1) cos (4.5,0)
-			sin (5.5,-1) cos (6.5,0) sin (7.5,1) cos (8.5,0) sin (9.5,-1)
+		\draw[blue] (0.5,0) sin (1.5,-1) cos (2.5,0) sin (3.5,1) cos (4.5,0) 
+			sin (5.5,-1) cos (6.5,0) sin (7.5,1) cos (8.5,0) sin (9.5,-1) 
 			cos (10.5,0) sin (11.5,1);
 	%curve 2
     \draw[red] (0.5,-1) cos (1.5,0) sin (2.5,1) cos (3.5,0) sin (4.5,-1) cos
@@ -361,7 +370,10 @@ Acceleration is $\pi$ or $180^\circ$ out of phase with displacement.
 
 So when acceleration or displacement has a maximum magnitude, the velocity is zero
 
-\spec{*show that the total energy of an undamped simple harmonic system is given by $E = \dfrac{1}{2}mA^2\omega^2$ and
+
+
+
+\spec{ *show that the total energy of an undamped simple harmonic system is given by $E = \dfrac{1}{2}mA^2\omega^2$ and
 recognise that this is a constant}
 
 For an undamped system no energy is lost to the surroundings so the total energy is conserved.
@@ -372,31 +384,38 @@ Considering our mass on a spring at maximum displacement the spring will be at m
 
 Similarly when the displacement is zero all the energy will be K.E.
 
-At any point in between the total energy will be a mixture of K.E. and P.E.
+At any point in between the total energy will be a mixture of K.E. and P.E. 
 
 As the total energy is the same at any point we can pick what's easiest to derive an equation for it.
 
 So at zero displacement.
 
-\begin{align*}
+\begin{align*} 
 T.E. &= K.E. \\
 &= \dfrac{1}{2}mv_{max}^2 \\
 &= \dfrac{1}{2}mA^2\omega^2 \\
 \end{align*}
 
-\spec{recall and use $E = \dfrac{1}{2}mA^2\omega^2$ to solve problems}
+\spec{ recall and use $E = \dfrac{1}{2}mA^2\omega^2$ to solve problems}
+
+We can look at example problem to see how this works.
+
 
 \begin{example}
 
-A mass of 5kg is attached to a spring with a spring constant of $5 Nm^{-1}$ on a smooth horizontal surface.
-It is pulled back a distance of 20 cm and then released.
+A mass of 8kg is attached to a spring with a spring constant of $5 Nm^{-1}$ on a smooth horizontal surface.
+It is pulled back a distance of 20 cm and then released. 
 
 Calculate the total energy of the system, the time period of oscillation and the velocity of the mass when the displacement is 10 cm.
 
 
+\end{example}
 
 
 
+
+
+    
 \textbf{Answer}
 
 One way to approach this question is by using our equation for the energy stored in a spring.
@@ -411,12 +430,14 @@ P.E = \dfrac{1}{2} \times 5 \times .2^2 = 0.1J
 
 We also know that all the energy at this point is in the form of potential as the mass is not moving so this is the total energy of the system and will not change.
 
+
+
 For the time period we can first calculate the angular frequency using our energy equation.
 
-\begin{align*}
+\begin{align*} 
 E = \dfrac{1}{2}mA^2\omega^2 &= 0.1 J\\
 \therefore \omega &= \sqrt{\dfrac{2 E}{m A^2}}\\
-&= \sqrt{\dfrac{2 \times 0.1}{5 \times 0.2^2}}\\
+&= \sqrt{\dfrac{2 \times 0.1}{8 \times 0.2^2}}\\
 &= 1 rads^{-1}\\
 \omega &= \dfrac{2 \pi}{T} \\
 \therefore T &= 2 \pi = 6.2 seconds \\
@@ -426,7 +447,7 @@ E = \dfrac{1}{2}mA^2\omega^2 &= 0.1 J\\
 When the mass has a displacement of 10cm, the total energy will be the kinetic and potential energy.
 
 
-\begin{align*}
+\begin{align*} 
 T.E. = P.E + K.E. &= 0.1J \\
  \dfrac{1}{2} \times 5 \times .1^2 + K.E. &= 0.1J\\
  0.025 + K.E. &= 0.1J  \\
@@ -435,16 +456,17 @@ T.E. = P.E + K.E. &= 0.1J \\
  v &= 0.17 ms^{-1} \\
  \end{align*}
 
-\end{example}
 
+
+\pagebreak
 
 \spec{ distinguish between free, damped and forced oscillations}
 
-A free oscillator is one which is set in motion and left to oscillate without any external forces.
+A free oscillator is one which is set in motion and left to oscillate without any external forces or damping.
 
-e.g. a pendulum.
+e.g. an ideal pendulum with no friction.
 
-A forced oscillation is one where an external periodic force is applied.
+A forced oscillation is one where an external periodic force is applied. 
 
 e.g. pushing a child on a swing.
 
@@ -452,18 +474,18 @@ Damping is where frictional forces remove energy from the system and the oscilla
 
 This can be increased intentionally for example adding thick oil to car suspension to prevent you bouncing around every time the car hits a bump.
 
-If a system is lightly damped it will gradually come to rest after a number of cycles.
+If a system is lightly damped it will gradually come to rest after a number of cycles. 
 
-An important case is critical damping where the system comes to rest without overshooting and in the shortest possible time.
+An important case is critical damping where the system comes to rest without overshooting and in the shortest possible time. 
 
-
+ 
 
 \spec{ recall how the amplitude of a forced oscillation changes at and around the natural frequency of a system
 and describe, qualitatively, how damping affects resonance.}
 
 Every system has a natural frequency of oscillation which will depend on its physical properties. In the case of a mass on a spring it will depend on the mass and spring constant but more complex examples e.g. washing machines or the millennium bridge will also have natural frequencies.
 
-If we apply a driving force to an oscillator, the effect it has will depend on the amplitude of the driving force and its frequency compared to the natural frequency of the system.
+If we apply a driving force to an oscillator, the effect it has will depend on the amplitude of the driving force and its frequency compared to the natural frequency of the system. 
 
 For a simple example try holding a spring with a mass on the end of it and move your hand up and down rhythmically.
 
@@ -480,16 +502,13 @@ If we know move our hand with a very high frequency, the spring stretches and co
 \item Low frequency driving force, amplitude of oscillator = amplitude of driver.
 \item Driving frequency around natural frequency, resonance - very high amplitude oscillations.
 \item High frequency driving force, low amplitude oscillations.
-
-
-
 \end{itemize}
 
 
 
 In the real world we need to consider damping which will affect all systems to some degree. Damping will come from frictional forces and will remove energy from the system every cycle. If the energy added by the driving force is more than is removed by damping then the amplitude will increase. As the amplitude increases, the energy removed each cycle will also increase until a maximum amplitude is reached.
 
-From this it is clear that the more damping there is, the lower the amplitude.
+From this it is clear that the more damping there is, the lower the amplitude. 
 
 Another feature is that as we have more damping, the frequency at which resonance occurs is less. You can think of this as damping slowing down the system and so reducing the natural frequency (although strictly speaking the natural frequency refers to an undamped system).
 
@@ -572,9 +591,8 @@ This is all expressed in the following graph where I have used the damping ratio
 
 \item The resonance peak shifts lower with increased damping.
 
-\item More damping creates a broader resonance peak.
 
-\item As the frequency gets high the amplitude gets low regardless of damping.
+\item As the frequency gets very high the amplitude will tend to zero regardless of damping or driving amplitude.
 
 
 \end{itemize}
