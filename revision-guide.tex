@@ -25,10 +25,11 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.8}
 
-\tikzset{->-/.style={decoration={
-  markings,
-  mark=at position 0.5 with {\arrow{triangle 60}}},postaction={decorate}}}
 \tikzset{>=latex}
+
+\tikzset{->-/.style={decoration={markings, mark=at position #1 with {\arrow{>}}},postaction={decorate}},->-/.default={.5}}
+
+\tikzset{cross/.style={cross out, draw, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt},cross/.default={2.5pt}}
 
 % Should be final package loaded
 \usepackage{hyperref}
