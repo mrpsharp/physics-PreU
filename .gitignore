@@ -3,6 +3,9 @@
 #!main.pdf
 !figs/*/*.pdf
 
+## Version - should be auto-generated
+version.tex
+
 \\ Temp work folder
 temp/
 
