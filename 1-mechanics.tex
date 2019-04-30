@@ -218,21 +218,71 @@ As with velocities, forces can be split into two perpendicular components and th
 \begin{example}
 A block of mass \SI{4}{kg} is on a frictionless slope of \ang{30}. Calculate the rate at which it accelerates down the slope.
 
-\begin{tikzpicture}
-	\draw[thick] (0,0) -- (10,0);
-	\draw[thick] (0,0) -- (10,5.77);
-	% TODO
+
+\usetikzlibrary{scopes}
+
+\def\iangle{30} % Angle of the inclined plane
+
+\def\down{-90}
+\def\arcr{0.5cm} % Radius of the arc used to indicate angles
+
+\begin{tikzpicture}[
+    force/.style={>=latex,draw=blue,fill=blue},
+    axis/.style={densely dashed,gray,font=\small},
+    M/.style={rectangle,draw,fill=lightgray,minimum size=0.5cm,thin},
+    m/.style={rectangle,draw=black,fill=lightgray,minimum size=0.3cm,thin},
+    plane/.style={draw=black,fill=blue!10},
+]
+
+
+    \draw[plane] (0,-2) coordinate (base)
+                     -- coordinate[pos=0.5] (mid) ++(\iangle:6) coordinate (top)
+                     |- (base) -- cycle;
+    \path (mid) node[M,rotate=\iangle,yshift=0.25cm] (M) {};
+   
+   
+    \draw[->] (base)++(\arcr,0) arc (0:\iangle:\arcr);
+    \path (base)++(\iangle*0.5:\arcr+10pt) node {$30 ^{\circ}$};
+   
+
+    \begin{scope}[rotate=\iangle]
+        
+        % Draw axes and help lines
+
+        {[axis,->]
+            
+            
+        }
+
+        % Forces
+        {[force,->]
+            % Assuming that Mg = 1. The normal force will therefore be cos(alpha)
+            \draw [green](M.center) -- ++(0,{cos(\iangle)}) node[above right, black] {$N$};
+            \draw [green](M.center) -- ++(-.5,0) node[left, black] {Mg sin30};
+           
+        }
+
+    \end{scope}
+
+    \draw[force,->] (M.center) -- ++(0,-1) node[below] {$Mg$};
+    %%
+
+
+
+\\
+%};
 \end{tikzpicture}
 
 \answer
 
 The weight should be split into components along the slope and perpendicular to the slope (shown in green). Only the component along the slope contributes to the acceleration.
 
-\[ a = \frac{F}{m} = \frac{mg\cos{30}}{m} = \SI{8.5}{ms^{-2}} \]
+\[ a = \frac{F}{m} = \frac{mg\sin{30}}{m} = \SI{4.9}{ms^{-2}} \]
 
-This question could be extended to include friction by calculating the normal force, the frictional force and hence a new acceleration. If $\mu_k = 0.4$ then the answers are \SI{19.62}{N}, \SI{7.85}{N} and \SI{6.5}{ms^{-2}} respectively (Try it!)
+This question could be extended to include friction by calculating the normal force, the frictional force and hence a new acceleration. If $\mu_k = 0.4$ then the answers are \SI{34}{N}, \SI{14}{N} and \SI{1.5}{ms^{-2}} respectively (Try it!)
 
 \end{example}
+
 
 \spec{recall and use p = mv and apply the principle of conservation of linear momentum to problems in one dimension}
 
