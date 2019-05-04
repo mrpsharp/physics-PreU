@@ -1,6 +1,8 @@
 About this revision guide
 =========================
 
+[![Build Status](https://travis-ci.com/mrpsharp/physics-PreU.svg?branch=master)](https://travis-ci.com/mrpsharp/physics-PreU)
+
 This is a revision guide for Pre-U Physics 2016-18. The specification is
 available at
 <http://www.cie.org.uk/images/163265-2016-2018-syllabus.pdf>.
