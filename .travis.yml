@@ -18,3 +18,4 @@ deploy:
   draft: true
   on:
     repo: mrpsharp/physics-PreU
+    tags: true
