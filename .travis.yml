@@ -1,0 +1,27 @@
+language: generic
+
+# Dependency of the minted package
+#before_install:
+# - sudo apt-get install python-pygments
+install:
+  - source ./texlive/texlive_install.sh
+cache:
+  directories:
+    - /tmp/texlive
+    - $HOME/.texlive
+# Change working directory so including files will work
+before_script: cd $TRAVIS_BUILD_DIR/
+script:
+  # Texliveonfly will download packages automatically
+  - texliveonfly revision-guide.tex
+  # You can use latexmk to automatically handle bibtex and references (recommended)
+  - latexmk -pdf revision-guide.tex
+
+  # But you could use any other compiler as well instead of latexmk. Example:
+#  - pdflatex main.tex
+#  - bibtex main
+#  - pdflatex main.tex
+#  - pdflatex main.tex # Compile twice to fix references
+
+  # You can also pass arguments to texliveonfly:
+#  - texliveonfly --arguments='-shell-escape' main.tex
