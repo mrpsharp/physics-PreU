@@ -3,9 +3,9 @@ About this revision guide
 
 [![Build Status](https://travis-ci.com/mrpsharp/physics-PreU.svg?branch=master)](https://travis-ci.com/mrpsharp/physics-PreU)
 
-This is a revision guide for Pre-U Physics 2016-18. The specification is
+This is a revision guide for Pre-U Physics 2019-21. The specification is
 available at
-<http://www.cie.org.uk/images/163265-2016-2018-syllabus.pdf>.
+<https://www.cambridgeinternational.org/Images/329613-2019-2021-syllabus.pdf>.
 
 This revision guide has been written by the Physics Department at
 Westminster School. This is a narrow revision guide, if you are looking
