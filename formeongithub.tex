@@ -1,0 +1,27 @@
+%% From https://gist.github.com/jnothman/0729018fc39b2c30f082
+
+\usepackage{tikz}
+\usepackage{ifthen}
+\usepackage{xcolor}
+\usetikzlibrary{shadows.blur}
+
+\newlength{\forkmeoffset}
+\setlength{\forkmeoffset}{8em}
+\definecolor{forkmebg}{HTML}{CC0000}
+\definecolor{forkmefg}{HTML}{EEEEEE}
+
+\newcommand{\forkme}[1][west]{
+	\ifthenelse{\equal{#1}{east}}{%
+		\tikzset{forkmerot/.style={rotate=-45}}
+	}{%
+		\tikzset{forkmerot/.style={rotate=45}}
+	}
+	\begin{tikzpicture}[remember picture, overlay]
+	\node[forkmerot, shift={(0, -\forkmeoffset)}] at (current page.north #1) {
+		\begin{tikzpicture}[remember picture, overlay]
+            \node[fill=forkmebg, text centered, minimum width=50em, minimum height=3.0em, blur shadow, shadow yshift=0pt, shadow xshift=0pt, shadow blur radius=.4em, shadow opacity=50, text=forkmefg](fmogh) at (0pt, 0pt) { \fontfamily{phv}\selectfont\bfseries \href{https://github.com/mrpsharp/physics-PreU}{Fork me on GitHub} };
+		\draw[forkmefg!60, dashed, line width=.08em, dash pattern=on .5em off 1.5\pgflinewidth] (-25em,1.2em) rectangle (25em,-1.2em);
+		\end{tikzpicture}
+	};
+	\end{tikzpicture}
+}
