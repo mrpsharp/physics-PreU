@@ -1,7 +1,8 @@
 \documentclass[a4paper,11pt,twoside]{memoir}
 
+\immediate\write18{git describe --tags > version.tex}
 
-\newcommand{\theversion}{1.0-b}
+\newcommand{\theversion}{\input{version}}
 
 \usepackage{subfiles}
 \usepackage{graphicx}
@@ -64,14 +65,17 @@
 
 \setsecnumdepth{none}
 \setcounter{tocdepth}{0}
-
+\include{formeongithub.tex}
 \begin{document}
+
 \raggedbottom
 \frontmatter
+\small\forkme[east]
 \begin{titlingpage}
+
 \vspace*{\fill}
     \begin{center}\Huge\bfseries Sixth Form Physics Revision Guide \\ \vspace{3cm} \Large Westminster School
-    \vfill \today \\ \theversion \end{center}
+    \vfill \today \\ \theversion \end{center} 
 	\thispagestyle{empty}
 \end{titlingpage}
 
