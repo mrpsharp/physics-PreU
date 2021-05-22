@@ -1,0 +1,2237 @@
+\documentclass[a4paper,11pt,twoside]{memoir}
+
+
+\newcommand{\theversion}{1.0-b}
+
+\usepackage{subfiles}
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{tikz}
+\usepackage[european,siunitx]{circuitikz}
+\usepackage{amsmath}
+\usepackage{lmodern}
+\usepackage{amssymb}
+\usepackage{wrapfig}
+\usepackage{needspace}
+\usepackage{xcolor}
+\usepackage{siunitx}
+\usepackage{enumitem}
+\usepackage{longtable}
+\usepackage[utf8x]{inputenc}
+\usepackage{framed}
+\usepackage{pdfpages}
+\usetikzlibrary{decorations.pathmorphing,patterns,decorations.markings,arrows.meta}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.8}
+
+\tikzset{>=latex}
+
+\tikzset{->-/.style={decoration={markings, mark=at position #1 with {\arrow{>}}},postaction={decorate}},->-/.default={.5}}
+
+\tikzset{cross/.style={cross out, draw, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt},cross/.default={2.5pt}}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
+\chapterstyle{section}
+
+\newcommand{\ud}{\,\mathrm{d}}
+
+
+
+\newcounter{spec}[chapter]
+\newcommand{\spec}[1]{\Needspace{5\baselineskip}\textcolor{purple}{$\bullet$\hspace{0.5cm}\textit{#1}}}
+\newcommand{\specstar}[1]{\Needspace{5\baselineskip}\textcolor{purple}{\textit{#1}}}
+
+\newcommand{\answer}{\par \textbf{Answer} \par}
+\newsavebox{\examplebox}
+\newenvironment{example}
+{\begin{lrbox}{\examplebox}\begin{minipage}{0.9\textwidth}\textbf{Example Question}\par}
+{\end{minipage}\end{lrbox}\fbox{\usebox{\examplebox}}}
+
+\newenvironment{content}{\section*{Content}
+\begin{itemize}}{\end{itemize}}
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+
+\setsecnumdepth{none}
+\setcounter{tocdepth}{0}
+
+\begin{document}
+\raggedbottom
+\frontmatter
+\begin{titlingpage}
+\vspace*{\fill}
+    \begin{center}\Huge\bfseries Sixth Form Physics Revision Guide \\ \vspace{3cm} \Large Westminster School
+    \vfill \today \\ \theversion \end{center}
+	\thispagestyle{empty}
+\end{titlingpage}
+
+\tableofcontents
+
+\mainmatter
+\chapter{A1 Materials}
+\setcounter{spec}{0}
+\section*{Content}
+\begin{itemize}
+\item elastic and plastic behaviour
+\item stress and strain
+\end{itemize}
+
+\section*{Candidates should be able to:}
+\spec{distinguish between elastic and plastic deformation of a material}
+
+Elastic deformation is defined as deformation where the sample returns to its original length when the load is removed. Plastic deformation involved a permanent change in length of the sample.
+
+\spec{recall the terms brittle, ductile, hard, malleable, stiff, strong and tough, explain their meaning and give examples of materials exhibiting such behaviour}
+
+\begin{description}
+    \item[Brittle] Brittleness is an indicator of how soon after the yield point a material fractures. Failure will be through the propagation of cracks. A brittle material cannot absorb much energy before breaking. For example, glass and ceramics can be strong but brittle.
+    \item[Ductile] Ductility is a measure of plastic behaviour under tension. It gives an indication of how easily a material can be drawn into wires i.e. can withstand large strains without breaking. Copper is highly ductile.
+    \item[Hard] Hardness is a measure of a materials ability to resist impact or scratching. Diamond is an exceptionally hard material.
+    \item[Malleable] Malleability is a measure of plastic behaviour under compression. It gives an indication of how easily a material can be worked. Metals are ductile and hence relatively easy to form into shapes for use in manufacture.
+    \item[Stiff] Stiffness measures how much a material resists deformation. A measure of stiffness is the Young Modulus. Glass fibres and steel are both stiff materials.
+    \item[Strong] A strong material is able to withstand a large stress without failing.
+    \item[Tough] Toughness is a measure of the ability of a material to resist failure through crack propagation. It is the opposite of brittleness. A tough material is able to absorb a lot of energy without breaking. Plastics/polymers are often tough.
+\end{description}
+
+\spec{explain the meaning of,  and recall and use the appropriate equations to calculate tensile/compressive stress, tensile/compressive strain, spring constant, strength, breaking stress, stiffness and Young modulus}
+
+Firstly, compressive forces and deformations are those which reduce the length of the sample whereas tensile forces act to increase its length.
+
+\begin{description}
+    \item[Stress] Stress is defined as the force per unit of cross-sectional area applied to a material. \[ \sigma = \frac{F}{A} \] Stress is measured in pascals (Pa).
+    \item[Strain] Strain is the fractional extension of a material. \[ \epsilon = \frac{x}{l} \]
+    where $l$ is the original length.
+    \item[Spring constant] The spring constant $k$ is the force per unit of extension of a material during its proportional phase of deformation. It is defined by Hooke's Law: \[ F = kx\] The spring constant is often used as a measure of stiffness of an object.
+    \item[Strength] Strength is often measured as the maximum stress a material can withstand before permanent deformation. This is known as the yield stress.
+    \item[Breaking stress] This is the stress at which the material fails.
+    \item[Young modulus] This is a quantitative measure of the stiffness of a material, defined as stress per unit of strain in the proportional region the material's behaviour. \[ E = \frac{\sigma}{\epsilon} \]
+\end{description}
+
+\spec{draw force-extension, force-compression and tensile/compressive stress-strain graphs, and explain the meaning of the limit of proportionality, elastic limit, yield point, breaking force and breaking stress}
+
+The gradient of a force-extension graph gives the spring constant.
+
+\begin{figure}[ht]
+    \begin{center}
+        \begin{tikzpicture}[scale=1]
+            \draw[->] (-0.5,0) -- (10,0) node[anchor=north] {$\epsilon$};
+            \draw[->] (0,-0.5) -- (0,6) node[anchor=east] {$\sigma$};
+            \draw (0,0) -- (1.5,3) .. controls (2,3.5) .. (2.5,3) .. controls (3,2.8) .. (4,4) .. controls (5.5,5.5) and (8,5.5) .. (10,4.5);
+            \fill (1.5,3) circle (2pt) node[anchor=south east] {A};
+            \fill (2,3.4) circle (2pt) node[anchor=south] {B};
+            \fill (7,5.2) circle (2pt) node[anchor=south] {C};
+            \fill (10,4.5) circle (2pt) node[anchor=south] {D};
+            \node[draw, text width = 4cm] at (13,3) {
+            \begin{description}
+                \item[A] The limit of proportionality
+                \item[B] The yield point
+                \item[C] The ultimate stress (maximium stress)
+                \item[D] The breaking point
+            \end{description}
+            };
+        \end{tikzpicture}
+    \end{center}
+    \caption{Stress-strain curve for a ductile material}
+    \label{stress-strain}
+\end{figure}
+
+Figure \ref{stress-strain} shows an example stress-strain curve. Note that the limit of proportionality is often a good approximation of the elastic limit of a metal. The ``breaking stress'' usually refers to the ultimate stress, i.e. the maximum stress the material can withstand, rather than the stress at the breaking point.
+
+\spec{state Hooke's law and identify situations in which it is obeyed}
+
+\[ F = kx \]
+
+Hooke's law is obeyed by an ideal spring and by a sample of metal up to the limit of proportionality.
+
+\spec{account for the stress-strain graphs of metals and polymers in terms of the microstructure of the material.}
+
+\subsection{Metals}
+Metals consist of positive ions in a sea of delocalised electrons. During the elastic phase of deformation the spaces between the ions get larger and smaller. The metallic bonds resist this change from their equilibrium length and act like small springs acting to return the spacing to its original length.
+
+An initial expectation of the plastic phase of deformation in a metallic lattice may be that the planes of ions slip past one another; however an analysis of the forces required for such movement gives an answer hundreds of times higher than the measured yield stress. Instead, the plastic deformation of metals must be explained in terms of \emph{dislocations}. A dislocation occurs when there is a gap in the metallic lattice. Dislocations occur naturally in materials and enable plastic deformation to occur through the breaking of individual bonds in succession, rather than all at once.
+
+\begin{figure}[h]\begin{center}
+    \begin{tikzpicture}
+        % Left hand
+        \foreach \y in {5,6,7} {
+            \foreach \x in {0,1,2,3,4} {
+                \draw (\x,\y) circle (4mm);
+            }
+        }
+        \foreach \x in {0.1,1.15,2.8,3.8} {
+                \draw (\x,4) circle (4mm);
+            }
+        \foreach \x in {0.3,1.3,2.6,3.6} {
+            \draw (\x,3) circle (4mm);
+        }
+        \foreach \x in {0.5,1.4,2.4,3.35} {
+            \draw (\x,2) circle (4mm);
+        }
+        \draw[red, very thick] (0,7) -- (0.1,4) -- (0.5,2);
+        \draw[red, very thick] (1,7) -- (1,5) -- (1.4,2);
+        \draw[red, very thick] (2,7) -- (2,5);
+        \draw[red, very thick] (3,7) -- (3,5) -- (2.4,2);
+        \draw[red, very thick] (4,7) -- (4,5) -- (3.4,2);
+         % right hand
+        \foreach \y in {5,6,7} {
+            \foreach \x in {7,8,9,10,11} {
+                \draw (\x,\y) circle (4mm);
+            }
+        }
+        \foreach \x in {7.1,8.15,9.2,10.8} {
+                \draw (\x,4) circle (4mm);
+            }
+        \foreach \x in {7.3,8.3,9.3,10.6} {
+            \draw (\x,3) circle (4mm);
+        }
+        \foreach \x in {7.5,8.4,9.4,10.35} {
+            \draw (\x,2) circle (4mm);
+        }
+        \draw[red, very thick] (7,7) -- (7.1,4) -- (7.5,2);
+        \draw[red, very thick] (8,7) -- (8,5) -- (8.4,2);
+        \draw[red, very thick] (9,7) -- (9,5) -- (9.4,2);
+        \draw[red, very thick] (10,7) -- (10,5);
+        \draw[red, very thick] (11,7) -- (11,5) -- (10.4,2);
+    \end{tikzpicture}
+    \caption{The movement of a dislocation}\label{disloc}
+\end{center}\end{figure}
+
+Figure \ref{disloc} shows a dislocation moving within a metal which would allow the metal to deform by moving one atom at a time. As the movement of dislocations is the dominant mode of plastic deformation, changes to the ability of dislocations to move through the metal have significant effects on it properties. For example:
+\begin{description}
+    \item[Work Hardening] As a metal is deformed, the dislocations move through the structure. Slowly the dislocations reach grain-boundaries or other dislocations and are no longer able to move. The metal therefore becomes less ductile and more brittle. This may be a desired property in order to harden a metal, or the additional brittleness may be undesirable.
+    \item[Alloying] The addition of alloying atoms to the lattice can `pin' a dislocation in place (as shown in figure \ref{alloying}. The metal is therefore no longer able to deform by the movement of dislocations so the metal has a greater yield stress and is less ductile. Examples include adding carbon to iron to produce steel or adding zinc to copper to produce brass.
+\end{description}
+\begin{figure}[h]\begin{center}
+    \begin{tikzpicture}
+        % Left hand
+        \foreach \y in {5,6,7} {
+            \foreach \x in {0,1,2,3,4} {
+                \draw (\x,\y) circle (4mm);
+            }
+        }
+        \foreach \x in {0.1,1.15,2.8,3.8} {
+                \draw (\x,4) circle (4mm);
+            }
+        \foreach \x in {0.3,1.3,2.6,3.6} {
+            \draw (\x,3) circle (4mm);
+        }
+        \foreach \x in {0.5,1.4,2.4,3.35} {
+            \draw (\x,2) circle (4mm);
+        }
+        \fill [red] (2,4) circle (2mm);
+    \end{tikzpicture}
+    \caption{Alloying atom pinning a dislocation}\label{alloying}
+\end{center}\end{figure}
+
+The effect on a stress-strain graph can be seen in figure \ref{stress-strain-alloy} below.
+
+\begin{figure}[ht]
+    \begin{center}
+        \begin{tikzpicture}[scale=0.5]
+            \draw[->] (-0.5,0) -- (10,0) node[anchor=north] {$\epsilon$};
+            \draw[->] (0,-0.5) -- (0,8) node[anchor=east] {$\sigma$};
+            \draw (0,0) -- (1.5,3) .. controls (2,3.5) .. (2.5,3) .. controls (3,2.8) .. (4,4) .. controls (5.5,5.5) and (8,5.5) .. (10,4.5) node[anchor=north] {Pure metal};
+            \fill (10,4.5) circle (1mm);
+            \draw (0,0) -- (1.3,5.5) .. controls (1.5,5.8) .. (2,6) node[anchor=south] {Alloy};
+            \fill (2,6) circle (1mm);
+        \end{tikzpicture}
+    \end{center}
+    \caption{Stress-strain curve for a ductile material}
+    \label{stress-strain-alloy}
+\end{figure}
+
+\subsection{Polymers}
+
+Polymers consist of long chain molecules weakly held together by intermolecular forces. Initially the molecules are likely to be tangled-up together. As force is applied it is initially difficult to move the polymer chains from this state (\textbf{A}). As the chains begin to unravel they straighten out by bond rotation, requiring relatively little force for a large increase in strain (\textbf{B}). As the polymer chains become straight it becomes much more difficult to extend the material any further without damaging the material (\textbf{C}).
+
+\begin{figure}[ht]
+    \begin{center}
+        \begin{tikzpicture}[scale=.75]
+            \draw[thick, ->] (-0.5,0) -- (11,0) node[anchor=north] {$\epsilon$};
+            \draw[thick, ->] (0,-0.5) -- (0,9) node[anchor=east] {$\sigma$};
+            \draw (0,0) .. controls (3,7) and (6,1) .. (10,8);
+            \draw (1.5,1) node{\textbf{A}};
+            \draw (5,1) node{\textbf{B}};
+            \draw (8.5,1) node{\textbf{C}};
+            \draw[dashed] (3,0) -- (3,3.6);
+            \draw[dashed] (7.2,0) -- (7.2,4.7);
+        \end{tikzpicture}
+    \end{center}
+    \caption{Stress-strain curve for a polymer}
+    \label{stress-strain-polymer}
+\end{figure}
+
+\chapter{A2 Waves}
+\setcounter{spec}{0}
+\section*{Candidates should be able to:}
+\spec{understand and use the terms displacement, amplitude, intensity, frequency, period, speed and wavelength}
+
+All waves consist of oscillations. The oscillations could be of particles, for example in a sound wave, or of an electromagnetic field, as in a light wave.
+
+The following terms are used to describe properties of waves:
+\begin{itemize}
+\item \textbf{displacement}: This is a measurement of the distance and direction away from the equilibrium position.
+\item \textbf{amplitude}: The maximum displacement of the oscillation, represented by $A$.
+\item \textbf{intensity}: The power of the wave per unit area, represented by $I$. The unit of intensity is $Wm^{-2}$.
+\item \textbf{frequency}: The number of oscillations per second, represented by $f$.
+\item \textbf{period}: The time taken for one oscillation, represented by $T$.
+\item \textbf{speed}: The speed of a wave represented by $v$. This will depend on the medium through which the wave is travelling.
+\item \textbf{wavelength}: The distance over which a wave's shape repeats, represented by $\lambda$.
+
+\end{itemize}
+
+\spec{recall and apply $f = \frac{1}{T}$ to a variety of situations not limited to waves}
+
+This equation follows from the definition of the frequency and time period of a wave. Remember to use Hertz as the unit for frequency and seconds as the unit for period.
+
+\spec{recall and use the wave equation $v=f\lambda$}
+
+$$\text{speed} = \frac{\text{distance travelled}}{\text{time taken}}$$
+
+For a wave, the distance travelled in one time period, $T$, is the wavelength, $\lambda$. Therefore we can write
+
+\[v = \frac{\lambda}{T}\]
+
+Then, using the equation $f=\frac{1}{T}$, we can write:
+
+$$v = f\lambda$$
+
+This is known as the wave equation and can be applied to all waves. The frequency of the wave generally depends on the source of the wave or how it is produced and the speed depends on the medium through which the wave is travelling.
+
+\spec{recall that a sound wave is a longitudinal wave which can be described in terms of the displacement of molecules or changes in pressure}
+
+When a sound wave travels through a material, the collisions of molecules are parallel to the direction of travel. Energy is transferred through these collisions and the speed of the sound wave will depend on factors such as the density of the material and the temperature.
+
+When a sound wave is viewed on an oscilloscope, it looks as though the oscillations are perpendicular to the direction of travel, as in a transverse wave. The y-axis can represent either the displacement of molecules (still in the parallel direction) from their equilibrium position, or the difference in pressure.
+
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{figs/chapt-6/soundwave.JPG}
+\caption{Sound wave in air (credit: hyperphysics)}
+\label{Sound wave in air}
+\end{figure}
+
+\spec{recall that light waves are transverse electromagnetic waves, and that all electromagnetic waves travel at the same speed in a vacuum}
+\spec{recall the major divisions of the electromagnetic spectrum in order of wavelength, and the range of wavelengths of the visible spectrum}
+
+Electromagnetic waves are transverse waves where the oscillations are perpendicular to the direction of travel. In all electromagnetic waves there are actually two waves oscillating perpendicular to each other and to the direction of travel. One is an oscillating magnetic field; the other an oscillation electric field.
+
+\begin{figure}[h!]
+\includegraphics[width=9cm]{figs/chapt-6/emwave.png}
+\centering
+\caption{oscillations in an electromagnetic wave}
+\label{emwave}
+\end{figure}
+
+The electromagnetic spectrum is the name for the arrangement and classification of electromagnetic waves in order of their wavelengths or frequencies.
+
+The electromagnetic spectrum is shown below in order of increasing wavelength.
+
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{figs/chapt-6/emspectrum.jpg}
+\caption{The electromagnetic spectrum (Credit:miniphysics.com)}
+\end{figure}
+
+You can see that the visible light spectrum makes up a small part of the electromagnetic spectrum, with wavelengths between 400 - 700 nm.
+
+\spec{recall and use that the intensity of a wave is directly proportional to the square of its amplitude}
+
+If the amplitude of a wave varies sinusoidally, the intensity will vary as sine squared. Therefore the following expression can be used:
+
+$$I \propto A^2$$
+
+\spec{use graphs to represent transverse and longitudinal waves, including standing waves}
+
+\emph{Note: Standing waves will be covered in Chapter 7 on Superposition}
+
+There are two types of graphs used to represent transverse and longitudinal waves, shown in Figure \ref{twographs}. You need to be careful as they look similar.
+
+The first graph plots the motion of one part of the wave with time, for example the motion of one water molecule as a water wave goes by. The x-axis on this graph can give you the time period of the wave.
+
+The second graph is a snapshot of a section of the wave at one particular instant in time. On this graph the wavelength can be measured from the x-axis.
+
+\begin{figure}[h]
+    \begin{center}
+    \begin{tikzpicture}[domain=0:10,samples=200]
+        \draw[very thin,color=gray] (-0.1,-1.5) grid (9.9,1.5);
+        \draw[->] (-0.2,0) -- (10.2,0) node[right] {$t$};
+        \draw[->] (0,-1.5) -- (0,1.5) node[above] {$y$};
+        \draw plot (\x,{1.2*sin(50*pi*\x)});
+        \draw[<->] (1.8,-1.5) -- (4,-1.5) node[midway, below] {$T$};
+    \end{tikzpicture}
+    \begin{tikzpicture}[domain=0:10,samples=200]
+        \draw[very thin,color=gray] (-0.1,-1.5) grid (9.9,1.5);
+        \draw[->] (-0.2,0) -- (10.2,0) node[right] {$x$};
+        \draw[->] (0,-1.5) -- (0,1.5) node[above] {$y$};
+        \draw plot (\x,{1.2*sin(40*pi*\x)});
+        \draw[<->] (3.55,1.5) -- (6.5,1.5) node[midway, above] {$\lambda$};
+    \end{tikzpicture}
+    \end{center}
+    \caption{Two graphs of a wave}
+    \label{twographs}
+\end{figure}
+
+
+
+\spec{explain what is meant by a plane-polarised wave}
+\spec{recall Malus' Law ($I \propto \cos^2\theta $) and use it to calculate the amplitude and intensity of transmission through a polarising filter}
+
+A plane-polarised wave is one where there is only \textbf{one} allowed direction of oscillation. This is only applicable to transverse waves where there are multiple allowed modes of oscillation which are all perpendicular to the direction of travel. A longitudinal wave cannot be polarised as there is already only one direction of oscillation - the direction parallel to that of travel. All electromagnetic waves can be polarised.
+
+Consider visible light as an example of a polarised wave. There are 4 ways in which light can be polarised.
+
+\begin{itemize}
+\item\textbf{Transmission}: A polarising filter can be used to polarise light. A filter is made up of chains of molecules that will absorb one direction of oscillation of the light wave, therefore only letting through the perpendicular direction. Note that this 'one' direction is a simplificiation as it encompasses oscillations in both the electric and magnetic fields. The \emph{axis of transmission} of a filter is the direction of oscillation that the filter will let through.
+
+\begin{figure}[h]
+\includegraphics[width=10cm]{figs/chapt-6/polarisedwave.JPG}
+\centering
+\caption{diagram showing the operation of a polarising filter (Credit: isaacphysics)}
+\end{figure}
+
+As unpolarised light passes through a polaroid filter, its intensity will drop of 50\% of what it originally was. If light that is already polarised is incident on a filter with a perpendicular axis of transmission, none will pass through. If light that is already polarised is incident on a filter with a parallel axis of transmission, then all of the light will pass through. For cases other than parallel or perpendicular, Malus' Law can be used.
+
+Malus' Law can be used to work out how the intensity of polarised light changes as it passes through a polaroid filter. The angle $\theta$ is the angle \emph{between} the direction of polarisation of the incident light and the axis of transmission of the polaroid. If you start with unpolarised light, $\theta$ is the angle between the two polaroids.
+
+Malus' Law states that the intensity of the transmitted light is proportional to the square of $\cos\theta$.
+$$I \propto \cos^2\theta $$
+If the incident intensity is $I_0$, then we can write Malu's Law as:
+$$I = I_0\cos^2\theta$$
+
+Note that if you are dealing with \emph{amplitude} instead of intensity then you must take the square root to give $\cos\theta$.
+
+\item\textbf{Reflection}: Light can be partially polarised on reflection from certain non metallic surfaces, such as water. The reflected light will be polarised parallel to the surface. This is why polaroid sunglasses are useful as they can cut out the glare from water or roads.
+
+\item\textbf{Refraction}: Light can be partially polarised, often in two perpendicular directions, when passing through some materials, such as calcite. Specific details will always be given to you in a question.
+
+\item\textbf{Scattering}: Light from the Sun scatters of molecules in our atmosphere and is partially polarised depending on the direction that you are looking at the sky. Again, specific details will always be provided in a question.
+
+\end{itemize}
+
+\spec{recognise and use the expression for refractive index
+\[ n = \frac{\sin{\theta_1}}{\sin{\theta_2}} = \frac{v_1}{v_2}\]}
+
+When a wave crosses a boundary which involves a change in speed, refraction occurs. This concept should be familiar from GCSE.
+
+%Diagram
+
+For light, the refractive index of a medium is the ratio of the speed of light in a vacuum, $c$, to the speed of light in the medium, $v$.
+\[n = \frac{c}{v}\]
+
+Therefore the refractive index of a material is always greater than one.
+
+If a wave now crosses a boundary between material 1 and material 2, with the angle of incidence being $\theta_1$ and the angle of refraction being $\theta_2$, the following relationship (Snell's Law) applies:
+
+\[ \frac{n_2}{n_1} = \frac{\sin{\theta_1}}{\sin{\theta_2}}\]
+
+As the refractive index of a material is inversely proportional to the speed of light in that material, we know that
+
+\[\frac{n_2}{n_1} = \frac{v_1}{v_2} \]
+
+Snell's Law now becomes
+
+\[ \frac{n_2}{n_1} = \frac{\sin{\theta_1}}{\sin{\theta_2}} =  \frac{v_1}{v_2}\]
+
+This is the most general form of Snell's Law. For the specific case where material 1 is air we can take $n_1 = 1$ as the speed of light in air is so close to the speed of light in a vacuum. Now, replacing $n_2$ with $n$, the equation is:
+
+\[ n = \frac{\sin{\theta_1}}{\sin{\theta_2}} = \frac{v_1}{v_2}\]
+
+This is the equation given in the specification. Be careful as it only applies to the case where material 1 is air and this might not always be the case.
+
+\spec{derive and recall $\sin{c} = \frac{1}{n}$ and use it to solve problems}
+
+If we take Snell's Law for the case where light is travelling from a material of higher refractive index into a material with lower refractive index, $n_1 > n_2$, we know that the light will bend away from the normal with the angle of refraction, $\theta_2$ being larger than the angle of incidence, $\theta_1$. If the angle of incidence is increased until the angle of refraction is $90^{\circ}$, then the angle of incidence is now called the \emph{critical angle}, as above this angle, \emph{total internal reflection} will occur.
+
+Now we can put this into Snell's Law. $\theta_1$ is now $c$, the critical angle and $\theta_2$ is now $90^{\circ}$.
+
+$$\frac{n_2}{n_1} = \frac{\sin{\theta_1}}{\sin{\theta_2}}$$
+This now becomes:
+$$\frac{n_2}{n_1} = \frac{\sin{c}}{\sin{90^{\circ}}}$$
+
+As $\sin{90^{\circ}} = 1$, the most general equation to find the critical angle is:
+$$\frac{n_2}{n_1} = \sin{c}$$
+or
+$$\frac{n_1}{n_2} = \frac{1}{\sin{c}}$$
+
+In the specification, the equation is given for the specific case where material 2 is air, therefore $n_2$ can be taken to be 1. This gives the equation:
+$$\sin{c} = \frac{1}{n}$$
+
+\spec{recall that optical fibres use total internal reflection to transmit signals}
+\spec{recall that, in general, waves are partially transmitted and partially reflected at an interface between media.}
+
+Should be familiar from GCSE.
+
+\spec{explain and use the concepts of coherence, path difference, superposition and phase}
+\spec{understand the origin of phase difference and path difference, and calculate phase differences from path differences}
+\spec{understand how the phase of a wave varies with time and position}
+
+These terms are all used when considering more than one wave.
+
+The phase of a wave is related to how far through an oscillation a wave is. This is expressed in radians or degrees, where one complete oscillation corresponds to $360^{\circ}$ or $2\pi$ radians.
+
+The phase difference between two waves is more useful than the phase of one wave. This refers to the fraction of an oscillation by which one wave 'leads' or 'lags' behind another. If the phase difference is $2n\pi$, where $n$ is an integer, then two waves are said to be \emph{in phase} and if the phase difference is $(2n-1)\pi$ then the waves are completely \emph{out of phase}.
+
+Two waves are said to be coherent if they have a constant phase difference. Most often, this is a phase difference of zero, which means that the waves are in phase, but this does not always have to be the case. For interference patterns to occur, coherence is often a necessary condition.
+
+If two waves, from two different sources, meet at a point, the path difference is the difference in distance travelled between the two waves. To calculate the path difference the smaller distance should be taken away from the larger distance. Path difference is normally expressed as a multiple of wavelength, as this then allows the phase difference to be calculated easily.
+
+When two or more waves meet at a point, superposition will occur. This means that the displacements of the individual waves add up to give a resultant displacement. If the two waves are in phase, then constructive interference will occur and if they are out of phase then destructive interference will occur.
+
+\begin{center}
+\begin{tabular}{c|c|c}
+\textbf{Path difference} & \textbf{Phase difference} & \textbf{Superposition}\\
+\hline
+$n\lambda$ & $2n\pi$ & constructive interference\\
+\hline
+$(n+\frac{1}{2})\lambda$ & $(2n-1)\pi$ & destructive interference
+\end{tabular}
+\end{center}
+
+\spec{determine the resultant amplitude when two waves superpose, making use of phasor diagrams}
+
+When two waves superpose, the resultant displacement at any point is the vector sum of the individual displacements.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=10 cm]{figs/chapt-7/superposition.JPG}
+\caption{Graph showing superposition of two waves}
+\end{figure}
+
+Phasors are rotating arrows that can be used to describe waves. A phasor arrow rotates anticlockwise and one full oscillation of the wave corresponds to one complete oscillation of the phasor arrow. The length of the phasor arrow corresponds to the amplitude of the wave.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{figs/chapt-7/phasor.JPG}
+\caption{The circle on the left shows the rotating phasors that correspond to this sine wave}
+\end{figure}
+
+If we have two waves that superpose, their individual phasor arrows at a particular point can be added up as vectors as shown in the diagram below.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+    \draw[thick,->] (0,0) -- (1.5,2.6);
+    \draw[thick,->] (1.5,2.6) -- +(3,0);
+    \draw[very thick, red,->] (0,0) -- (4.5,2.6);
+\end{tikzpicture}
+\caption{The sum of two phasors placed end to end}
+\end{figure}
+
+\spec{explain what is meant by a standing wave, how such a wave can be formed, and identify nodes and antinodes}
+
+A standing wave arises from a combination of reflection and interference. Consider the set up below.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=10cm]{figs/chapt-7/melde.JPG}
+\caption{Vibration generator connected to a horizontal string under tension}
+\end{figure}
+
+The vibration generator leads to a progressive wave travelling to the right. This waves reflects off the fixed end and so there are now two waves on the string, travelling in opposite directions.
+
+These two waves superpose and, in some cases (conditions discussed below), a standing wave can form on the string. If these conditions are met, there will be points where the two waves always meet in phase and interfere constructively. These are called \emph{antinodes}. The points where the two waves always meet out of phase and interfere destructively are called \emph{nodes}.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=10cm]{figs/chapt-7/string.JPG}
+\caption{modes of oscillation on a string}
+\end{figure}
+
+Unlike a progressive wave, all points on a stationary wave do not have the same amplitude. The amplitude is at a minimum (often zero) at a node and at a maximum at an antinode.
+
+If the length of the string is $L$, and the speed of waves on the string is $v$, we can work out the frequencies of the various modes of oscillation. The lowest frequency (first mode) shown in the diagram is called the fundamental frequency. You can see that half of a wavelength fits on the string. Therefore we can write:
+$$\frac{\lambda}{2} = L$$
+$$\lambda = 2L$$
+
+Putting this into the wave equation gives an expression for the fundamental frequency:
+$$v = f\lambda = f.2L$$
+$$f = \frac{v}{2L}$$
+
+The other modes of oscillation can be worked out in similar ways, by looking at the relationship between $L$ and $\lambda$ and substituting into the wave equation. For a given string under a certain tension the speed is constant. The frequency is the frequency of the vibration generator which can be changed to give the different modes of oscillation.
+
+The boundary conditions for this string were that both ends had to be nodes. In other cases where standing waves occur, for example sound waves, the boundary conditions could be different. Closed ends of tubes are always nodes and open ends are always antinodes.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=10cm]{figs/chapt-7/sound.JPG}
+\caption{Standing waves in a tube {credit:Yonsei Phylab}}
+\end{figure}
+
+\spec{understand that a complex wave may be regarded as a superposition of sinusoidal waves of appropriate amplitudes, frequencies and phases}
+
+If more than two waves superpose, the resultant wave can get very complicated! This means that \emph{any} waveform can always be broken down into sinusoidal waves. With combinations of sinusoidal waves of various frequencies, amplitudes and phase differences, any waveform can be made.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=10cm]{figs/chapt-7/sine1.JPG}
+\caption{Example showing how 2 waves combine to form a more complex wave (credit:cyberphysics.co.uk)}
+\end{figure}
+
+\spec{recall that waves can be diffracted and that substantial diffraction occurs when the size of the gap or obstacle is comparable to the wavelength}
+
+\spec{recall qualitatively the diffraction patterns for a slit, a circular hole and a straight edge}
+
+When waves pass through an opening, or around a barrier, diffraction occurs and the waves can change in direction and spread out. Diffraction is most significant when the size of the gap or obstacle is comparable to the wavelength. For example, sound waves will diffract through open doors as they have wavelengths of similar orders of magnitudes to the size of the door. However, light will not diffract as much through a door as the wavelength of light is many orders of magnitude smaller than the size of the door.
+
+When waves diffract, diffraction patterns will be formed due to interference of the waves. Specific cases will be discussed below. Here are some examples of diffraction patterns:
+
+\textbf{A slit}
+
+When a wave passes through a slit, and the wave is observed a certain distance away from the slit, a diffraction pattern consisting of points of constructive interference and destructive interference will be formed. Visible patterns will occur when the size of the slit is comparable to the wavelength. For example, with visible light and a very narrow slit, the following pattern will be observed.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=10cm]{figs/chapt-7/slit.JPG}
+\caption{Diffraction pattern for a slit (credit:hyperphysics)}
+\end{figure}
+
+There is a central maximum which is twice the width of the maxima on either side and the pattern is symmetrical.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=10cm]{figs/chapt-7/slitphoto.jpg}
+\caption{Photograph of single slit diffraction pattern}
+\end{figure}
+
+\textbf{A circular hole}
+
+The diffraction pattern for a circular hole is similar to a single slit, except that instead of fringes, the pattern consists of rings.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=10cm]{figs/chapt-7/hole.JPG}
+\caption{Circular hole diffraction pattern {credit:hyperphysics}}
+\end{figure}
+
+Although the examples given here are for visible light, remember that \emph{all} waves can diffract.
+
+\textbf{A straight edge}
+
+A similar pattern of fringes is seen, due to constructive and destructive interference. Here the example given is for radio waves.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=10cm]{figs/chapt-7/edge.jpg}
+\caption{Diffraction at a straight edge {credit:University of Alberta}}
+\end{figure}
+
+\spec{recognise and use the equation $n\lambda = b sin\theta$ to locate the positions of destructive superposition for single slit diffraction, where $b$ is the width of the slit}
+
+When an electromagnetic wave, such as light, travels through a single slit, it will diffract. Therefore light from the slit reaches many points on a screen placed at some distance from the slit.
+
+Consider a point on the screen. Light will reach this point from all points within the slit. The distances travelled from various points within the slit to the point on the screen will be different, and so there will be a path and phase difference. Therefore, as we move along the screen, there will be points of constructive interference and points of destructive interference.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=10cm]{figs/chapt-7/singleslit.JPG}
+\caption{Single slit diffraction {credit:hyperphysics}}
+\end{figure}
+
+It can be shown that for a single slit of width $b$, the points of \textbf{destructive interference} will be at an angle $\theta$ given by the equation
+$n\lambda = b sin\theta$
+Here, $n$, refers to the order of the minimum being considered.
+
+\spec{recognise and use the Rayleigh criterion $\theta \approx \frac{\lambda}{b}$ for resolving power of a single aperture, where $b$ is the width of the aperture}
+
+As light travels through an instrument, such as the eye, or a telescope, it passes through a gap or aperture and will diffract. The diffraction pattern will depend on the shape of the aperture and the width.
+
+If light from two different objects passes through the aperture, there will be two diffraction patterns that overlap. The Rayleigh criterion tells us the minimum angle between the two objects at which it is still possible to see them as separate. This is when the first diffraction minimum of one pattern coincides with the central maximum of another.
+
+Working in radians, so that the approximation $\sin{\theta} \approx \theta$, then this minimum angle can be approximated by:
+
+$$\theta \approx \frac{\lambda}{b}$$
+
+\spec{describe the superposition pattern for a diffraction grating and for a double slit and use the equation $n\lambda = d \sin\theta$ to calculate the angles of the principal maxima}
+
+\spec{use the equation $\lambda = \frac{ax}{D}$ for double-slit interference using light}
+
+When light, or any other coherent waves, pass through a double slit, a diffraction pattern consisting of evenly spaced fringes is seen. This is due to the waves from each slit interfering with each other.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=10cm]{figs/chapt-7/double.JPG}
+\caption{Double slit diffraction (credit:hyperphysics)}
+\end{figure}
+
+You can see that there is also a single slit envelope, which is much wider than the double slit pattern.
+
+If the number of slits is increased, the pattern becomes more defined, and the fringes get narrower. Therefore for a diffraction grating, the pattern consists of sharp, evenly spaced peaks or bright spots.
+
+If we consider two adjacent slits, you can see that for constructive interference to occur the following must be true:
+
+\begin{equation}\label{dsintheta}
+d \sin\theta = n\lambda
+\end{equation}
+
+$d$ is the distance between adjacent slits and $n$ is the order of the maxima that is being considered.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=10cm]{figs/chapt-7/diffractioneq.JPG}
+\caption{Derivation of grating formula}
+\end{figure}
+
+Equation \ref{dsintheta} can be re-arranged to give
+
+\begin{equation}
+\sin\theta = \frac{n\lambda}{d}
+\end{equation}
+
+This formula can be used for any waves, where there is diffraction from more than one slit.
+
+\newpage
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}
+    \draw[very thick] (0,-.5) -- (0,.5);
+    \draw[thick] (7,-3) -- (7,3);
+    \draw[<->] (0,-1) -- (7,-1) node[midway, below] {$D$};
+    \draw[dashed] (0,0)--(7,0);
+    \draw[red,thick,->] (0,0) -- (7,2);
+    \draw[<->] (7.5,0)--(7.5,2) node[midway, right] {$x$};
+    \end{tikzpicture}
+    \caption{The double slit pattern}
+    \label{doubleslitscreen}
+\end{figure}
+
+Now consider a double slit pattern, where the screen is now a distance $D$ away from the slits and the slit separation is $a$ instead of $d$. Bright fringes will be equally spaced on the screen and we can call the fringe separation $x$.
+
+
+
+For the first maxima, $n=1$, the equation from before now becomes:
+$$\sin\theta = \frac{\lambda}{a}$$
+but from the diagram you can see that:
+$$\tan\theta = \frac{x}{D}$$
+
+If $\theta$ is small, then the small angle approximation can be used. This is true if $D$ is much larger than $a$.
+
+$$\sin\theta \approx \tan\theta$$
+$$\frac{\lambda}{a} = \frac{x}{D}$$
+$$\lambda = \frac{ax}{D}$$
+
+\tikzset{component/.style={draw,thick,circle,fill=white,minimum size =0.75    cm,inner sep=0pt}}
+\chapter{A3 Quantum Theory}
+\setcounter{spec}{0}
+\section*{Candidates should be able to:}
+
+\spec{recall that, for monochromatic light, the number of photoelectrons emitted per second is proportional to the light intensity and that emission occurs instantaneously}
+
+\spec{recall that the kinetic energy of photoelectrons varies from zero to a maximum, and that the maximum kinetic energy depends on the frequency of the light, but not on its intensity}
+
+\spec{recall that photoelectrons are not ejected when the light has a frequency lower than a certain threshold frequency which varies from metal to metal}
+
+\rule{\textwidth}{0.1pt}
+
+\spec{understand how the wave description of light fails to account for the observed features of the photoelectric effect and that the photon description is needed}
+
+Each of the above features \emph{(a) - (c)} is discussed in turn below.
+
+\begin{enumerate}[label=\emph{(\alph*)}]
+
+\item In the wave description of light, an electron in the metal receives energy from the light that arrives continuously. An electron therefore gradually absorbs enough energy to escape from the surface of the metal, something which is not seen in practice. Additionally, increasing the intensity of a wave corresponds to increasing the amplitude of the oscillation. This would lead us to expect that increasing the intensity of light would give photoelectrons of a higher energy, rather than simply more of them.
+
+The photon description of light accounts of both of these effects. When light arrives on the surface of the metal a single photon interacts with a single electron. Assuming the photon gives the electron enough energy to escape, the electron will leave the metal instantaneously. In the photon model, the intensity of the light is due to the number of photons arriving per second. Therefore if the intensity doubles, the number of photons doubles and the number of photoelectrons doubles.
+
+\item When the photoelectrons leave the metal some of the photon energy is used to break away from the metal and the remainder goes into their kinetic energy. Different photoelectrons have different amounts of energy, however there is a maximum kinetic energy the photoelectrons are found to have and this depends \emph{only} on the frequency of the incoming radiation.
+
+The wave model of light would allow different electrons to absorb different amounts of energy and therefore this relationship would not be seen.
+
+\item The energy from a photon of light is split between the energy required to escape the metal and the kinetic energy of the photoelectron. If the photon does not have enough energy to enable to the electron to escape the metal then no emission of photoelectrons is seen.
+
+The wave model would still allow emission as a single electron could absorb energy from the wave over a longer period of time. However, since there are so many electrons in the surface of the metal it is vanishingly unlikely that a single photoelectron will interact with two photons.
+
+\end{enumerate}
+
+\spec{recall that the absorption of a photon of energy can result in the emission of a photoelectron}
+
+As described above.
+
+\spec{recall and use $E = hf$}
+
+The energy of a photon of light is related to the frequency of that radiation using the equation $E=hf$ where $h$ is Planck's Constant which has a value of \SI{6.626e-34}{\joule\second}.
+
+\spec{understand and use the terms threshold frequency and work function and recall and use
+\begin{equation}\label{eqn:photoelectric}
+hf = \phi + \frac{1}{2}mv_{\text{max}}^2
+\end{equation}}
+
+\begin{description}
+  \item[Threshold Frequency, $f_0$.] This is the minimum frequency required for the emission of photoelectrons to occur. This varies from metal to metal.
+  \item[Work Function, $\phi$.] This is the energy required to remove an electron from the surface of the metal.
+\end{description}
+
+Equation \ref{eqn:photoelectric} expresses the sharing of the energy of the photon ($hf$) between the work function ($\phi$) and the kinetic energy of the photoelectron.
+
+\spec{understand the use of stopping potential to find the maximum kinetic energy of photoelectrons and convert energies between joules and electron-volts}
+
+We can measure the energy of the photoelectrons by placing a photocell in a circuit and using a potential difference to stop the flow of electrons.
+
+\begin{figure}[h]
+\begin{center}
+\begin{circuitikz}
+  \draw (5,0) -- (5,3) to[pvsource] (0,3);
+  \draw (0,0) -- (0,1.5) node[component]{\si{\micro\ampere}} --(0,3);
+  \draw (0,0) to[battery] (5,0);
+  \draw (1,0) -- (1, -1.5) -- (2.5,-1.5) node[component]{V} -- (4,-1.5) -- (4,0);
+  \draw[->] (2.1,-0.5) -- (2.9,0.5);
+\end{circuitikz}
+\end{center}
+\caption{Measuring stopping potential}
+\label{fig:stopping-pot}
+\end{figure}
+
+Figure \ref{fig:stopping-pot} shows a simple set-up to measure the stopping potential for photoelectrons. Monochromatic light is shone on the photocell. Electrons leave the surface of the metal and travel around the circuit creating a small current. The variable power supply is gradually increased until no current flows through the circuit. At this point none of the electrons leaving the surface of the metal in the photocell have enough energy to cross the potential difference and create a current in the circuit. At this point the maximum energy of the photoelectrons can be equated to the energy required to cross a potential difference $V$:
+\begin{equation}\label{eqn:photoelectron-stopping-pot}
+  \frac{1}{2}mv_{\text{max}}^2 = eV
+\end{equation}
+
+Since we are measuring the energies of electrons using potential differences, it makes sense to define a unit of energy in terms of these potential differences. Hence, 1 electronvolt is defined as the energy transferred by an electron moving through a potential difference of 1 volt.
+\begin{equation}
+  \SI{1}{\electronvolt} = \SI{1.6e-19}{\joule}
+\end{equation}
+
+\spec{plot a graph of stopping potential against frequency to determine the Planck constant, work function and threshold frequency}
+
+By repeating the experiment shown in Figure \ref{fig:stopping-pot} for different frequencies of light and measuring the stopping potential for each frequency we get the graph shown in Figure \ref{fig:milikan-results}.
+
+\begin{figure}[ht]
+  \begin{center}
+    \begin{tikzpicture}
+      \draw[<->] (0,5) node[anchor=north east, align=right]{stopping\\potential\\/ \si{\volt}} -- (0,0) -- (7,0) node[anchor=north,align=left]{frequency\\/ \si{\hertz}};
+      \draw[thick] (2,0) node[anchor=north, align=left]{threshold\\frequency,\\$f_0$} -- (6.5,4.5);
+    \end{tikzpicture}
+  \end{center}
+  \caption{Stopping potential against threshold frequency}
+  \label{fig:milikan-results}
+\end{figure}
+
+Equation \ref{eqn:photoelectric} and \ref{eqn:photoelectron-stopping-pot} can be combined with  and re-arranged to give
+\begin{equation}\label{eqn:milikan}
+V = \frac{h}{e}f - \frac{\phi}{e}
+\end{equation}
+
+Equation \ref{eqn:milikan} describes the linear relation seen on the graph in Figure \ref{fig:milikan-results}. The graph has a gradient of $\frac{h}{e}$ which enables the determination of the Planck Constant and the intercept with the x-axis gives the threshold frequency. The work function is simply the energy of a photon with the threshold frequency, i.e.
+\begin{equation}
+  \phi = hf_0
+\end{equation}
+
+\spec{understand the need for a wave model to explain electron diffraction}
+
+When electrons are fired at two closely spaced slits the result is entirely unlike what one would expect from a particle model. A particle model would predict that each electron would either go through one slit or the other, creating two regions at which electrons are found as shown in Figure \ref{fig:electron-diff-expected}.
+
+\begin{figure}[h]
+  \begin{center}
+    \begin{tikzpicture}[scale=0.7]
+      \usetikzlibrary{fadings}
+      \draw (0,0) rectangle (1.5,3);
+      \draw (1.7,0) rectangle (2.7,3);
+      \draw (2.9,0) rectangle (4.4,3);
+      \filldraw[fill=black!40!white] (3.5,3.7) rectangle (7.5,6.7);
+      \draw[rotate around={-40:(-0,-1)}] (0,-1.5) rectangle (.4,-.5);
+      \fill[pattern=crosshatch dots, pattern color=white] (4.5,5.2) circle [x radius=0.4, y radius=1.5];
+      \fill[pattern=crosshatch dots, pattern color=white] (6.5,5.2) circle [x radius=0.4, y radius=1.5];
+    \end{tikzpicture}
+  \end{center}
+  \caption{Expected pattern for electron diffraction}
+  \label{fig:electron-diff-expected}
+\end{figure}
+
+
+However, this behaviour is not seen but rather electrons form an interference pattern similar to that seen for light, as shown in Figure \ref{fig:electron-diff-observed}.
+
+\begin{figure}[!h]
+  \begin{center}
+    \begin{tikzpicture}[scale=0.7]
+      \usetikzlibrary{fadings}
+      \draw (0,0) rectangle (1.5,3);
+      \draw (1.7,0) rectangle (2.7,3);
+      \draw (2.9,0) rectangle (4.4,3);
+      \filldraw[fill=black!40!white] (3.5,3.7) rectangle (7.5,6.7);
+      \draw[rotate around={-40:(-0,-1)}] (0,-1.5) rectangle (.4,-.5);
+      \foreach \x in {4,4.5,...,7} {
+        \fill[pattern=crosshatch dots, pattern color=white] (\x,5.2) circle [x radius=0.15, y radius=1.5];
+      }
+    \end{tikzpicture}
+  \end{center}
+  \caption{Observed pattern for electron diffraction}
+  \label{fig:electron-diff-observed}
+\end{figure}
+
+The mystery here is how can single particles form an interference pattern? If electrons are fired through two slits one at a time then they initially appear to arrive randomly. As more and more arrive they fill in the interference pattern. We explain this by saying that the probability of their arrival is determined by a form of wave-mechanics and as particles arrive they fill in the probability pattern as shown in figure \ref{fig:electron-buildup}.
+
+\begin{figure}
+  \begin{center}
+  \includegraphics[width=0.8\textwidth]{figs/chapt-9/electron-diff.jpg}
+\end{center}
+  \caption{Build up of the interference pattern of electrons. \emph{Credit: Belsazar, Wikimedia Commons}}
+  \label{fig:electron-buildup}
+\end{figure}
+
+\clearpage
+
+\spec{recognise and use
+\begin{equation}\label{eqn:debroglie}
+\lambda = \frac{h}{p}
+\end{equation} for the de Broglie wavelength.}
+
+In order to explain the wave-like nature of electrons we need to be able to assign them a wavelength. de Broglie's thesis is that \emph{all} particles have a wavelength which is defined in equation \ref{eqn:debroglie}. This brings wave-particle duality from photons and electrons to all particles. The natural question here is why isn't interference ordinarily observed? The answer is that the de Broglie wavelength for macroscopic objects is extremely small and therefore these objects behave as particles, travelling in straight lines and not undergoing interference.
+
+\begin{example}
+Electrons will be diffracted by crystal lattices if they have a wavelength of around \SI{0.1}{\nano\metre}. Calculate the speed and energy of such electrons.
+
+\answer
+The speed of these electrons can therefore be calculated as follows:
+\[ \lambda = \frac{h}{p} = \frac{h}{mv} \]
+\[ v = \frac{h}{m\lambda} = \SI{7.27e6}{\meter\per\second} \]
+\[ E = \frac{1}{2}mv^2 = \SI{151}{\electronvolt} \]
+
+\end{example}
+
+\spec{explain atomic line spectra in terms of photon emission and transitions between discrete energy levels}
+
+When a gas of atoms is given energy (e.g. by an electric field) that energy is emitted at electromagnetic waves at a few, specific frequencies. These frequencies are the same for every atom of a specific element; however they differ between elements. At typical line spectrum is shown in Figure %TODO.
+
+The explanation for this behaviour is the quantisation of energy levels within the atom. Electrons are only able have occupy certain (discrete) energies and when they move between these energies they emit (or absorb) photons of electromagnetic radiation. These photons have different frequencies depending on the amount of energy they carry away.
+
+\spec{apply $E = hf$ to radiation emitted in a transition between energy levels}
+
+When an electron in an atom falls from one energy level to a lower one the excess energy is emitted as a photon. The energy of this photon is equal to the energy lost.
+
+\begin{example}
+  An electron in an atom falls from the $n=3$ state to the $n=2$ state as shown below. Calculate the wavelength of the photon emitted.
+  \begin{center}
+    \begin{tikzpicture}
+      \draw[thick, ->] (0,-5) -- (0,0) node[anchor=east] {$E / \si{\electronvolt}$};
+      \draw (0,-4.5) node[anchor=east] {\SI{-23.5}{\electronvolt}} -- (3,-4.5) node[anchor=west] {$n=1$};
+      \draw (0,-1.125) node[anchor=east] {\SI{-5.88}{\electronvolt}} -- (3,-1.125) node[anchor=west] {$n=2$};
+      \draw (0,-0.5) node[anchor=east] {\SI{-2.61}{\electronvolt}} -- (3,-.5) node[anchor=west] {$n=3$};
+      \draw[bend right, very thick, ->] (2,-.5) .. controls (2.1,-0.812) .. (2,-1.125);
+      \draw[decorate, decoration={coil, aspect=0}, ->] (2.1, -0.812) -- (5,-0.812) node[anchor=south]{$\gamma$};
+    \end{tikzpicture}
+  \end{center}
+
+  \answer
+  The difference in energy between the two levels is given by
+  \[ E = \left(\SI{-2.61}{\electronvolt}\right) - \left(\SI{-5.88}{\electronvolt}\right) = \SI{3.27}{\electronvolt} \]
+  The wavelength can be calculated using
+  \[ E = hf = \frac{hc}{\lambda} \]
+  \[ \lambda = \frac{hc}{E} = \frac{hc}{\SI{5.24e-19}{\joule}} = \SI{379}{\nano\meter} \]
+\end{example}
+
+\spec{show an understanding of the hydrogen line spectrum, photons and energy levels as represented by the Lyman, Balmer and Paschen series}
+
+The example above shows a single transition between energy levels. In reality when an atom is excited it will emit photons corresponding to many transitions at once. The example of the Hydrogen atom is shown in Figure \ref{fig:hspec}. These transitions can be grouped into series based on which energy level the electron ends up in. Here there are three series shown which correspond to the Lyman (falling to $n=1$), Balmer (falling to $n=2$) and Paschen (falling to $n=3$) Series. For simplicity only six energy levels are shown but in reality each series has potentially infinitely many possible starting states, although most of them will have very similar energies (as the starting energy approaches zero).
+
+\begin{figure}
+  \begin{center}
+    \begin{tikzpicture}
+      \draw[thick, ->] (0,-5.5 cm) -- (0,1) node[anchor=east] {$E / \si{\electronvolt}$};
+      \foreach \n/\y in {1/-5,2/-3,3/-1.5,4/-.8,5/-.3,6/0}{
+        \draw[thick] (0cm,\y) -- (7cm,\y) node[anchor=west]{$n=\n$};
+      }
+      \foreach \x/\y in {.5/-3,.7/-1.5,.9/-.8,1.1/-.3,1.3/0} {
+        \draw[-{Latex}] (\x,\y) -- (\x,-5);
+      }
+      \foreach \x/\y in {2.5/-1.5,2.7/-.8,2.9/-.3,3.1/0} {
+        \draw[-{Latex}] (\x,\y) -- (\x,-3);
+      }
+      \foreach \x/\y in {3.7/-.8,3.9/-.3,4.1/0} {
+        \draw[-{Latex}] (\x,\y) -- (\x,-1.5);
+      }
+      \draw[thick,dashed] (0cm,.3) node[anchor=east]{0} -- (7cm,.3) node[anchor=west] {$n=\infty$};
+      \draw (1.5,-4) node[anchor=west]{\emph{Lyman Series (UV)}};
+      \draw (3.5,-2.25) node[anchor=west]{\emph{Balmer Series (Visible)}};
+      \draw (4.5, -1.15) node[anchor=west]{\emph{Paschen Series (IR)}};
+    \end{tikzpicture}
+  \end{center}
+  \caption{Transitions corresponding to the Hydrogen spectrum}
+  \label{fig:hspec}
+\end{figure}
+\chapter{B1 Quality of Measurement}
+\includepdf[pages=-,pagecommand={\thispagestyle{plain}},noautoscale=true,scale=0.9]{QoM-handbook.pdf}
+\chapter{B2 Electricity}
+\spec{discuss electrical phenomena in terms of electric charge}
+\spec{describe electric current as the rate of flow of charge and recall and use $I = \Delta Q / \Delta t$}
+
+Electric current is the flow of charge. The \emph{current} is defined as the rate of flow of charge. Conventional current flows from positive to negative. This current can consist of positive charges flowing from positive to negative or, more usually, negative charges flowing from negative to positive. The total current depends on the charge carrier density, the cross-sectional area, the charge on the carrier and the drift velocity of the carriers.
+
+\spec{understand potential difference in terms of energy transfer and recall and use VQ = W}
+
+When a charge moves through an electric field it gains or loses potential energy. The energy change per unit charge is defined as the potential difference.
+
+\spec{recall and use the fact that resistance is defined by R = V/I and use this to calculate resistance variation for a variety of voltage-current characteristics}
+
+As well as measuring resistance directly it can be found from a graph of V against I. \emph{Note: the resistance is defined as V/I at all points and is not equal to the gradient of a V/I graph except in the case that V is proportional to I}
+
+\spec{define and use the concepts of emf and internal resistance and distinguish between emf and terminal potential difference}
+\spec{derive, recall and use E = I(R + r ) and E = V + Ir}
+
+A real cell or battery can be represented by a cell circuit symbol in series with a resistor. This resistance represents the \emph{internal resistance} of the cell and the fixed, theoretical potential difference across the cell symbol is the emf of the cell (the electromotive force provided). When a voltmeter is connected across the cell the terminal potential difference is measured.
+
+\begin{figure}[h]
+\begin{center}
+\begin{circuitikz}
+  \draw (2,0) to[battery,l=$E$,o-] (4,0) to[R=$r$,-o] (6,0);
+\end{circuitikz}
+\end{center}
+\caption{Terminal potential difference}
+\end{figure}
+
+In order to relate the terminal potential difference to the internal characteristics of the cell we must subtract the potential difference across the internal resistance from the emf. In symbols this gives:
+
+$$ V = E - Ir $$
+
+which can be re-arranged to give the formula above.
+
+If our real cell is connected into a circuit with a load resistance $R$, the  circuit in figure \ref{loaded-cell} is produced.
+
+\begin{figure}[h]
+\begin{center}
+\begin{circuitikz}
+  \draw (1,0) to[short] (2,0) to[battery,l=$E$,o-] (4,0) to[R=$r$,-o] (6,0) to[short] (7,0) to[short] (7,-2) to[R=$R$] (1,-2) to[short] (1,0);
+\end{circuitikz}
+\end{center}
+\caption{A loaded real cell}
+\label{loaded-cell}
+\end{figure}
+
+Now, the terminal potential difference must be equal to the potential difference across the load resistor, $R$.
+
+$$ IR = V = E-Ir $$
+
+Which can be re-arranged to give the second equation in the specification.
+
+\spec{derive, recall and use P = VI and W = VIt, and derive and use P = I$^2$R}
+
+Power is defined as the energy transferred per unit of time. In the case of electrical power this is the product of current (charge per unit time) and potential difference (energy per unit charge). Given a constant voltage and current, the energy transferred (work done) is given by $P = \frac{W}{t} = IVt$
+
+\spec{recall and use $R = \rho l/A$}
+
+This formula allows the calculation of a regular sample of material. In this formula $\rho$ is the resistivity, l is the length of the sample and A its cross-sectional area. Typical resistivities for conductors are of the order of
+\SI{e-8}{\ohm\metre} and above \SI{e9}{\ohm\metre} for insulators. Semi-conductors lie between these values.
+
+\spec{recall the formula for the combined resistance of two or more resistors in series and use it to solve problems $R_T = R_1 + R_2 + \ldots$}
+\spec{recall the formula for the combined resistance of two or more resistors in parallel and use it to solve problems $\frac{1}{R_T} = \frac{1}{R_1} + \frac{1}{R_2} + \ldots$}
+
+This are fairly simple to derive from Kirchoff's Laws (see below).
+
+\spec{recall Kirchhoff’s first and second laws and apply them to circuits containing no more than two supply components and no more than two linked loops}
+
+\begin{description}
+  \item[Kirchoff's First Law] The current that flows into any junction is equal to the current which flows out.
+  \item[Kirchoff's Second Law] The sum of the emfs around any closed loop of a circuit must equal the sum of the potential differences across any components. It is important to note that direction matters and if the loop crosses emfs or components against the flow of current they must be subtracted.
+\end{description}
+
+These two laws, and the definition of resistance, are the most useful tools in circuit analysis. The important skill is to work methodically through the circuit applying the laws, rather than attempting to solve the circuit all in one go.
+
+\begin{example}
+  Calculate the current through the \SI{3}{\volt} cell.
+  \begin{center}
+    \begin{circuitikz}
+        \draw (0,0) to[R=2.0<\ohm>] (0,2) to[battery, l=6.0<\volt>, i=$I_x$] (0,4) to (5,4)
+        (0,0) to (2.5,0) to[R=0.5<\ohm>] (2.5,2) to[battery, l=3.0<\volt>, i=$I_y$] (2.5,4)
+        (2.5,0) to (5,0) to[R=10.0<\ohm>] (5,4)
+
+    ;\end{circuitikz}
+  \end{center}
+
+  \answer
+
+  We can use Kirchoff's Second Law to derive two expressions linking $I_x$ and $I_y$. The first is formed by creating a loop consisting of the two branches containing cells.
+  $$ 6 - 3 = 2I_x - 0.5I_y $$
+  Note that I am using a clockwise loop so the signs of the two components in the `Y' branch have negative signs.
+
+  The second expression is now arrived at by using the outermost loop of the circuit (and using Kirchoff's First Law to get the current through the \SI{10}{\ohm} resistor):
+  $$ 6 = 10(I_x + I_y) + 2I_x$$
+  These two equations can now be used to solve for $I_y$, giving
+  $$ I_y = \SI{-0.923}{\ampere} $$
+
+  Note the sign of $I_y$ is negative, this means that current is flowing in the opposite direction to the arrow shown. This means that the cell is charging.
+
+\end{example}
+
+\spec{appreciate that Kirchhoff’s first and second laws are a consequence of the conservation of charge and energy, respectively}
+
+The charge flowing into or out of a junction in a given time, $t$, is given by $Q = It$. Given that a junction can neither store nor create charge, Kirchoff's First Law follows directly.
+
+Each charge carrier can only take one loop around the circuit. Once it returns to its original position its energy must be equal to the amount it had when it left. The charge carrier gains energy passing through cells and loses it passing through components. Since the sum of these energies must be zero and $W=qV$, the sum of emfs must equal the sum of potential differences across components.
+
+\spec{use the idea of the potential divider to calculate potential differences and resistances}
+
+When two resistors are in series with a battery we say that the circuit is a \emph{potential divider.}
+
+\begin{figure}[h]
+    \begin{center}
+        \begin{circuitikz}
+        \draw (0,0) to[battery,l=$V$] (0,5) to (3,5) to[R=$R_1$] (3,2.5) to[R=$R_2$] (3,0) to (0,0);
+        \end{circuitikz}
+    \end{center}
+\caption{A potential divider}
+\end{figure}
+
+Since there are no junctions in the series circuit we can know that the current is the same in all parts of the circuit and that the total resistance is $R_1 + R_2$. The p.d. across resistor 1 is therefore given by:
+\[ V_1 = IR_1 = \frac{V}{R_1 + R_2} R_1 = \frac{R_1}{R_1 + R_2} V \]
+In other words, the ratio of p.d.s in the circuit is equal to the ratios of the resistances.
+
+This can also be extended to the ratios between the components as they share the same current.
+
+\[ I_1 = I_2 \implies \frac{V_1}{R_1} = \frac{V_2}{R_2} \implies \frac{R_1}{R_2} = \frac{V_1}{V_2} \]
+
+\begin{example}
+Calculate the resistance of the bulb in the circuit below.
+\tikzset{component/.style={draw,thick,circle,fill=white,minimum size =0.75    cm,inner sep=0pt}}
+\begin{center}
+    \begin{circuitikz}
+    \draw (0,0) to[battery,l=\SI{9}{\volt}] (0,5) to (3,5) to[lamp] (3,2.5) to[R,l=\SI{800}{\ohm}] (3,0) to (0,0);
+    \draw (3,2.5) to (5,2.5) to (5,1.25) node[component]{3V} to[short] (5,0) to (0,0);
+    \end{circuitikz}
+\end{center}
+
+\answer
+
+The potential difference across the bulb must be \SI{6}{\volt} by Kirchoff's Second Law. Therefore:
+
+\[ \frac{\SI{3}{\volt}}{\SI{6}{\volt}} = \frac{\SI{800}{\ohm}}{R} \]
+\[ \implies R = \SI{800}{\ohm}\times \frac{\SI{6}{\volt}}{\SI{3}{\volt}} = \SI{1600}{\ohm}\]
+
+\end{example}
+
+\chapter{B3 Circular Motion}
+\setcounter{spec}{0}
+\textbf{Candidates should be able to:}
+
+\spec{Define and use the radian}
+
+An angle in radians is defined by the length of the arc of circle it subtends divided by the radius of the circle. Numerically $2\pi$ radians is equivalent to 360 degrees.
+
+
+\spec{Understand the concept of angular velocity, and recall and use the equations $v = r \omega $
+ and $T = \frac{2\pi}{\omega}$
+}
+
+These equations are valid for an object travelling in a circle in a uniform manner.
+
+Angular velocity is defined as the rate of change of angle, $\omega = \frac{d\theta}{dt}$ ie how many radians per second the rotating object passes through. Hence the time for one complete rotation will be $T = \frac{2\pi}{\omega}$
+
+\begin{figure}[h]
+	\begin{center}
+		\begin{tikzpicture}[remember picture]
+		\draw [very thick,gray](0.225,0.5) arc (65:92:0.5);
+		\draw[very thick, black, ->] (0,2.5) -- node[below] {$\mathbf{\delta s}$}  (1,2.3);
+		\draw[very thick, purple, -] (0,0) -- node[left] {$\mathbf{r}$} (0,2.5);
+		\draw[very thick, purple, -] (0,0) -- node[right]{$\mathbf{r}$} (1,2.3);
+		\draw [gray](-0.1,1) node[right]{$\delta\theta$};
+
+		\draw (0,0) circle (2.5cm);
+		\end{tikzpicture}
+	\end{center}
+	\caption{}
+\end{figure}
+
+From the definition of the radian, in a small time interval $\delta t$ we can say that the displacement of the rotating object is $\delta s \approx r\delta\theta$ (see figure 10.1), and hence in the limit as we make the time interval smaller that means $v=\frac{ds}{dt} = r\frac{d\theta}{dt}=r\omega$
+
+\begin{example}
+	Calculate the linear velocity of the Earth relative to the sun, given the Earth-Sun distance is 1.5 x $10^{11} $m
+
+\answer First calculate the angular velocity of the Earth. It performs a complete orbit (ie $2\pi$ radians) in 1 year, so $\omega= \frac{2\pi}{365\times24\times3600}$
+
+Then $v=r\omega$ = 30000 $ms^{-1}$
+\end{example}
+\spec{
+	Derive, recall and use the equations for centripetal acceleration $a = \frac{v ^{2}}{r}$ and $a = r\omega ^{2}$
+}
+
+Since acceleration is defined as change in velocity, we can see from the following diagram (figure 10.2) that the velocity change when a uniformly rotating object moves through a small angle $\delta\theta$ can be written as $\delta v = v\delta\theta$ since the magnitudes of the initial and final velocity are both equal to v.
+\\
+\\
+
+\begin{figure}[h]
+	\begin{center}
+		\begin{tikzpicture}
+		\draw [very thick,gray](0.225,0.5) arc (65:92:0.5);
+		\draw[very thick, black, ->] (0,2.5) -- node[above] {$\mathbf{v_i}$}  (1,2.5);
+		\draw[very thick, black, ->] (1,2.3) -- node[below] {$\mathbf{v_f}$}  (1.8,1.9);
+		\draw[very thick, purple, -] (0,0) -- node[left] {} (0,2.5);
+		\draw[very thick, purple, -] (0,0) -- node[right] {} (1,2.3);
+		\draw [gray](-0.1,1) node[right]{$\delta\theta$};
+
+		\draw (0,0) circle (2.5cm);
+
+		\draw [very thick,gray](7,0) arc (180:150:1);
+
+		\draw[very thick, black, ->] (8,0) -- node[below] {$\mathbf{-v_i}$}  (4,0);
+		\draw[very thick, black, ->] (4.6,2) -- node[above] {$\mathbf{v_f}$}  (8,0);
+		\draw[very thick, purple, ->] (4.6,2) -- node[left] {$\mathbf{\delta v}$} (4,0);
+		\draw [gray](6.4,0.35) node[right]{$\delta\theta$};
+
+		\draw [black](4,-1) node[right]{$\mathbf{-v_i}$ and $\mathbf{-v_f}$ both have magnitude $v$, };
+		\draw [black](4,-1.5) node[right] {therefore $\delta v = v \delta\theta$};
+		\end{tikzpicture}
+	\end{center}
+	\caption{}
+\end{figure}
+
+
+The acceleration is therefore $a\approx\frac{v\delta\theta}{\delta t}$ and as we let $\delta t\rightarrow0$ we get $a=v\frac{d\theta}{dt}=v\omega$.
+\\
+since $v=r\omega$ we also get $a=\frac{v^2}{r}=r\omega^2$
+
+
+
+\spec{Recall that F = ma applied to circular motion gives resultant $F=\frac{mv^2}{r}$}
+
+Since $a = \frac{v ^{2}}{r}$ and $F=ma$ we can combine these to give $F=\frac{mv^2}{r}$. This can be very useful for example when combined with Newton's law of Gravity to explain planetary orbits etc.
+\\
+\\
+
+\begin{example}
+	Show that, for a circular orbit, the time period squared is proportional to the radius cubed.
+
+ 	\answer Start by equating $F=mr\omega^2$ with $F= \frac{GMm}{r^2}$ (we can ignore the minus sign)
+\\
+
+$mr\omega^{2}= \frac{GMm}{r^2}$
+\\
+\\
+Then rearrange and cancel $m$ to find
+\\
+\\
+$r^{3}=\frac{GM}{\omega^2}$
+\\
+\\
+then using $\omega=\frac{2\pi}{T}$ we get
+\\
+\\
+$r^{3}=\frac{GM}{4\pi^{2}}T^2$
+
+\end{example}
+
+
+\chapter{B4 Gravitational Fields}
+\setcounter{spec}{0}
+\spec{recall and use the fact that the gravitational field strength g is equal to the force per unit mass and hence that weight W = mg}
+
+A \textbf{field} is a region where a particle experiences a force. If this is applied to gravitation, then we can say that a
+\textbf{gravitational} field is a region where a \textbf{mass}
+experiences a force.
+
+You can only tell if a field exists when it exerts a force on something.
+It is a way of envisaging (seeing in your mind's eye) the size and the
+direction of the force that would be exerted on a particle when placed
+in that field.
+
+A gravitational field is produced by anything with mass.
+
+Therefore, a gravitational field is a way of envisaging what would
+happen to a mass if it were placed in the field due to another mass.
+
+The field is usually represented by lines which show both the
+\textbf{direction} and \textbf{strength} of the field.
+
+The \textbf{strength} of a gravitational field (the field strength) at
+any point is the force felt \textbf{per unit mass} at that point. This
+is a \textbf{definition.}
+
+It can be written as a word equation:
+
+Gravitational field strength at a point (N/kg)= Force felt by mass (measured
+in Newtons)/Size of mass (measured in kilograms)
+
+Or in symbols:
+
+\[g = \frac{F}{m} \]
+
+The force, F, felt by any object on the surface of the Earth due to the
+gravitational field strength of the Earth is known as its
+\textbf{weight.} It is given the symbol \textbf{W}.
+
+This means that we can re-write equation above for the field strength at
+the surface of the Earth by putting W instead of F.
+
+\[g = \frac{W}{m}\]
+
+This then rearranges to an equation that you have all seen before:
+
+\[W = mg\]
+
+Thus the weight of an object on the surface of the Earth is its mass
+multiplied by the gravitational field strength g.
+
+\spec{recall that the weight of a body appears to act from its centre of gravity}
+
+The centre of gravity of an object is the point where the weight acts or
+appears to act.
+
+Thus, when you draw a free-body force diagram for any object in a
+gravitational field, you draw \textbf{one} arrow from the centre of
+gravity of the object to represent the force due to the field. On the
+Earth this is, of course, the weight and the arrow points vertically
+downwards.
+
+\spec{sketch the field lines for a uniform gravitational field (such as near the surface of the Earth)}
+
+A uniform field is a field where the field strength is the same at all
+points in the field.
+
+This means that for a gravitational field the force felt per unit mass
+(see definition) is the same at all points.
+
+The surface of the Earth is a very good approximation to a uniform
+field.
+
+Therefore if you draw a diagram of the Earth's gravitational field at
+the Earth's surface over a small area, it will look like Figure \ref{fig:uniform-field}
+
+\begin{figure}[!h]
+	\begin{center}
+		\includegraphics[width=\textwidth]{figs/chapt-2/uniform-field.pdf}
+	\end{center}
+	\caption{Uniform Field}
+	\label{fig:uniform-field}
+\end{figure}
+
+As you can see, the field lines are \textbf{parallel} and
+\textbf{evenly-spaced.} This is always the case for a uniform field.
+
+\spec{explain the distinction between gravitational field strength and force and explain the concept that a field has independent properties.}
+
+There is a very important distinction to make between
+\textbf{gravitational field strength} and \textbf{force} at this point:
+The field strength at any point is the same for all bodies in the field
+and is the force felt per kilogram, but the force is different and
+depends on the size of the mass there.
+
+This is best illustrated with an example: If a mass of 60kg is in the
+Earth's gravitational field at the surface of the Earth, then we can
+calculate the force acting on it, its weight, using equation (3):
+
+\[W = mg = \SI{60}{\kg} \times \SI{9.8}{\N\per\kg} = \SI{590}{\N}\]
+
+So the force felt by the 60kg mass is 590N but the field strength for
+the mass \textbf{and for any other mass} is 9.8Nkg\textsuperscript{-1}.
+So the field strength is fixed by your position in the field and the
+size of the mass that is exerting the field, and nothing else. The force
+depends on the mass in the field as well.
+
+\spec{state Kepler's laws of planetary motion}
+Before you learn Kepler's laws (which you MUST learn) you should spend
+some time looking through the chapter on rotational mechanics and making
+absolutely sure that you know how to apply Newton's laws of motion to an
+orbiting body. This is vital or you won't get the maths in this chapter.
+
+The specification dictates that you need to be able to state Kepler's
+Laws. They are as follows:
+\begin{enumerate}
+\item
+  Planets move in elliptical orbits with the Sun at one focus.
+  \emph{(motion in ellipses is not part of the specification, so don't
+  worry about the mathematics of this -- we approximate to a circle for
+  pre-U)}
+\item
+  The Sun-planet line sweeps out equal areas in equal times.
+\item
+  The orbital period squared of a planet is proportional to its mean
+  distance from the Sun cubed.
+\end{enumerate}
+\newpage
+\subsection{First Law}
+\begin{figure}[h]
+  \begin{center}
+  \includegraphics[width=0.8\textwidth]{figs/chapt-13/kepler-1.png}
+\end{center}
+  \caption{Kepler's First Law}
+  \label{kepler-1}
+\end{figure}
+
+Of course, it looks nothing like this -- this is MASSIVELY exaggerated
+for the sake of seeing what is going on. The Earth's orbit around the
+Sun is very nearly circular, which is why it took so long for
+astronomers to realize that it wasn't.
+
+\subsection{Second Law}
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{figs/chapt-13/kepler-2.png}
+  \end{center}
+  \caption{Kepler's Second Law}
+  \label{kepler-2}
+\end{figure}
+
+Figure \ref{kepler-2} shows the areas swept out in the same amount of time at different parts of the orbit. As you can see from the diagram, areas x and y are the same. The reason
+for this, put simply, is that the objects move more quickly when they
+are closer to the Sun and more slowly when they are further away.
+
+\subsection{Third Law}
+
+This will be described in more detail below.
+
+
+\spec{recognise and use $F=-\frac{Gm_1m_2}{r^2}$}
+
+``The gravitational force between two objects is proportional to the
+product of their masses and inversely proportional to the square of the
+distance between their centres.''
+
+That is a lot of words and it is much more easily explained with an
+equation:
+
+\[F = - \frac{Gm_{1}m_{2}}{r^{2}}\]
+
+Where: F is the force, measured in newtons (N)
+
+G is the universal gravitational constant, which has a value of
+6.67x10\textsuperscript{-11} Nm\textsuperscript{2}kg\textsuperscript{-2}
+
+m\textsubscript{1} and m\textsubscript{2} are the two masses measured in
+kilograms (kg)
+
+r is the distance between their centres, measured in metres (m).
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics{figs/chapt-13/masses.png}
+  \end{center}
+  \label{masses}
+  \caption{Two masses}
+\end{figure}
+
+Important things to note:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  The force is negative. This is because it is always attractive and
+  attractive forces are always negative, by definition.
+\item
+  The force exerted by mass 1 on mass 2 is the same magnitude but
+  opposite in direction to the force exerted by mass 2 on mass 1. This
+  is a direct consequence of Newton's third law. In most cases that we
+  study the \textbf{effect} of the force on the smaller mass is much
+  greater than it is on the larger mass and we ignore the effects of the
+  force on the larger mass.
+\end{enumerate}
+
+
+
+\spec{use Newton’s law of gravity and centripetal force to derive $ r^3 \propto T^2 $for a circular orbit}
+
+Now that we know the size of the force acting on a body moving in
+circular motion due to the gravitational force acting on it, we can
+prove Kepler's third law:
+
+For a body orbiting another body, the centripetal force is provided by
+the gravitational force.
+
+\[F = - \frac{Gm_{1}m_{2}}{r^{2}}\ \ (1)\]
+
+As the body is moving in circular motion, the gravitational force causes
+the body to accelerate towards the centre of the circle, as in the
+diagram:
+
+\begin{figure}[h]
+  \begin{center}
+    \begin{tikzpicture}
+        \draw[thick] (0,0) circle (2cm) node[anchor=south] {$m2$};
+        \draw[dashed] (0,0) -- (0,-4.5);
+        \draw[thick] (7,0) circle (0.6cm) node[anchor=south] {$m1$};
+        \draw[dashed] (7,0) -- (7,-4.5);
+        \draw[->, thick] (0,-4) -- (7,-4) node [midway,below] {$r$};
+        \draw[very thick, red, ->] (7,0) -- (4,0) node[anchor=east] {$F$};
+    \end{tikzpicture}
+    %\includegraphics{figs/chapt-13/masses-direction.png}
+  \end{center}
+  \label{masses-2}
+  \caption{Two masses and a force}
+\end{figure}
+
+Thus we apply F=ma, with F being the gravitational force, as on the
+diagram, and the acceleration being equal to $r\omega^2$.
+
+\[F = ma\]
+
+So \[G\frac{m_{1}m_{2}}{r^{2}} = m_{1}r\omega^{2}\]
+
+m\textsubscript{1} is the object that is orbiting, so it is the mass of
+m\textsubscript{1} that is feeling the acceleration and thus
+m\textsubscript{1} goes into the right hand side of the equation.
+
+Thus we can cancel m\textsubscript{1} and collect the terms in r to
+give:
+
+\[Gm_{2} = r^{3}\omega^{2}\ \ (2)\]
+
+But we know from our revision of circular motion that the period of the
+orbit is related to the angular velocity by:
+
+\[\omega = \frac{2\pi}{T}\ \ (3)\]
+
+Therefore we substitute equation (3) into equation (2) to give:
+
+\[Gm_{2} = \frac{{4\pi^{2}r}^{3}}{T^{2}}\]
+
+Now re-arrange to make r the subject of the formula:
+
+\[r^{3} = \frac{Gm_{2}}{{4\pi}^{2}}T^{2}\ \ (4)\]
+
+G, m\textsubscript{2} and $\pi$ are all constants, so we can finally write:
+
+\[r^{3} \propto T^{2}\]
+
+You need to be able to do this for your examination, so make sure that
+you learn this proof.
+
+\spec{understand energy transfer by analysis of the area under a gravitational force-distance graph}
+
+If you apply a force through a distance, you do work on it. This is a definition.
+
+At GCSE, you learnt that it was given by the equation:
+
+Work done = Force x distance
+
+Later you learned that in fact it was the area under the Force-distance
+graph.
+
+\emph{(Of course, it's a little bit more difficult than that. It is
+actually given by:}
+
+\[Work\ done = \int_{r}^{\infty}{F{dx\ \ \ \ (8)}}\]
+
+\emph{You use this integral in other parts of the specification, but not
+this part.)}
+
+Therefore if we want to know the gravitational potential energy gained
+or lost by an object in a gravitational field, we look at the area under
+the force-distance graph.
+
+The zero of gravitational potential energy is taken as being at
+infinity, which makes sense. If the object isn't in a field, then it
+isn't experiencing any force, so it doesn't have any GPE.
+
+This does mean, however, that all gravitational potential energies are
+negative as they lose GPE as they fall towards a mass.
+
+For example, if you want to know the GPE gained/lost by an object as it
+moves from point $R_1$ to point $R_2$ in the field you look at the area under
+the force-distance graph (see figure \ref{gpe-area})
+
+\begin{figure}
+  \begin{center}
+  \includegraphics[width=0.8\textwidth]{figs/chapt-13/area-energy.png}
+\end{center}
+  \caption{Graviational PE as area of a graph}
+  \label{gpe-area}
+\end{figure}
+
+
+\emph{(Generally, we tend to look at the gravitational potential rather
+than the GPE, and use the field strength-distance graph, but the
+specification asks for GPE and a force-distance graph, so that is what
+we are looking at!)}
+
+\spec{derive and use $g = -\frac{Gm}{r^2}$for the magnitude of the gravitational field strength due to a point mass}
+
+If you look back to chapter 2 on gravitational fields, you will know the
+definition of the gravitational field strength. It is given by the
+equation:
+
+\[g = \frac{F}{m}\ \ (5)\]
+
+But we now know how the force is provided by a spherical mass from
+Newton's Law of Gravitation. It is given by equation (1) as:
+
+\[F = \frac{Gm_{1}m_{2}}{r^{2}}\ \ (6)\]
+
+So we can substitute equation (6) into equation (5) to give us:
+
+\[g = \frac{\text{Gm}}{r^{2}}\ \ (7)\]
+
+This is the gravitational field strength due to a spherical mass m at a
+distance r from its centre and you need to be able to derive this
+equation.
+
+A graph of the field strength due to a spherical body against distance
+looks like this:
+
+\begin{figure}[h]
+  \begin{center}
+  \includegraphics[width=0.8\textwidth]{figs/chapt-13/g-r.png}
+\end{center}
+  \caption{Field strength due to a sphere}
+  \label{}
+\end{figure}
+
+From the centre of the object up to its radius (0 to R) the variation
+with field strength inside the body varies linearly \textbf{if the
+density is constant.} R is the radius of the body, so therefore the
+distance from the centre. After R it drops off as
+1/r\textsuperscript{2}.
+
+\spec{recall similarities and differences between electric and gravitational fields}
+
+\begin{figure}[h]
+  \includegraphics[width=\textwidth]{figs/chapt-13/table.png}
+  \caption{Similarities and Differences}
+  \label{tab:sim}
+\end{figure}
+
+\spec{recognise and use the equation for gravitational potential energy for point masses $ E = - \frac{Gm_1m_2}{r}$}
+
+There is an equation for the GPE which you need to be able to use. It is
+found from integrating the expression for the force as mentioned
+earlier, and it is given by:
+
+\[E = - \frac{Gm_{1}m_{2}}{r}\ \ \ \ (9)\]
+
+\spec{calculate escape velocity using the ideas of gravitational potential energy, or area under a force-distance graph and energy transfer}
+
+We can now use these methods of working out the GPE gained by an object
+in a gravitational field to calculate a quantity called the
+\textbf{escape velocity.}
+
+NB. A lot of people get escape velocity wrong. It is the velocity needed
+to be given to an object \textbf{on the surface of the planet} in order
+for it to escape the gravitational field of the planet and have zero KE
+at that time. Once it has been given this velocity (by, for example, a
+cannon) \textbf{no more energy is put into the system}. From that moment
+on it is a projectile and is constantly losing KE as it gains GPE.
+
+Of course, this means that when it finally escapes the gravitational
+field it has no energy at all, which also means that it has zero overall
+energy to start with as well!
+
+Therefore we use the law of conservation of energy to work out what the
+escape velocity must be:
+
+Total energy before = Total energy after = 0
+
+Therefore Initial KE + Initial GPE = 0
+
+\[\frac{1}{2}mv_{e}^{2} - \frac{\text{GMm}}{R} = 0\ \ \ \ \left( 10 \right)\]
+
+Where M is the mass of the planet in kg
+
+R is the radius of the planet in m
+
+m is the mass of the projectile in kg
+
+v\textsubscript{e} is the escape velocity in ms\textsuperscript{-1}
+
+You can cancel the mass of the projectile and re-arrange for
+v\textsubscript{e} from equation (10) to give:
+
+\[v_{e} = \sqrt{\frac{2GM}{R}}\ \ \ \ \ (11)\ \ \]
+
+This is the escape velocity and you can work it out for the Earth. You
+should get about 12 kms\textsuperscript{-1}.
+
+There is a graphical way of looking at this as well. The GPE gained by
+the body as it moves from the surface of the planet, radius R, is given
+by the area under the force-distance graph from the surface of the
+planet to infinity (i.e. as in Figure \ref{gpe-area}, but with $R_2$ at infinity). If it is launched from the surface of the planet
+then that also equals its initial KE.
+
+\spec{calculate the distance from the centre of the Earth and the height above its surface required for a geostationary orbit.}
+
+A geostationary orbit is one which stays above the same position on the
+Earth's equator at all times.
+
+This means, therefore, that it has a period of 24 hours.
+
+It is therefore possible to calculate, using equation (4), r for a
+geostationary orbit.
+
+N.B. A very common mistake is to say that r is the height of the orbit.
+This isn't the case -- it is the radius of the orbit, so it is the
+distance of the satellite from the \textbf{centre} of the Earth, not the
+surface of the Earth.
+
+You should make sure that you can do this. Have a go at working out r,
+given the following data:
+
+G = 6.67 x 10\textsuperscript{-11}
+Nm\textsuperscript{2}kg\textsuperscript{-2}
+
+M\textsubscript{E} = 5.98 x 10\textsuperscript{24} kg
+
+and remembering that T = 24 hours (but don't forget to convert to
+seconds!)
+
+You should have got an answer of 4.23 x 10\textsuperscript{7} m.
+
+If I now tell you that the radius of the Earth is
+6.36 x 10\textsuperscript{6} m, you can also write down the height of the
+satellite above the surface of the Earth, and this comes to
+3.6 x 10\textsuperscript{6} m.
+
+So a geostationary satellite orbits at a height that is about 6 times
+greater than the radius of the Earth.
+
+\chapter{B4 Mechanics}
+\setcounter{spec}{0}
+
+\section*{Candidates should be able to:}
+
+\section{Scalars and Vectors}
+\spec{distinguish between scalar and vector quantities and give examples of each}
+A scalar quantity\footnote{strictly we are modelling a physical quantity as a mathematical object} is one which has only a magnitude whereas a vector has \emph{both} magnitude and direction. We often use positive and negative values to indicate direction (e.g. $v=-2\ ms^{-1}$) but this does not mean that all negative values are vectors!
+
+Note that there are different ways of multiplying vectors and scalars. Two vectors can be multiplied to give a scalar \emph{or} a vector. For example, work done is the (scalar) product of force and displacement, both vectors.
+
+\spec{resolve a vector into two components at right angles to each other by drawing and by calculation}
+
+Vectors can be split into two components using trigonometry. The diagram below shows a velocity vector being split into horizontal and vertical components $v_x$ and $v_y$.
+
+\begin{figure}[h]
+\begin{center}
+\begin{tikzpicture}
+	\draw[very thick, black, ->] (0,0) -- node[above] {$\mathbf{v}$}  (5,2.5);
+	\draw[very thick, purple, ->] (0,0) -- node[below] {$\mathbf{v_x}$} (5,0);
+	\draw[very thick, purple, ->] (0,0) -- node[left]{$\mathbf{v_y}$}(0,2.5);
+	\draw [very thick,gray](1,0) arc (0:26.6:1);
+	\draw [gray](1,0.25) node[right]{$\theta$};
+	\draw (7,1.25) node[right] {
+		$\begin{aligned}
+		\mathbf{v}&=\mathbf{v_x + v_y}\\
+		v_x &= v\cos{\theta}\\
+		v_y &= v\sin{\theta}
+		\end{aligned}$};
+\end{tikzpicture}
+\end{center}
+\end{figure}
+
+\spec{combine any number of coplanar vectors at any angle to each other by drawing}
+
+Vectors can be added by placing them end to end. The resultant vector is the one joining the start of the first vector to the end of the final vector. Its magnitude and direction can be calculated by trigonometry or scale drawing.
+
+\begin{figure}[h]
+	\begin{center}
+	\begin{tikzpicture}
+	\draw[thick,->] (0,0) -- node[above] {$\mathbf{v_1}$} (3,1) -- node[below] {$\mathbf{v_2}$} (6,.5) -- node[below] {$\mathbf{v_3}$} (9,2);
+	\draw[thick,purple,->] (0,0) -- node[above]{$\mathbf{v}$} (9,2);
+	\end{tikzpicture}
+	$$\mathbf{v} = \mathbf{v_1}+\mathbf{v_2}+\mathbf{v_3}$$
+	\end{center}
+\end{figure}
+
+\section{Static Equillibrium}
+
+\spec{calculate the moment of a force and use the conditions for equilibrium to solve problems (restricted to
+	coplanar forces)}
+
+The moment of a force is calculated by multiplying its magnitude by the perpendicular distance of the force's line of action to the pivot point. This is mathematically equivalent to multiplying the distance from the pivot by the component of the force perpendicular to that distance.
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+		\draw[thick] (0,0) -- (6,2);
+		\draw[thick, purple, ->] (6,2) -- node[right]{$ F$}(6,1);
+		\draw[thick, purple, dashed] (6,1) -- node[right] {line of action of $F$}(6,-1) ;
+		\draw[thick, dashed] (0,0) -- node[below]{perpendicular distance, $x$} (6,0);
+
+	\end{tikzpicture}
+	$$\mathrm{moment} = Fx $$
+\end{figure}
+
+The conditions for equilibrium are:
+\begin{enumerate}
+	\item The sum of all the forces acting on the object must be zero.
+	\item The sum of all the moments on an object must be zero.
+\end{enumerate}
+\begin{example}
+	A Tower Crane lifts a load into position. The load has a weight of \SI{4.0e4}{N} and the arm of the crane has a weight of \SI{1.2e5}{N}.
+
+	Calculate the required weight of the counterweight and the force the tower must support. Assume the centre of mass of the arm is at its centre.
+
+	\vspace{1cm}
+
+		\begin{center}
+		\begin{tikzpicture}
+					\draw[thick] (2,0) rectangle (2.5,5);
+					\draw[thick] (0,4) rectangle (8,4.2);
+					\fill (-0.5,3.8) rectangle (.5,4.4);
+					\draw(2.25,5) -- (8,4.2);
+					\foreach \x in {0,1,...,13} {
+						\draw (1+0.5*\x,4) -- (1.5+0.5*\x,4.2);
+						\draw (1+0.5*\x,4.2) -- (1.5+0.5*\x,4);
+					}
+					\foreach \y in {0,1,...,9} {
+						\draw (2,0+0.5*\y) -- (2.5,0.5+0.5*\y);
+						\draw (2.5,0+0.5*\y) -- (2,0.5+0.5*\y);
+					}
+					\draw[purple, thick, ->] (8,4) -- (8,3) node[right]{$W_l=\SI{4.0e4}{N}$};
+					\draw[purple, thick, ->] (4,4) -- (4,3.4) node[below]{$W_a=\SI{1.2e5}{N}$};
+					\draw[purple,thick, ->] (0,4) -- (0,3) node[right]{$W_c$};
+					\draw[<->] (0,6) -- node[above]{15m}(2.25,6);
+					\draw[<->] (2.25,6) -- node[above]{45m}(8,6);
+				\end{tikzpicture}
+		\end{center}
+
+		\textbf{Answer}
+
+		We begin by taking moments around the tower of the crane. The weight of the arm, $W_a$, acts \SI{15}{m} from the tower so solving for moments gives:
+
+		$$ 15W_c = 15W_a + 45W_l $$
+		$$ W_c = \SI{2.4e5}{N} $$
+
+		The sum of the downward forces must equal the reaction force of the tower so:
+
+		$$ R = \SI{4.0e5}{N} $$
+\end{example}
+
+\section{Kinematics}
+
+\spec{construct displacement-time and velocity-time graphs for uniformly accelerated motion}
+
+For uniform acceleration, a graph of velocity against time will be linear, with the formula $ v=u+at$, and a graph of displacement against time will be parabolic, with the formula $s=ut+\frac{1}{2}at^2$.
+
+\begin{center}
+	\begin{tikzpicture}[domain=0:3]
+		\draw[thick,->] (0,0) -- (3,0) node[below]{$t$};
+		\draw[thick,->] (0,0) -- (0,3) node[left]{$s$};
+		\draw[thick,->] (4,0) -- (7,0) node[below]{$t$};
+		\draw[thick,->] (4,0) -- (4,3) node[left]{$v$};
+		\draw[color=purple] plot (\x+4,{.2+0.4*\x});
+		\draw[color=purple] plot (\x,{.2*\x+0.2*\x^2});
+	\end{tikzpicture}
+\end{center}
+
+\spec{identify and use the physical quantities derived from the gradients of displacement--time and areas and gradients of velocity--time graphs, including cases of non-uniform acceleration}
+
+The quantities are given in the table below:
+
+\begin{tabular}{r|ll}
+	& gradient & area  \\ \hline
+	displacement-time & velocity & -- \\
+	velocity-time & acceleration & displacement \\
+\end{tabular}
+
+If the graph is non-linear then the gradient of a tangent must be taken. Note that areas below the axis in a velocity-time graph represent \emph{negative} displacement.
+
+\spec{recall and use:}
+\begin{align*}
+	v &= \frac{\Delta x}{\Delta t}\\
+	a &= \frac{\Delta v}{\Delta t}
+\end{align*}
+
+\spec{recognise and use the kinematic equations for motion in one dimension with constant acceleration:}
+\begin{align*}
+	s &= ut + \frac{1}{2}at^2 \\
+	v^2 &= u^2 + 2as \\ s &= \left( \frac{u+v}{2} \right) t
+\end{align*}
+
+\spec{recognise and make use of the independence of vertical and horizontal motion of a projectile moving freely under gravity}
+
+When an object moves in a uniform gravitational field it motion can be modeled by considering the horizontal and vertical components of motion separately. The horizontal component has a constant velocity and the vertical has a constant acceleration.
+
+\begin{example}
+A ball is thrown with a velocity of \SI{5}{m.s^{-1}} from a height of \SI{1.2}{m}. If its initial angle to the horizontal is \ang{50} calculate the distance it travels before it hits the ground.
+\answer
+
+The first step is to split the velocity into horizontal and vertical components:
+	\begin{align*}
+		v_x = 5\cos{50}\\
+		v_y = 5\sin{50}
+	\end{align*}
+
+	The time for the ball to reach the ground can now be calculated using the vertical motion and the equation $s=ut+\frac{1}{2}at^2$, setting $s = \SI{-1.2}{m}$. This gives $t=\SI{1.02}{s}$.
+
+	Finally, the horizontal distance is calculated using the simple constant velocity formula to give $x=\SI{3.28}{m}$.
+\end{example}
+
+\section{Forces}
+
+\spec{recognise that internal forces on a collection of objects sum to zero vectorially}
+
+This is as a result of Newton's Third Law.
+
+\spec{recall and interpret statements of Newton’s laws of motion}
+\begin{enumerate}
+	\item An object will remain at rest, or continue at a constant velocity, unless a resultant force acts upon it.
+	\item $F=ma$, where $F$ is the vector sum of the forces acting on the body. Or, alternatively $F=\frac{dp}{dt}$ (see below).
+	\item For every force of object A acting on object B there exists a force of the same type, of equal magnitude and opposite direction of object B acting on object A.
+
+	\emph{It is important to be able to distinguish the `equal and opposite' forces which may act on a single object in equilibrium from a Newton's Third Law pair of forces.}
+\end{enumerate}
+
+\spec{recall and use $F = ma$ in situations where mass is constant}
+
+Remember that $F$ is the \emph{resultant} force acting on the body.
+
+\spec{understand the effect of kinetic friction and static friction}
+
+\spec{recall and use $F_k = \mu_k N$ and $F_s = \mu_s N$, where $N$ is the normal contact force and $\mu_k$ and $\mu_s$ are the coefficients of kinetic friction and static friction, respectively}
+
+Friction occurs between two objects when they are pushed together by a normal force. A useful model is that the maximum size of the frictional force is proportional to the normal force. There is usually a difference between the constant of proportionality when the two surfaces are stationary compared to each other (static friction) compared to when they are sliding past each other (kinetic friction). It is usually the case that $\mu_k < \mu_s$.
+
+An interesting result is that blocks of different masses should take the same distance to slide to a halt:
+
+\[ s = \frac{\frac{1}{2}mv^2}{F} = \frac{\frac{1}{2}mv^2}{\mu_k N} = \frac{\frac{1}{2}mv^2}{\mu_k mg} = \frac{v^2}{2\mu_k g} \]
+
+\spec{recall and use the independent effects of perpendicular components of a force}
+
+As with velocities, forces can be split into two perpendicular components and their effects considered independently.
+
+\begin{example}
+A block of mass \SI{4}{kg} is on a frictionless slope of \ang{30}. Calculate the rate at which it accelerates down the slope.
+
+
+\usetikzlibrary{scopes}
+
+\def\iangle{30} % Angle of the inclined plane
+
+\def\down{-90}
+\def\arcr{0.5cm} % Radius of the arc used to indicate angles
+
+\begin{tikzpicture}[
+    force/.style={>=latex,draw=blue,fill=blue},
+    axis/.style={densely dashed,gray,font=\small},
+    M/.style={rectangle,draw,fill=lightgray,minimum size=0.5cm,thin},
+    m/.style={rectangle,draw=black,fill=lightgray,minimum size=0.3cm,thin},
+    plane/.style={draw=black,fill=blue!10},
+]
+
+
+    \draw[plane] (0,-2) coordinate (base)
+                     -- coordinate[pos=0.5] (mid) ++(\iangle:6) coordinate (top)
+                     |- (base) -- cycle;
+    \path (mid) node[M,rotate=\iangle,yshift=0.25cm] (M) {};
+   
+   
+    \draw[->] (base)++(\arcr,0) arc (0:\iangle:\arcr);
+    \path (base)++(\iangle*0.5:\arcr+10pt) node {$30 ^{\circ}$};
+   
+
+    \begin{scope}[rotate=\iangle]
+        
+        % Draw axes and help lines
+
+        {[axis,->]
+            
+            
+        }
+
+        % Forces
+        {[force,->]
+            % Assuming that Mg = 1. The normal force will therefore be cos(alpha)
+            \draw [green](M.center) -- ++(0,{cos(\iangle)}) node[above right, black] {$N$};
+            \draw [green](M.center) -- ++(-.5,0) node[left, black] {Mg sin30};
+           
+        }
+
+    \end{scope}
+
+    \draw[force,->] (M.center) -- ++(0,-1) node[below] {$Mg$};
+    %%
+
+
+
+\\
+%};
+\end{tikzpicture}
+
+\answer
+
+The weight should be split into components along the slope and perpendicular to the slope (shown in green). Only the component along the slope contributes to the acceleration.
+
+\[ a = \frac{F}{m} = \frac{mg\sin{30}}{m} = \SI{4.9}{ms^{-2}} \]
+
+This question could be extended to include friction by calculating the normal force, the frictional force and hence a new acceleration. If $\mu_k = 0.4$ then the answers are \SI{34}{N}, \SI{14}{N} and \SI{1.5}{ms^{-2}} respectively (Try it!)
+
+\end{example}
+
+
+\spec{recall and use p = mv and apply the principle of conservation of linear momentum to problems in one dimension}
+
+Momentum is a conserved quantity (along with energy and charge). It can be calculated using the formula $p=mv$ where $p$ is the momentum. In any closed system the total momentum of the particules must remain constant. This can be used to predict the outcomes of collisions in certain cases.
+
+\spec{distinguish between elastic and inelastic collisions}
+
+An elastic collision is one in which \emph{kinetic energy} is conserved. An inelastic collision is one in which it is not. In general, a collision in which two objects adhere will not conserve kinetic energy as the final velocity will be given by:
+$$ v = \frac{m_1u_1+m_2u_2}{m_1+m_2} $$
+and therefore the final kinetic energy will be given by:
+\[ \text{KE} = \frac{1}{2}(m_1+m_2)v^2 = \frac{1}{2}\frac{\left( m_1u_1+m_2u_2\right)^2}{m_1+m_2}\]
+which cannot be equal to the original kinetic energy.
+
+\spec{relate resultant force to rate of change of momentum in situations where mass is constant and recall and use $F = \frac{\Delta P}{\Delta t}$}
+
+Newton's second law is more properly given by:
+
+\[ F = \frac{dp}{dt} \]
+
+This simplifies to the GCSE formulation for constant mass:
+
+\[ F = \frac{dp}{dt} = m\frac{dv}{dt} = ma \]
+
+A simplified version is:
+$$F = \frac{\Delta P}{\Delta t}$$
+
+This will give the correct result for a constant force or otherwise give the average force.
+
+\spec{recall and use the relationship impulse = change in momentum}
+
+Multiplying both sides of the equation above by time gives:
+$$ F \Delta t = \Delta P $$
+
+The quantity on the left hand side is the impulse.
+
+\spec{recall and use the fact that the area under a force-time graph is equal to the impulse}
+
+Using calculus to solve differential version of Newton's Second Law above gives:
+$$ \Delta P = \int_{t_0}^{t_1} F dt $$
+The right-hand side of this equation represents the area under a force-time graph.
+
+\spec{apply the principle of conservation of linear momentum to problems in two dimensions}
+
+When objects are free to move in two dimensions then momentum must be conserved along two axis.
+
+\begin{example}
+	Two objects are able to slide frictionlessly over a horizontal surface. The first object, $m_1=\SI{3}{\kg}$ is propelled with an initial speed $u_1=\SI{5}{\m\per\s}$ towards a second mass, $m_2=\SI{1.5}{\kg}$, which is initially at rest. After the collision both objects move at \SI{30}{\degree} on either side of the line of the original motion. What are the final speeds of the two objects? Is the collision elastic?
+	\answer
+	Conservation of momentum along the x-axis gives
+	$$ m_1u_1 = m_1v_1\cos{\theta} + m_2v_2\cos{\theta}$$
+	Conservation of momentum along the y-axis gives
+	$$ m_1v_1\sin{\theta} = m_2v_2\sin{\theta} $$
+	These equations can be combined to give
+	$$ v_1 = \frac{u_1}{2\cos{\theta}} = \SI{2.887}{\m\per\s}$$
+	and
+	$$ v_2 = \frac{m_1}{m_2}v_1= \SI{5.773}{\m\per\s}$$
+	The initial KE of the system is
+	$$ K_i = \frac{1}{2}m_1u_1^2 = \SI{37.5}{\joule} $$
+	and the final KE of the system is
+	$$ K_f = \frac{1}{2}m_1v_1^2 + \frac{1}{2}m_2u_2^2 = \SI{37.5}{\joule}$$
+	since $K_i = K_f$, the collision is elastic
+\end{example}
+
+\spec{recall and use density = mass / volume}
+\spec{recall and use pressure = normal force / area}
+\spec{recall and use $ p = \rho gh $ for pressure due to a liquid.}
+These are GCSE equations and should present no problems.
+
+\spec{recall and use the concept of work in terms of the product of a force and a displacement in the direction of that force, including situations where the force is not along the line of motion}
+
+Work, in a scientific sense, is done whenever a force, $F$ acts on an object which moves through a displacement $s$. When the force and the displacement are acting along the same line then work is simply calculated using $W=Fs$. However, when the force does not act in the same direction as the displacement, the work done is calculated by multiplying the component of the force in the direction of the displacement by the displacement as shown in figure \ref{work}.
+
+\begin{figure}[h]
+  \begin{center}
+    \begin{tikzpicture}
+      \draw[thick, ->] (0,2) -- (5,2) node[anchor=north west] {$s$};
+      \draw[very thick, ->, red] (0,2) -- (2.5,4) node[anchor=east] {$F$};
+      \draw (1,2) arc [start angle=0, end angle=38.66, radius=1cm];
+      \draw (.7,2.5) node[anchor=north] {$\theta$};
+    \end{tikzpicture}
+  \end{center}
+  \caption{Non-aligned force doing work}
+  \label{work}
+\end{figure}
+
+In this case the work done is given by
+ \begin{equation}\label{eq:work}
+ W = Fs\cos{\theta}
+ \end{equation}.
+
+Note that this means that the following cases work is \emph{not} done:
+\begin{itemize}
+  \item any stationary object (no displacement);
+  \item an object in circular motion (the force is acting at right angles to the displacement).
+\end{itemize}
+
+Whenever work is done energy is transferred to or from the object. The type of energy this is transferred to or from varies depending on the circumstances.
+
+\spec{calculate the work done in situations where the force is a function of displacement using the area under a force-displacement graph}
+
+Equation \ref{eq:work} applies whenever a constant force acts over a displacement; however, if the force varies then a different approach is needed. Force a constant force acting in the same direction as the displacement, it can be seen that the area under a force-displacement graph is equal to $Fs$, i.e. the work done. This is generally true and work can be written in an integral form as:
+\begin{equation}\label{eq:work-integral}
+  W = \int F \ud s
+\end{equation}
+
+\begin{figure}[h]
+  \begin{center}
+    \begin{tikzpicture}
+      \draw[<->] (0,3) node[anchor=east] {$F$} -- (0,0) -- (4,0) node[anchor=north] {$s$};
+      \filldraw[fill=blue!20!white] (.5,0) -- (.5,2) .. controls (2.5,2) and (1.5,3) .. (3.5,3) -- (3.5,0) -- cycle;
+      \draw (2,1.5) node {Area = $W$};
+    \end{tikzpicture}
+  \end{center}
+  \caption{Work as area under a graph}
+  \label{fig:work-graph}
+\end{figure}
+
+\spec{understand that a heat engine is a device that is supplied with thermal energy and converts some of this energy into useful work}
+
+A heat engine is a device which uses heat to do work. This is shown schematically in figure \ref{fig:heat}. The energy for the work done comes from the difference between $Q_1$ and $Q_2$.
+Examples of heat engines include internal combustion engines, jet engines and steam turbines.
+
+\begin{figure}[h]
+  \begin{center}
+    \begin{tikzpicture}
+      \draw[very thick, red, ->] (0,2) node[anchor=south] {$Q_1$} -- (0,.5);
+      \draw (0,0) circle (.5cm);
+      \draw[bend right, very thick, gray, ->] (0,.5) to (1,0) node[anchor=west] {$W$};
+      \draw[very thick, blue, ->] (0,-.5) -- (0,-2) node[anchor=north] {$Q_2$};
+    \end{tikzpicture}
+  \end{center}
+  \caption{A heat engine}
+  \label{fig:heat}
+\end{figure}
+
+\spec{calculate power from the rate at which work is done or energy is transferred}
+
+Power is defined as the rate at which energy is transferred and is measured in watts (\si{\watt}).
+\begin{equation}\label{eqn:power}
+  P = \frac{W}{t}
+\end{equation}
+
+\spec{recall and use $P = Fv$}
+
+For a constant force, this equation can be shown from equation \ref{eqn:power} and \ref{eq:work}:
+\[ P = \frac{W}{t} = F\ \frac{s}{t} = Fv \]
+
+\spec{recall and use $\Delta E = mg\Delta h$ for the gravitational potential energy transferred near the Earth's surface}
+
+This is familiar from GCSE.
+
+\spec{recall and use $g\Delta h$ as change in gravitational potential}
+
+Gravitational potential is defined as the energy per unit mass. Hence, the change in gravitational potential is given by \[\frac{mg\Delta h}{m} = g\Delta h\]
+
+\spec{recall and use $E = \frac{1}{2}Fx$ for the elastic strain energy in a deformed material sample obeying Hooke's law}
+\spec{use the area under a force-extension graph to determine elastic strain energy}
+
+This relies on equating the work done straining an object with the elastic strain energy stored in the object. Once this is done, the statement follows from equation \ref{eq:work-integral} and figure \ref{fig:work-graph}.
+
+The area of such a graph when the material obeys Hooke's Law is $\frac{1}{2}Fx$.
+
+\begin{figure}[h]
+  \begin{center}
+    \begin{tikzpicture}
+      \draw[<->] (0,3) node[anchor=east] {$F$} -- (0,0) -- (4,0) node[anchor=north] {$x$};
+      \filldraw[fill=blue!20!white] (0,0) -- (3.5,3) --(3.5,0) -- cycle;
+      \draw (2,.5) node {Area = $\frac{1}{2}Fx$};
+    \end{tikzpicture}
+  \end{center}
+  \caption{Work as area under a graph}
+  \label{fig:hooke's law}
+\end{figure}
+
+\spec{derive, recall and use $E=\frac{1}{2}kx^2$}
+
+This can be arrived at from Hooke's Law ($F=kx$) and the definition of work in equation \ref{eq:work-integral}, noticing that the extension of the spring is equal to the displacement of the object.
+\[ W = \int F \ud s = \int_0^x kx \ud x = \frac{1}{2}kx^2 \]
+
+This integration could equally be done by substituting $F=kx$ into the expression for elastic strain energy derived above from the graph.
+
+\spec{derive, recall and use $E=\frac{1}{2}mv^2$ for the kinetic energy of a body}
+
+Consider the work done accelerating an object from rest to a velocity $v$. Using the equations for uniform acceleration with $u=0$ we can see that $ a = \frac{v}{t} $ and $ s = \frac{v}{2}\cdot t $ so:
+
+\[ W = Fs = mas = m\ \frac{v}{t}\ \frac{v}{2}\ t = \frac{1}{2}mv^2 \]
+
+Since this work has gone into the kinetic energy of the object this formula gives us this kinetic energy.
+
+\spec{apply the principle of conservation of energy to solve problems}
+
+The principle of conservation of energy states that energy cannot be created or destroyed, only transferred between different forms.
+
+\spec{recall and use \[\%\  \text{efficiency} = \frac{\text{useful energy out}}{\text{total energy in}} \times 100\]
+\[\%\  \text{efficiency} = \frac{\text{useful power out}}{\text{total power in}} \times 100\]}
+
+This is familiar from GCSE.
+
+% \subfile{3-deformation-of-solids}
+% \subfile{6-waves}
+% \subfile{7-superposition}
+% \subfile{9-quantum-ideas}
+% \subfile{18-the-quantum-atom}
+% \subfile{2-gravitational-fields}
+% \subfile{13-gravitation}
+% \subfile{10-rotational-mechanics}
+% \subfile{1-mechanics}
+% \subfile{4-energy-concepts}
+
+
+
+
+
+\appendix
+\chapter{Equations}
+\setlength{\LTleft}{0pt}
+
+\section{Equations to be learnt}
+\subsection{Equations you need to remember}
+
+\renewcommand*{\arraystretch}{2}
+\begin{longtable}{ll}
+velocity & $v= \frac{\Delta x}{\Delta t}$ \\
+acceleration & $a= \frac{\Delta v}{\Delta t}$ \\
+resultant force & $F=ma$ \\
+momentum & $p=mv$ \\
+resultant force & $F=\frac{\Delta p}{\Delta t}$ \\
+impulse & Impulse = change in momentum \\
+density & Density = mass/volume \\
+pressure & Pressure = force/area \\
+pressure in a liquid & $P = \rho gh$ \\
+weight & $W = mg$ \\
+power & $P = Fv$ \\
+GPE & $\Delta E = mg \Delta h$ \\
+change in gravitational potential & $=g \Delta h $ \\
+energy in a spring & $E = \frac{1}{2} Fx$ \\
+efficiency & \% efficiency =
+$\frac{\text{useful energy or power}}{\text{total energy or power in}}
+\times 100$ \\
+current & $I = \frac{\Delta Q}{\Delta t}$ \\
+potential difference & $V = \frac{W}{Q}$ \\
+resistance & $R = \frac{V}{I}$ \\
+electrical power & $P = VI$ \\
+electrical work done & $W = VIt$\\
+resistance & $R = \frac{\rho l}{A}$ \\
+resistors in series & $R_T = R_1 + R_2 + \ldots{}$\\
+resistors in parallel &
+\(\frac{1}{R_{T}} = \frac{1}{R_{1}} + \frac{1}{R_{2}} + \ldots\)\\
+frequency & $f = 1/T$\\
+wave speed & $v = f\lambda$\\
+Malus' law & $\text{Intensity} \propto \cos^2{\theta}$\\
+photoelectric equation & \(hf = \phi + \frac{1}{2}mv_{\max}^{2}\)\\
+angular velocity & $v = r\omega$ \\
+period & $T = 2\pi /\omega$\\
+circular motion & $F = mv^2/r$\\
+
+
+\end{longtable}
+
+\newpage
+\section{Derivations}
+\subsection{Equations you need to derive and remember}
+
+\renewcommand*{\arraystretch}{2}
+\begin{longtable}{ll}
+energy in a spring & $E = \frac{1}{2}kx^2$ \\
+kinetic energy & $E = \frac{1}{2}mv^{2}$\\
+emf & $E = I(R+r)$\\
+emf & $E = V + Ir$\\
+electrical power & $P = I^{2}R$\\
+critical angle & $\sin{c} = 1/n$\\
+centripetal acceleration & $a = v^{2}/r$\\
+centripetal acceleration & $a = r\omega^2$\\
+
+Kepler's third law & $r^{3} \propto T^{2}$\\
+gravitational field strength & \(g = \frac{\text{Gm}}{r^{2}}\)\\
+
+\end{longtable}
+
+
+
+\backmatter
+
+
+\end{document}
