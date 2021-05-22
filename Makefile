@@ -15,3 +15,4 @@ release: guides
 
 version:
 	git describe --tags > version.tex
+	cat version.tex
